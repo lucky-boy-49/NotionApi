@@ -2,9 +2,9 @@ package com.lucky.notionapi.enumerate;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 /**
+ * Notion 请求错误代码枚举
  * @author jiahe
  */
 @Getter
