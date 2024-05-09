@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Notion配置
+ * Notion配置，对一些参数进行限制
  * @author jiahe
  */
 @Data
