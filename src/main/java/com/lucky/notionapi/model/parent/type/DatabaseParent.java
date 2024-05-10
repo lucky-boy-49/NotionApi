@@ -14,14 +14,19 @@ import lombok.EqualsAndHashCode;
 public class DatabaseParent extends AbstractParent {
 
     /**
-     * 始终为"database_id"
-     */
-    private final String type = "database_id";
-
-    /**
      * 该页面所属数据库的ID。UUIDv4
      */
     @JsonProperty("database_id")
     private String databaseId;
+
+    public DatabaseParent() {
+        // 始终为"database_id"
+        type = "database_id";
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
 
 }

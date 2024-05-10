@@ -14,13 +14,17 @@ import lombok.EqualsAndHashCode;
 public class WorkspaceParent extends AbstractParent {
 
     /**
-     * 始终为"workspace"
-     */
-    private final String type = "workspace";
-
-    /**
      * 始终为true
      */
     private final String workspace = "true";
 
+    public WorkspaceParent() {
+        // 始终为“workspace”
+        type = "workspace";
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
 }

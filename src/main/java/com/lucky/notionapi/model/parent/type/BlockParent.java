@@ -15,14 +15,20 @@ import lombok.EqualsAndHashCode;
 public class BlockParent extends AbstractParent {
 
     /**
-     * 始终为"block_id"
-     */
-    private final String type = "block_id";
-
-    /**
      * 该页面所属页面的ID
      */
     @JsonProperty("block_id")
     private String blockId;
 
+    public BlockParent() {
+        /*
+          始终为“block_id”
+         */
+        type = "block_id";
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
 }

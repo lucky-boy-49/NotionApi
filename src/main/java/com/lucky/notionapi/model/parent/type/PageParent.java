@@ -14,14 +14,18 @@ import lombok.EqualsAndHashCode;
 public class PageParent extends AbstractParent {
 
     /**
-     * 始终为"page_id"
-     */
-    private final String type = "page_id";
-
-    /**
      * 该页面所属页面的ID。UUIDv4
      */
     @JsonProperty("page_id")
     private String pageId;
 
+    public PageParent() {
+        // 始终为"page_id"
+        type = "page_id";
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
 }
