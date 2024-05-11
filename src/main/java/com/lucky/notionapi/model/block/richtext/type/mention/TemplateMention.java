@@ -1,5 +1,10 @@
 package com.lucky.notionapi.model.block.richtext.type.mention;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.lucky.notionapi.model.block.richtext.type.Mention;
 import lombok.Data;
 
 /**
@@ -10,14 +15,48 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
-public class TemplateMention implements MentionStyle {
+public class TemplateMention implements Mention {
 
-    /**
-     * 如果 type 键为 "template_mention_date" 则{@link #value}可能为可能的值包括： "today" 和 "now" 。
-     * 如果 type 键为 "template_mention_user" 则{@link #value}可能的值是 "me" 。
-     */
     private String type;
 
-    private String value;
+    @JsonProperty("template_mention")
+    private Template template;
+
+    @Data
+    static class TemplateMentionDate implements Template {
+        /**
+         * type 键为 "template_mention_date" 则{@link #templateMentionDate}可能为可能的值包括： "today" 和 "now" 。
+         */
+        private String type;
+
+        @JsonProperty("template_mention_date")
+        private String templateMentionDate;
+
+    }
+
+    @Data
+    static class TemplateMentionUser implements Template {
+        /**
+         * type 键为 "template_mention_user" 则{@link #templateMentionUser}可能的值是 "me" 。
+         */
+        private String type;
+
+        @JsonProperty("template_mention_user")
+        private String templateMentionUser;
+
+    }
+
+    @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
+    @JsonSubTypes({
+            @Type(value = TemplateMentionDate.class, name = Template.TEMPLATE_MENTION_DATE),
+            @Type(value = TemplateMentionUser.class, name = Template.TEMPLATE_MENTION_USER),
+    })
+    interface Template {
+
+        String TEMPLATE_MENTION_DATE = "template_mention_date";
+
+        String TEMPLATE_MENTION_USER = "template_mention_user";
+
+    }
 
 }

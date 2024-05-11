@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext.type.mention;
 
+import com.lucky.notionapi.model.block.richtext.type.Mention;
 import lombok.Data;
 
 /**
@@ -9,8 +10,17 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
-public class DatabaseMention implements MentionStyle{
+public class DatabaseMention implements Mention {
 
     private String id;
+
+    private Database database;
+
+    @Data
+    static class Database {
+
+        private String id;
+
+    }
 
 }

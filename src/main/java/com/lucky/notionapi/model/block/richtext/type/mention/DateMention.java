@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext.type.mention;
 
+import com.lucky.notionapi.model.block.richtext.type.Mention;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -10,10 +11,19 @@ import java.time.LocalDateTime;
  * @author jiahe
  */
 @Data
-public class DateMention implements MentionStyle {
+public class DateMention implements Mention {
 
-    private LocalDateTime start;
+    private String type;
 
-    private LocalDateTime end;
+    private Date date;
+
+    @Data
+    static class Date {
+
+        private LocalDateTime start;
+
+        private LocalDateTime end;
+
+    }
 
 }

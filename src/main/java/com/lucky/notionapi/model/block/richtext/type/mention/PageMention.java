@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext.type.mention;
 
+import com.lucky.notionapi.model.block.richtext.type.Mention;
 import lombok.Data;
 
 /**
@@ -9,8 +10,17 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
-public class PageMention implements MentionStyle {
+public class PageMention implements Mention {
 
-    private String id;
+    private String type;
+
+    private Page page;
+
+    @Data
+    static class Page {
+
+        private String id;
+
+    }
 
 }

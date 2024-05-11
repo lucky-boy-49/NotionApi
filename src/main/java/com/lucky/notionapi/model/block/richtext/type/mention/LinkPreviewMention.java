@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext.type.mention;
 
+import com.lucky.notionapi.model.block.richtext.type.Mention;
 import lombok.Data;
 
 /**
@@ -9,8 +10,17 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
-public class LinkPreviewMention implements MentionStyle {
+public class LinkPreviewMention implements Mention {
 
-    private String url;
+    private String type;
+
+    private LinkPreview linkPreview;
+
+    @Data
+    static class LinkPreview {
+
+        private String url;
+
+    }
 
 }

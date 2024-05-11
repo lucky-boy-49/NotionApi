@@ -1,26 +1,52 @@
 package com.lucky.notionapi.model.block.richtext.type;
 
-import com.lucky.notionapi.enumerate.MentionType;
-import com.lucky.notionapi.model.block.richtext.RichTextStyle;
-import com.lucky.notionapi.model.block.richtext.type.mention.MentionStyle;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.lucky.notionapi.model.block.richtext.type.mention.*;
+
+import static com.lucky.notionapi.model.block.richtext.type.Mention.*;
+
 
 /**
- * 富文本类型对象:提到
- * 提及对象表示数据库、日期、链接预览提及、页面、模板提及或用户的内联提及。当用户键入 @ 后跟参考名称时，会在 Notion UI 中创建提及。
- * @author jiahe
+ *
+ * @author 贺佳
  */
-@Data
-public class Mention implements RichTextStyle {
+@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
+@JsonSubTypes({
+        @Type(value = DatabaseMention.class, name = DATABASE),
+        @Type(value = DateMention.class, name = DATE),
+        @Type(value = LinkPreviewMention.class, name = LINK_PREVIEW),
+        @Type(value = PageMention.class, name = PAGE),
+        @Type(value = TemplateMention.class, name = TEMPLATE_MENTION),
+        @Type(value = UserMention.class, name = USER),
+})
+public interface Mention {
+
 
     /**
-     * 内联提及的类型。可能的值包括：{@link MentionType}
+     * 数据库提及类型对象
      */
-    private String type;
-
+    String DATABASE = "database";
     /**
-     * 包含特定于类型的配置的对象。
+     * 日期提及类型对象
      */
-    private MentionStyle style;
+    String DATE = "date";
+    /**
+     * 链接预览提及类型对象
+     */
+    String LINK_PREVIEW = "link_preview";
+    /**
+     * 页面提及类型对象
+     */
+    String PAGE = "page";
+    /**
+     * 模板提及类型对象
+     */
+    String TEMPLATE_MENTION = "template_mention";
+    /**
+     * 用户提及类型对象
+     */
+    String USER = "user";
 
 }
