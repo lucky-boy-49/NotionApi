@@ -11,17 +11,12 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
-public class RichText {
+public abstract class AbstractRichText implements RichTextType {
 
     /**
      * 该富文本对象的类型。可能的类型值为： "text" 、 "mention" 、 "equation" 。
      */
     private String type;
-
-    /**
-     * 包含特定于类型的配置的对象。
-     */
-    private RichTextType style;
 
     /**
      * 用于设置富文本对象样式的信息。

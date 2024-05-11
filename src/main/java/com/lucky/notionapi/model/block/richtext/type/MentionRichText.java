@@ -1,8 +1,9 @@
 package com.lucky.notionapi.model.block.richtext.type;
 
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.model.block.richtext.AbstractRichText;
 import com.lucky.notionapi.model.block.richtext.type.mention.Mention;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 提到
@@ -10,9 +11,8 @@ import lombok.Data;
  * @author 贺佳
  */
 @Data
-public class MentionRichText implements RichTextType {
-
-    private String type;
+@EqualsAndHashCode(callSuper = true)
+public class MentionRichText extends AbstractRichText {
 
     private Mention mention;
 

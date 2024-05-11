@@ -1,16 +1,16 @@
 package com.lucky.notionapi.model.block.richtext.type;
 
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.model.block.richtext.AbstractRichText;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 如果富文本对象的 type 值为 "text"
  * @author 贺佳
  */
 @Data
-public class TextRichText implements RichTextType {
-
-    private String type;
+@EqualsAndHashCode(callSuper = true)
+public class TextRichText extends AbstractRichText {
 
     private Text text;
 

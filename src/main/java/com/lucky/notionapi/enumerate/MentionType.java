@@ -37,7 +37,7 @@ public enum MentionType {
     USER("user");
 
 
-    private final String type;
+    private final String value;
 
 
 }

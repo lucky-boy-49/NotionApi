@@ -1,7 +1,8 @@
 package com.lucky.notionapi.model.block.richtext.type;
 
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.model.block.richtext.AbstractRichText;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 富文本类型对象:方程
@@ -9,9 +10,8 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
-public class EquationRichText implements RichTextType {
-
-    private String type;
+@EqualsAndHashCode(callSuper = true)
+public class EquationRichText extends AbstractRichText {
 
     /**
      * 表示内联方程的 LaTeX 字符串。
