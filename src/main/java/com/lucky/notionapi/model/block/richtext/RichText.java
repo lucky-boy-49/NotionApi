@@ -1,7 +1,6 @@
 package com.lucky.notionapi.model.block.richtext;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.lucky.notionapi.enumerate.RichTextType;
 import lombok.Data;
 
 /**
@@ -16,14 +15,13 @@ public class RichText {
 
     /**
      * 该富文本对象的类型。可能的类型值为： "text" 、 "mention" 、 "equation" 。
-     * @see RichTextType
      */
     private String type;
 
     /**
      * 包含特定于类型的配置的对象。
      */
-    private RichTextStyle style;
+    private RichTextType style;
 
     /**
      * 用于设置富文本对象样式的信息。

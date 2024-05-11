@@ -1,6 +1,6 @@
 package com.lucky.notionapi.model.block.richtext.type;
 
-import com.lucky.notionapi.model.block.richtext.RichTextStyle;
+import com.lucky.notionapi.model.block.richtext.RichTextType;
 import lombok.Data;
 
 /**
@@ -9,11 +9,20 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
-public class Equation implements RichTextStyle {
+public class EquationRichText implements RichTextType {
+
+    private String type;
 
     /**
      * 表示内联方程的 LaTeX 字符串。
      */
-    private String expression;
+    private Equation equation;
+
+    @Data
+    static class Equation {
+
+        private String expression;
+
+    }
 
 }
