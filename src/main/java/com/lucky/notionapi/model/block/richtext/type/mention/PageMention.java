@@ -1,6 +1,5 @@
 package com.lucky.notionapi.model.block.richtext.type.mention;
 
-import com.lucky.notionapi.model.block.richtext.type.Mention;
 import lombok.Data;
 
 /**
