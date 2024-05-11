@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.lucky.notionapi.model.block.richtext.type.EquationRichText;
 import com.lucky.notionapi.model.block.richtext.type.MentionRichText;
-import com.lucky.notionapi.model.block.richtext.type.mention.DatabaseMention;
+import com.lucky.notionapi.model.block.richtext.type.TextRichText;
 
 import static com.lucky.notionapi.model.block.richtext.RichTextType.*;
 
@@ -14,7 +14,7 @@ import static com.lucky.notionapi.model.block.richtext.RichTextType.*;
  */
 @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
 @JsonSubTypes({
-        @Type(value = DatabaseMention.class, name = TEXT),
+        @Type(value = TextRichText.class, name = TEXT),
         @Type(value = MentionRichText.class, name = MENTION),
         @Type(value = EquationRichText.class, name = EQUATION),
 })
