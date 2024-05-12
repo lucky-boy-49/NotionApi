@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 /**
  * 所有页面都有一个父页面。如果父级是数据库，则属性值符合数据库属性的架构。否则，唯一的属性值是 title 。
  * 页面内容以块的形式提供。可以使用检索子级块读取内容并使用附加块子级附加内容。
- *
+ * 可以继承此类，已满足实际需求
  * @author 贺佳
  */
 @Data
@@ -71,7 +71,6 @@ public class Page {
     /**
      * 页属性
      * 由于属性是动态的，所以只能手动读取和写入
-     *
      * @link <a href="https://developers.notion.com/reference/page#page-properties">Notion页面属性</a>
      */
     private ObjectNode properties;
