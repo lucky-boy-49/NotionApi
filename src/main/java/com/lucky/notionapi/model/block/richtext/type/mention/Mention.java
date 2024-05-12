@@ -3,6 +3,7 @@ package com.lucky.notionapi.model.block.richtext.type.mention;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.lucky.notionapi.model.block.BlockType;
 
 import static com.lucky.notionapi.model.block.richtext.type.mention.Mention.*;
 
@@ -20,7 +21,7 @@ import static com.lucky.notionapi.model.block.richtext.type.mention.Mention.*;
         @Type(value = TemplateMention.class, name = TEMPLATE_MENTION),
         @Type(value = UserMention.class, name = USER),
 })
-public interface Mention {
+public interface Mention extends BlockType {
 
 
     /**
