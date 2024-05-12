@@ -3,11 +3,15 @@ package com.lucky.notionapi.model.user.type;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.lucky.notionapi.model.user.AbstractUser;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 当用户对象代表机器人时，用户对象的 type 属性为 "bot" 。
  * @author jiahe
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class Bots extends AbstractUser {
 
     /**
@@ -32,9 +36,5 @@ public class Bots extends AbstractUser {
      */
     @JsonProperty("workspace_name")
     public String workspaceName;
-
-    public Bots() {
-        type = "bot";
-    }
 
 }

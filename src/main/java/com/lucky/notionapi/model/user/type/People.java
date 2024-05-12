@@ -18,8 +18,4 @@ public class People extends AbstractUser {
      */
     public ObjectNode person;
 
-    public People() {
-        type = "person";
-    }
-
 }

@@ -1,22 +1,24 @@
 package com.lucky.notionapi.model.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 /**
  * 所有用户都包含的字段
  * @author jiahe
  */
+@Data
 public abstract class AbstractUser implements User {
 
-    public final String object = "user";
+    private String object;
 
-    public String id;
+    private String id;
 
-    public String type;
+    private String type;
 
-    public String name;
+    private String name;
 
     @JsonProperty("avatar_url")
-    public String avatarUrl;
+    private String avatarUrl;
 
 }
