@@ -11,7 +11,7 @@ import static com.lucky.notionapi.model.file.FileType.*;
  * 页面、嵌入、图像、视频、文件、pdf 和书签块类型都包含文件对象。图标和封面页对象值还包含文件对象。
  * @author 贺佳
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
 @JsonSubTypes({
         @Type(value = FileFile.class, name = FILE),
         @Type(value = EmojiFile.class, name = EMOJI),

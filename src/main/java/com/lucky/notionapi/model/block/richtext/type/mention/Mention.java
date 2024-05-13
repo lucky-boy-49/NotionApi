@@ -12,7 +12,7 @@ import static com.lucky.notionapi.model.block.richtext.type.mention.Mention.*;
  *
  * @author 贺佳
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
 @JsonSubTypes({
         @Type(value = DatabaseMention.class, name = DATABASE),
         @Type(value = DateMention.class, name = DATE),

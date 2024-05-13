@@ -15,7 +15,7 @@ import com.lucky.notionapi.model.parent.type.WorkspaceParent;
  * 3.数据库可以按页面、块或整个工作区作为父级。
  * @author jiahe
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
 @JsonSubTypes({
         @Type(value = BlockParent.class, name = "block_id"),
         @Type(value = DatabaseParent.class, name = "database_id"),

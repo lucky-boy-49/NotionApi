@@ -11,11 +11,11 @@ import static com.lucky.notionapi.model.page.properties.Properties.*;
  *
  * @author 贺佳
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = CheckboxProperties.class, name = CHECKBOX),
         @JsonSubTypes.Type(value = CreatedByProperties.class, name = CREATED_BY),
-        @JsonSubTypes.Type(value = CreatedByProperties.class, name = CREATED_TIME),
+        @JsonSubTypes.Type(value = CreatedTimeProperties.class, name = CREATED_TIME),
         @JsonSubTypes.Type(value = DateProperties.class, name = DATE),
         @JsonSubTypes.Type(value = EmailProperties.class, name = EMAIL),
         @JsonSubTypes.Type(value = FileProperties.class, name = FILES),

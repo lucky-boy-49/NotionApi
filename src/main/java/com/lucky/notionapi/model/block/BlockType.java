@@ -22,7 +22,7 @@ import static com.lucky.notionapi.model.block.BlockType.*;
  *
  * @author jiahe
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
 @JsonSubTypes({
         @Type(value = BookmarkBlock.class, name = BOOKMARK),
         @Type(value = BreadcrumbBlock.class, name = BREADCRUMB),
