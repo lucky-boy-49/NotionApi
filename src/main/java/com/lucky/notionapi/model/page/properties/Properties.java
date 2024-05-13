@@ -64,7 +64,7 @@ public interface Properties {
      */
     String RELATION = "relation";
     /**
-     * 卷起
+     * 汇总
      */
     String ROLLUP = "rollup";
     /**
