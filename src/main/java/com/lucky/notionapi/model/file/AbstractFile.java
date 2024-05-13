@@ -14,4 +14,9 @@ public abstract class AbstractFile implements FileType {
      */
     private String type;
 
+    /**
+     * 作为页面属性时有该字段
+     */
+    private String name;
+
 }
