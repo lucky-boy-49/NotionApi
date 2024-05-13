@@ -1,8 +1,8 @@
 package com.lucky.notionapi.model.page;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.lucky.notionapi.model.icon.ExternalIcon;
-import com.lucky.notionapi.model.icon.IconType;
+import com.lucky.notionapi.model.file.ExternalFile;
+import com.lucky.notionapi.model.file.FileType;
 import com.lucky.notionapi.model.page.properties.Properties;
 import com.lucky.notionapi.model.parent.Parent;
 import com.lucky.notionapi.model.user.User;
@@ -62,12 +62,12 @@ public class Page {
     /**
      * 文件对象（目前仅支持 "external" 中的 type ）或Emoji对象
      */
-    private IconType icon;
+    private FileType icon;
 
     /**
      * 文件对象（目前仅支持 "external" 中的 type ）
      */
-    private ExternalIcon cover;
+    private ExternalFile cover;
 
     /**
      * 页属性

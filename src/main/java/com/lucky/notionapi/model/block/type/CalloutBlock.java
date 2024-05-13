@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.enumerate.Color;
 import com.lucky.notionapi.model.block.AbstractBlock;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
-import com.lucky.notionapi.model.icon.IconType;
+import com.lucky.notionapi.model.file.FileType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -28,9 +28,9 @@ public class CalloutBlock extends AbstractBlock {
     /**
      * 代表标注图标的表情符号或文件对象。如果标注没有图标。
      *
-     * @see IconType
+     * @see FileType
      */
-    private IconType icon;
+    private FileType icon;
 
     /**
      * 颜色

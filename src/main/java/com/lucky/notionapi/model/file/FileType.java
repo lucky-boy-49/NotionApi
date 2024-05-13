@@ -1,10 +1,10 @@
-package com.lucky.notionapi.model.icon;
+package com.lucky.notionapi.model.file;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-import static com.lucky.notionapi.model.icon.IconType.*;
+import static com.lucky.notionapi.model.file.FileType.*;
 
 /**
  * 代表图标的表情符号或文件对象。
@@ -13,11 +13,11 @@ import static com.lucky.notionapi.model.icon.IconType.*;
  */
 @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
 @JsonSubTypes({
-        @Type(value = FileIcon.class, name = FILE),
-        @Type(value = EmojiIcon.class, name = EMOJI),
-        @Type(value = ExternalIcon.class, name = EXTERNAL)
+        @Type(value = FileFile.class, name = FILE),
+        @Type(value = EmojiFile.class, name = EMOJI),
+        @Type(value = ExternalFile.class, name = EXTERNAL)
 })
-public interface IconType {
+public interface FileType {
 
     /**
      * 文件

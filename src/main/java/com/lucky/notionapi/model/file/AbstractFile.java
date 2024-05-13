@@ -1,4 +1,4 @@
-package com.lucky.notionapi.model.icon;
+package com.lucky.notionapi.model.file;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import lombok.Data;
  * @author 贺佳
  */
 @Data
-public abstract class AbstractIcon implements IconType {
+public abstract class AbstractFile implements FileType {
 
     /**
      * 文件对象的类型。可能的类型值为： "external" 、 "file" 。

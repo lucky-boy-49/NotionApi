@@ -1,7 +1,7 @@
 package com.lucky.notionapi.model.block.type.video;
 
 import com.lucky.notionapi.model.block.AbstractBlock;
-import com.lucky.notionapi.model.icon.FileIcon;
+import com.lucky.notionapi.model.file.FileFile;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,6 +14,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class FileVideo extends AbstractBlock implements Video {
 
-    private FileIcon video;
+    private FileFile video;
 
 }

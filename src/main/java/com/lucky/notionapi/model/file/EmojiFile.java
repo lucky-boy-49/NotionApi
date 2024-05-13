@@ -1,4 +1,4 @@
-package com.lucky.notionapi.model.icon;
+package com.lucky.notionapi.model.file;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class EmojiIcon extends AbstractIcon {
+public class EmojiFile extends AbstractFile {
 
     /**
      * 表情符号字符。

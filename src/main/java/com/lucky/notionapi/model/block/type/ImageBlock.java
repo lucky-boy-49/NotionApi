@@ -1,7 +1,7 @@
 package com.lucky.notionapi.model.block.type;
 
 import com.lucky.notionapi.model.block.AbstractBlock;
-import com.lucky.notionapi.model.icon.ExternalIcon;
+import com.lucky.notionapi.model.file.ExternalFile;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,6 +17,6 @@ public class ImageBlock extends AbstractBlock {
     /**
      * 文件对象即icon对象
      */
-    private ExternalIcon image;
+    private ExternalFile image;
 
 }

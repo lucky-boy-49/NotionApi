@@ -1,4 +1,4 @@
-package com.lucky.notionapi.model.icon;
+package com.lucky.notionapi.model.file;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ExternalIcon extends AbstractIcon {
+public class ExternalFile extends AbstractFile {
 
     /**
      * 包含特定于类型的配置的对象。对于外部文件，对象的键是 external ，
