@@ -19,7 +19,7 @@ import com.lucky.notionapi.model.user.type.People;
  * 用户对象将始终包含 object 和 id 键
  * @author jiahe
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, defaultImpl = People.class)
 @JsonSubTypes({
         @Type(value = People.class, name = "person"),
         @Type(value = Bots.class, name = "bot")
