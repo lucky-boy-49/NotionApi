@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.model.database.properties.DatabaseProperties;
 import com.lucky.notionapi.model.file.FileType;
 import com.lucky.notionapi.model.parent.Parent;
 import com.lucky.notionapi.model.user.User;
@@ -81,6 +82,11 @@ public class Database {
      * 页面封面图片。
      */
     private FileType cover;
+
+    /**
+     * Notion中出现的数据库属性的架构。
+     */
+    private DatabaseProperties properties;
 
     /**
      * 数据库父级的信息。
