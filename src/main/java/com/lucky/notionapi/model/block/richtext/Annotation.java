@@ -40,6 +40,6 @@ public class Annotation {
      * 文本的颜色。
      * @see Color
      */
-    private Boolean color;
+    private String color;
 
 }

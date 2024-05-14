@@ -5,6 +5,8 @@ import com.lucky.notionapi.model.page.properties.AbstractProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.Date;
+
 /**
  * 公式
  * 属性值对象表示评估公式中描述的结果
@@ -29,7 +31,7 @@ public class FormulaProperties extends AbstractProperties {
         @JsonProperty("boolean")
         private Boolean boo;
 
-        private Data data;
+        private Date date;
 
         private Integer number;
 
