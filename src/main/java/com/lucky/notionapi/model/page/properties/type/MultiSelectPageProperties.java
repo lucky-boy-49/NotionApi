@@ -2,7 +2,7 @@ package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.enumerate.Color;
-import com.lucky.notionapi.model.page.properties.AbstractProperties;
+import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class MultiSelectProperties extends AbstractProperties {
+public class MultiSelectPageProperties extends AbstractPageProperties {
 
     /**
      * 更新时使用

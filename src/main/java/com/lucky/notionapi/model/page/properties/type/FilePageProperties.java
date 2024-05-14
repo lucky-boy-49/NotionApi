@@ -1,7 +1,7 @@
 package com.lucky.notionapi.model.page.properties.type;
 
 import com.lucky.notionapi.model.file.FileType;
-import com.lucky.notionapi.model.page.properties.AbstractProperties;
+import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class FileProperties extends AbstractProperties {
+public class FilePageProperties extends AbstractPageProperties {
 
     /**
      * 包含有关文件信息的对象数组。

@@ -1,7 +1,7 @@
 package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.lucky.notionapi.model.page.properties.AbstractProperties;
+import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class PhoneNumberProperties extends AbstractProperties {
+public class PhoneNumberPageProperties extends AbstractPageProperties {
 
     @JsonProperty("phone_number")
     private String phoneNumber;

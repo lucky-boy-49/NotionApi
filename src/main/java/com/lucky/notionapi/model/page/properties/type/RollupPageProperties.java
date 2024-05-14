@@ -1,7 +1,7 @@
 package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.lucky.notionapi.model.page.properties.AbstractProperties;
+import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class RollupProperties extends AbstractProperties {
+public class RollupPageProperties extends AbstractPageProperties {
 
     /**
      * 类型决定其他属性值

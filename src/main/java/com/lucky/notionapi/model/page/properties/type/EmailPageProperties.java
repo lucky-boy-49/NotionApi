@@ -1,6 +1,6 @@
 package com.lucky.notionapi.model.page.properties.type;
 
-import com.lucky.notionapi.model.page.properties.AbstractProperties;
+import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class EmailProperties extends AbstractProperties {
+public class EmailPageProperties extends AbstractPageProperties {
 
     private String email;
 

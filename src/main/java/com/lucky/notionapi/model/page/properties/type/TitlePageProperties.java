@@ -1,7 +1,7 @@
 package com.lucky.notionapi.model.page.properties.type;
 
 import com.lucky.notionapi.model.block.richtext.RichTextType;
-import com.lucky.notionapi.model.page.properties.AbstractProperties;
+import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class TitleProperties extends AbstractProperties {
+public class TitlePageProperties extends AbstractPageProperties {
 
     /**
      * 富文本对象的数组。

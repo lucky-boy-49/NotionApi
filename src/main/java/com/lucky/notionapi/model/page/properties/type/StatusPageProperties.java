@@ -1,7 +1,7 @@
 package com.lucky.notionapi.model.page.properties.type;
 
 import com.lucky.notionapi.enumerate.Color;
-import com.lucky.notionapi.model.page.properties.AbstractProperties;
+import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class StatusProperties extends AbstractProperties {
+public class StatusPageProperties extends AbstractPageProperties {
 
     private Status status;
 

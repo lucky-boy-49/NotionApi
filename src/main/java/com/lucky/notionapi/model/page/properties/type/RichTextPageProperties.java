@@ -2,7 +2,7 @@ package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
-import com.lucky.notionapi.model.page.properties.AbstractProperties;
+import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class RichTextProperties extends AbstractProperties {
+public class RichTextPageProperties extends AbstractPageProperties {
 
     /**
      * 富文本对象数组

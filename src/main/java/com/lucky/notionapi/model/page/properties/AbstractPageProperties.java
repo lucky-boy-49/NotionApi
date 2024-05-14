@@ -10,7 +10,7 @@ import lombok.Data;
  * @author 贺佳
  */
 @Data
-public abstract class AbstractProperties implements Properties {
+public abstract class AbstractPageProperties implements PageProperties {
 
     /**
      * 属性的基础标识符。

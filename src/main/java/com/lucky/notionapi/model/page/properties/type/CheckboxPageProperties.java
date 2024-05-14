@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class CheckboxProperties extends AbstractBlock {
+public class CheckboxPageProperties extends AbstractBlock {
 
     /**
      * 复选框是选中（ true ）还是未选中（ false ）。
