@@ -9,7 +9,7 @@ import com.lucky.notionapi.model.block.BlockType;
  *
  * @author 贺佳
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = ExternalVideo.class, name = "external"),
         @JsonSubTypes.Type(value = FileVideo.class, name = "file"),

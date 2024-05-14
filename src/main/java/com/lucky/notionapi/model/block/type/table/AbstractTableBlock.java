@@ -9,7 +9,7 @@ import com.lucky.notionapi.model.block.AbstractBlock;
  *
  * @author 贺佳
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = TableBlock.class, name = "table"),
         @JsonSubTypes.Type(value = TableRowsBlock.class, name = "table_row"),
