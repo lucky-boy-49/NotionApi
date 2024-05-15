@@ -11,8 +11,8 @@ import com.lucky.notionapi.model.file.FileType;
 import com.lucky.notionapi.model.page.properties.PageProperties;
 import com.lucky.notionapi.model.parent.Parent;
 import com.lucky.notionapi.model.user.User;
-import com.lucky.notionapi.utils.serializer.PropertiesDeserializer;
-import com.lucky.notionapi.utils.serializer.PropertiesSerializer;
+import com.lucky.notionapi.utils.serializer.PagePropertiesDeserializer;
+import com.lucky.notionapi.utils.serializer.PagePropertiesSerializer;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -93,8 +93,8 @@ public class Page {
      * 由于属性是动态的，所以只能手动读取和写入
      * @link <a href="https://developers.notion.com/reference/page#page-properties">Notion页面属性</a>
      */
-    @JsonSerialize(using = PropertiesSerializer.class)
-    @JsonDeserialize(using = PropertiesDeserializer.class)
+    @JsonSerialize(using = PagePropertiesSerializer.class)
+    @JsonDeserialize(using = PagePropertiesDeserializer.class)
     private List<PageProperties> properties;
 
     /**

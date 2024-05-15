@@ -11,9 +11,12 @@ import com.lucky.notionapi.model.database.properties.DatabaseProperties;
 import com.lucky.notionapi.model.file.FileType;
 import com.lucky.notionapi.model.parent.Parent;
 import com.lucky.notionapi.model.user.User;
+import com.lucky.notionapi.utils.serializer.DatabasePropertiesDeserializer;
+import com.lucky.notionapi.utils.serializer.DatabasePropertiesSerializer;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 数据库对象在 Notion 中描述数据库的属性模式。页面是数据库中的项目（或子项）。页面属性值必须符合父数据库对象中布置的属性对象。
@@ -86,7 +89,9 @@ public class Database {
     /**
      * Notion中出现的数据库属性的架构。
      */
-    private DatabaseProperties properties;
+    @JsonSerialize(using = DatabasePropertiesSerializer.class)
+    @JsonDeserialize(using = DatabasePropertiesDeserializer.class)
+    private List<DatabaseProperties> properties;
 
     /**
      * 数据库父级的信息。

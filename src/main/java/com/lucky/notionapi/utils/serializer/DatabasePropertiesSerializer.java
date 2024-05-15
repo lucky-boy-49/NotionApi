@@ -3,7 +3,7 @@ package com.lucky.notionapi.utils.serializer;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
+import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import com.lucky.notionapi.model.page.properties.PageProperties;
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,7 +16,7 @@ import java.util.List;
  * @author jiahe
  */
 @Slf4j
-public class PropertiesSerializer extends JsonSerializer<List<PageProperties>> {
+public class DatabasePropertiesSerializer extends JsonSerializer<List<PageProperties>> {
 
     @Override
     public void serialize(List<PageProperties> properties, JsonGenerator jg, SerializerProvider sp) {
@@ -24,7 +24,7 @@ public class PropertiesSerializer extends JsonSerializer<List<PageProperties>> {
             jg.writeStartObject();
             properties.forEach(p -> {
 
-                AbstractPageProperties ap = (AbstractPageProperties) p;
+                AbstractDatabaseProperties ap = (AbstractDatabaseProperties) p;
                 try {
                     jg.writePOJOField(ap.getCustomizeName(), p);
                 } catch (IOException e) {

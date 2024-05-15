@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.database.properties;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 /**
@@ -33,5 +34,12 @@ public abstract class AbstractDatabaseProperties implements DatabaseProperties {
      * @see DatabaseProperties
      */
     private String type;
+
+    /**
+     * 属性的自定义名称。
+     * 如果未设置，则为空。
+     */
+    @JsonIgnore
+    private String customizeName;
 
 }

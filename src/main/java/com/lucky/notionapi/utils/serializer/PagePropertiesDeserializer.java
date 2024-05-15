@@ -19,7 +19,7 @@ import java.util.List;
  * @author jiahe
  */
 @Slf4j
-public class PropertiesDeserializer extends JsonDeserializer<List<PageProperties>> {
+public class PagePropertiesDeserializer extends JsonDeserializer<List<PageProperties>> {
     @Override
     public List<PageProperties> deserialize(JsonParser jp, DeserializationContext dc) {
         try {
