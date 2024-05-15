@@ -1,6 +1,11 @@
 package com.lucky.notionapi.model.block;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.lucky.notionapi.model.parent.Parent;
 import com.lucky.notionapi.model.parent.type.BlockParent;
 import com.lucky.notionapi.model.parent.type.DatabaseParent;
@@ -39,6 +44,9 @@ public abstract class AbstractBlock implements BlockType {
      * 创建此块的日期和时间。格式为 ISO 8601 日期时间字符串。
      */
     @JsonProperty("created_time")
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime createdTime;
 
     /**
@@ -51,6 +59,9 @@ public abstract class AbstractBlock implements BlockType {
      * 该块上次更新的日期和时间。格式为 ISO 8601 日期时间字符串。
      */
     @JsonProperty("last_edited_time")
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime lastEditedTime;
 
     /**
