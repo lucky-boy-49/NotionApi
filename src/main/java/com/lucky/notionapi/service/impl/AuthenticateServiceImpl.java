@@ -1,7 +1,7 @@
 package com.lucky.notionapi.service.impl;
 
-import com.lucky.notionapi.dao.BlockRequestDao;
-import com.lucky.notionapi.dao.BlockResponseDao;
+import com.lucky.notionapi.dao.BlockAddRequestDao;
+import com.lucky.notionapi.dao.BlockAddResponseDao;
 import com.lucky.notionapi.service.BlockService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,11 +32,11 @@ public class AuthenticateServiceImpl {
      * @param blockId    块的标识符。还接受页面 ID。
      * @return 一级子块对象的分页列表
      */
-    public BlockResponseDao appendBlockChildren(BlockRequestDao requestDao, String blockId) {
+    public BlockAddResponseDao appendBlockChildren(BlockAddRequestDao requestDao, String blockId) {
         log.info("追加块子项-->块id：{}，块信息：{}", blockId, requestDao.toString());
         BlockService service = factory.createClient(BlockService.class);
-        ResponseEntity<BlockResponseDao> response = service.appendBlockChildren(requestDao, blockId);
-        BlockResponseDao result = Objects.requireNonNull(response.getBody());
+        ResponseEntity<BlockAddResponseDao> response = service.appendBlockChildren(requestDao, blockId);
+        BlockAddResponseDao result = Objects.requireNonNull(response.getBody());
         log.info("追加块子项成功：{}", result);
         return result;
     }

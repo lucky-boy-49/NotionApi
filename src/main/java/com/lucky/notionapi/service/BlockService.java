@@ -1,7 +1,7 @@
 package com.lucky.notionapi.service;
 
-import com.lucky.notionapi.dao.BlockRequestDao;
-import com.lucky.notionapi.dao.BlockResponseDao;
+import com.lucky.notionapi.dao.BlockAddRequestDao;
+import com.lucky.notionapi.dao.BlockAddResponseDao;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +28,6 @@ public interface BlockService {
      * @return 一级子块对象的分页列表
      */
     @PatchExchange(value = "/v1/blocks/{blockId}/children", contentType = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<BlockResponseDao> appendBlockChildren(@RequestBody BlockRequestDao requestBody, @PathVariable String blockId);
+    ResponseEntity<BlockAddResponseDao> appendBlockChildren(@RequestBody BlockAddRequestDao requestBody, @PathVariable String blockId);
 
 }

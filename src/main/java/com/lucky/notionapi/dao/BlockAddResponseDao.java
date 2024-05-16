@@ -5,12 +5,12 @@ import com.lucky.notionapi.model.block.BlockType;
 import lombok.Data;
 
 /**
- * 块响应数据
+ * 追加块响应数据
  *
  * @author jiahe
  */
 @Data
-public class BlockResponseDao {
+public class BlockAddResponseDao {
 
     /**
      * 响应类型
