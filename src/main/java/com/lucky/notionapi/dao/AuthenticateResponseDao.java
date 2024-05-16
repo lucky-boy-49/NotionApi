@@ -1,4 +1,4 @@
-package com.lucky.notionapi.dao.authentication;
+package com.lucky.notionapi.dao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

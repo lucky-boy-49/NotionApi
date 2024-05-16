@@ -1,7 +1,7 @@
 package com.lucky.notionapi.service;
 
-import com.lucky.notionapi.dao.authentication.AuthenticateRequestDao;
-import com.lucky.notionapi.dao.authentication.AuthenticateResponseDao;
+import com.lucky.notionapi.dao.AuthenticateRequestDao;
+import com.lucky.notionapi.dao.AuthenticateResponseDao;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
