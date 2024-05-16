@@ -77,7 +77,11 @@ public enum ErrorCodes {
     /**
      * 尝试完成此请求时，Notion 超时。请稍后再试。
      */
-    GATEWAY_TIMEOUT(504, "gateway_timeout", "Notion 服务器超时");
+    GATEWAY_TIMEOUT(504, "gateway_timeout", "Notion 服务器超时"),
+    /**
+     * 未知错误
+     */
+    UNKNOWN(900, "unknown", "未知错误");
 
     /**
      * Http状态码

@@ -1,15 +1,15 @@
 package com.lucky.notionapi;
 
-import com.lucky.notionapi.config.NotionConfigProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.stereotype.Component;
+import com.lucky.notionapi.service.impl.AuthenticateServiceImpl;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Notion客户端
  * @author jiahe
  */
-@Component
-@EnableConfigurationProperties(NotionConfigProperties.class)
+@RequiredArgsConstructor
 public class NotionClient {
+
+    private final AuthenticateServiceImpl authenticateService;
 
 }
