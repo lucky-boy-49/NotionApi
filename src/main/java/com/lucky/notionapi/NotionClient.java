@@ -1,15 +1,8 @@
 package com.lucky.notionapi;
 
 import com.lucky.notionapi.service.impl.AuthenticateServiceImpl;
-import lombok.RequiredArgsConstructor;
+import com.lucky.notionapi.service.impl.BlockServiceImpl;
 
-/**
- * Notion客户端
- * @author jiahe
- */
-@RequiredArgsConstructor
-public class NotionClient {
-
-    private final AuthenticateServiceImpl authenticateService;
+public record NotionClient(AuthenticateServiceImpl authenticateService, BlockServiceImpl blockService) {
 
 }

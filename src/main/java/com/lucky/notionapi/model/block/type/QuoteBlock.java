@@ -17,6 +17,10 @@ public class QuoteBlock extends AbstractBlock {
 
     private Quote quote;
 
+    public QuoteBlock() {
+        this.quote = new Quote();
+    }
+
     @Data
     static class Quote {
 

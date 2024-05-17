@@ -19,6 +19,10 @@ public class HeadingBlock1 extends AbstractBlock {
     @JsonProperty("heading_1")
     private Heading1 heading1;
 
+    public HeadingBlock1() {
+        this.heading1 = new Heading1();
+    }
+
     @Data
     static class Heading1 {
 

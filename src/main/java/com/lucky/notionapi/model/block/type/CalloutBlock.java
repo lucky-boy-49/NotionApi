@@ -17,26 +17,35 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class CalloutBlock extends AbstractBlock {
 
-    /**
-     * 富文本数组
-     *
-     * @see RichTextType
-     */
-    @JsonProperty("rich_text")
-    private RichTextType[] richText;
+    private final Callout callout;
 
-    /**
-     * 代表标注图标的表情符号或文件对象。如果标注没有图标。
-     *
-     * @see FileType
-     */
-    private FileType icon;
+    public CalloutBlock() {
+        this.callout = new Callout();
+    }
 
-    /**
-     * 颜色
-     *
-     * @see Color
-     */
-    private String color;
+    @Data
+    static class Callout {
+        /**
+         * 富文本数组
+         *
+         * @see RichTextType
+         */
+        @JsonProperty("rich_text")
+        private RichTextType[] richText;
+
+        /**
+         * 代表标注图标的表情符号或文件对象。如果标注没有图标。
+         *
+         * @see FileType
+         */
+        private FileType icon;
+
+        /**
+         * 颜色
+         *
+         * @see Color
+         */
+        private String color;
+    }
 
 }

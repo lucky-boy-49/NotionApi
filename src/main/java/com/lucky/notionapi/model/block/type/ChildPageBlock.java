@@ -19,6 +19,10 @@ public class ChildPageBlock extends AbstractBlock {
      */
     private ChildPage childPage;
 
+    public ChildPageBlock() {
+        this.childPage = new ChildPage();
+    }
+
     @Data
     static class ChildPage {
 

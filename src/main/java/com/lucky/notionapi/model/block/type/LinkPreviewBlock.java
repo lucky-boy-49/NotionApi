@@ -19,6 +19,10 @@ public class LinkPreviewBlock extends AbstractBlock {
     @JsonProperty("link_preview")
     private LinkPreview linkPreview;
 
+    public LinkPreviewBlock() {
+        this.linkPreview = new LinkPreview();
+    }
+
     @Data
     static class LinkPreview {
 

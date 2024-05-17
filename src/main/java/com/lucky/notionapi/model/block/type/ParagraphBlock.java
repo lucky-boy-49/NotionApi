@@ -19,6 +19,10 @@ public class ParagraphBlock extends AbstractBlock {
 
     private Paragraph paragraph;
 
+    public ParagraphBlock() {
+        this.paragraph = new Paragraph();
+    }
+
     @Data
     static class Paragraph {
 

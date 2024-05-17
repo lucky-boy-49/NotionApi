@@ -19,6 +19,10 @@ public class BreadcrumbBlock extends AbstractBlock {
      */
     private Breadcrumb breadcrumb;
 
+    public BreadcrumbBlock() {
+        this.breadcrumb = new Breadcrumb();
+    }
+
     static class Breadcrumb {
 
     }

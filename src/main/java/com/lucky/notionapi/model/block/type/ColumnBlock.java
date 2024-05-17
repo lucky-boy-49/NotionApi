@@ -15,6 +15,9 @@ public class ColumnBlock extends AbstractBlock {
 
     private Column column;
 
+    public ColumnBlock() {
+        this.column = new Column();
+    }
     @Data
     static class Column {
 

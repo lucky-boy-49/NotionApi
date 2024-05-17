@@ -24,6 +24,10 @@ public class ColumnListBlock extends AbstractBlock {
     @JsonProperty("column_list")
     private ColumnList columnList;
 
+    public ColumnListBlock() {
+        this.columnList = new ColumnList();
+    }
+
     @Data
     static class ColumnList {
 

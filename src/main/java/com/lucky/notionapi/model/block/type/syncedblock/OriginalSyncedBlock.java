@@ -14,6 +14,10 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class OriginalSyncedBlock extends AbstractSyncedBlock {
 
+    public OriginalSyncedBlock() {
+        this.syncedBlock = new SyncedBlock();
+    }
+
     private SyncedBlock syncedBlock;
 
     @Data

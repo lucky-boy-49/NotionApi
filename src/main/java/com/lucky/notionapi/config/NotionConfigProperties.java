@@ -71,6 +71,9 @@ public class NotionConfigProperties {
      */
     private int peopleSize;
 
+    /**
+     * 认证token
+     */
     private String token;
 
 }

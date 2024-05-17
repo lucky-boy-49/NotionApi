@@ -20,6 +20,10 @@ public class ToDoBlock extends AbstractBlock {
     @JsonProperty("to_do")
     private ToDo toDo;
 
+    public ToDoBlock() {
+        this.toDo = new ToDo();
+    }
+
     @Data
     static class ToDo {
 

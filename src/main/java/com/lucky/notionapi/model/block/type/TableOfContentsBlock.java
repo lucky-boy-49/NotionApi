@@ -18,6 +18,10 @@ public class TableOfContentsBlock extends AbstractBlock {
     @JsonProperty("table_of_contents")
     private TableOfContents tableOfContents;
 
+    public TableOfContentsBlock() {
+        this.tableOfContents = new TableOfContents();
+    }
+
     @Data
     static class TableOfContents {
 

@@ -17,6 +17,12 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class ToggleBlock extends AbstractBlock {
 
+    private Toggle toggle;
+
+    public ToggleBlock() {
+        this.toggle = new Toggle();
+    }
+
     @Data
     static class Toggle {
 

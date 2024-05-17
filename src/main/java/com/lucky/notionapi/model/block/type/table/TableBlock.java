@@ -14,6 +14,10 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class TableBlock extends AbstractTableBlock {
 
+    public TableBlock() {
+        this.table = new Table();
+    }
+
     private Table table;
 
     @Data

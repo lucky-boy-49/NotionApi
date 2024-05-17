@@ -16,6 +16,10 @@ public class DuplicateSyncedBlock extends AbstractSyncedBlock {
     @JsonProperty("synced_block")
     private SyncedBlock syncedBlock;
 
+    public DuplicateSyncedBlock() {
+        this.syncedBlock = new SyncedBlock();
+    }
+
     @Data
     static class SyncedBlock {
 

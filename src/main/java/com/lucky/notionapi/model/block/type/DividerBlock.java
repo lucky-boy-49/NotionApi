@@ -16,6 +16,10 @@ public class DividerBlock extends AbstractBlock {
 
     private Divider divider;
 
+    public DividerBlock() {
+        this.divider = new Divider();
+    }
+
     @Data
     static class Divider {
 

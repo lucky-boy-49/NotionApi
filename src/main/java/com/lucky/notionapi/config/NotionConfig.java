@@ -1,13 +1,10 @@
 package com.lucky.notionapi.config;
 
-import com.lucky.notionapi.NotionClient;
-import com.lucky.notionapi.service.impl.AuthenticateServiceImpl;
 import com.lucky.notionapi.utils.ExceptionUtil;
 import com.lucky.notionapi.utils.HttpHeaderUtil;
 import io.netty.channel.ChannelOption;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,14 +28,11 @@ import java.util.function.Function;
  */
 @Slf4j
 @Configuration
-@AutoConfiguration
 @RequiredArgsConstructor
 @EnableConfigurationProperties(NotionConfigProperties.class)
 public class NotionConfig {
 
     private final NotionConfigProperties notionConfigProps;
-
-    private final AuthenticateServiceImpl authenticateService;
 
     /**
      * 管理 Reactor Netty 资源
@@ -61,22 +55,11 @@ public class NotionConfig {
     }
 
     /**
-     * 初始化 NotionClient
-     *
-     * @return Notion客户端
-     */
-    @Bean
-    public NotionClient notionClient() {
-        return new NotionClient(authenticateService);
-    }
-
-
-    /**
      * 创建ClientHttpConnector
      *
      * @return HttpServiceProxyFactory
      */
-    @Bean
+    @Bean()
     public HttpServiceProxyFactory httpServiceProxyFactory() {
         Function<HttpClient, HttpClient> mapper = client -> client
                 // 设置响应超时时间

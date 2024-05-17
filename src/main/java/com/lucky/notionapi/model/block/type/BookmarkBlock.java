@@ -19,6 +19,10 @@ public class BookmarkBlock extends AbstractBlock {
      */
     private Bookmark bookmark;
 
+    public BookmarkBlock() {
+        this.bookmark = new Bookmark();
+    }
+
     @Data
     static class Bookmark {
 

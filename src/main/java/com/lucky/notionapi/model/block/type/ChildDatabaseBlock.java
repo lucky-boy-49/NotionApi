@@ -21,6 +21,10 @@ public class ChildDatabaseBlock extends AbstractBlock {
     @JsonProperty("child_database")
     private ChildDatabase childDatabase;
 
+    public ChildDatabaseBlock() {
+        this.childDatabase = new ChildDatabase();
+    }
+
     @Data
     static class ChildDatabase {
 

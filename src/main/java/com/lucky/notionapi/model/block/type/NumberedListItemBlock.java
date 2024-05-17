@@ -20,6 +20,10 @@ public class NumberedListItemBlock extends AbstractBlock {
     @JsonProperty("numbered_list_item")
     private NumberedListItem numberedListItem;
 
+    public NumberedListItemBlock() {
+        this.numberedListItem = new NumberedListItem();
+    }
+
     @Data
     static class NumberedListItem {
 

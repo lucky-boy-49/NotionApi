@@ -17,26 +17,37 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class BulletedListItemBlock extends AbstractBlock {
 
-    /**
-     * 富文本数组
-     *
-     * @see RichTextType
-     */
-    @JsonProperty("rich_text")
-    private RichTextType[] richText;
+    @JsonProperty("bulleted_list_item")
+    private final BulletedListItem bulletedListItem;
 
-    /**
-     * 颜色
-     *
-     * @see Color
-     */
-    private String color;
+    public BulletedListItemBlock() {
+        this.bulletedListItem = new BulletedListItem();
+    }
 
-    /**
-     * 块的嵌套子块（如果有）。
-     *
-     * @see BlockType
-     */
-    private BlockType[] children;
+    @Data
+    static class BulletedListItem {
+
+        /**
+         * 富文本数组
+         *
+         * @see RichTextType
+         */
+        @JsonProperty("rich_text")
+        private RichTextType[] richText;
+
+        /**
+         * 颜色
+         *
+         * @see Color
+         */
+        private String color;
+
+        /**
+         * 块的嵌套子块（如果有）。
+         *
+         * @see BlockType
+         */
+        private BlockType[] children;
+    }
 
 }
