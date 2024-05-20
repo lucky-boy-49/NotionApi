@@ -20,7 +20,8 @@ public class LinkPreviewBlock extends AbstractBlock {
     private LinkPreview linkPreview;
 
     public LinkPreviewBlock() {
-        this.linkPreview = new LinkPreview();
+        linkPreview = new LinkPreview();
+        type = LINK_PREVIEW;
     }
 
     @Data

@@ -16,22 +16,22 @@ public abstract class AbstractRichText implements RichTextType {
     /**
      * 该富文本对象的类型。可能的类型值为： "text" 、 "mention" 、 "equation" 。
      */
-    private String type;
+    protected String type;
 
     /**
      * 用于设置富文本对象样式的信息。
      */
-    private Annotation annotations;
+    protected Annotation annotations;
 
     /**
      * 没有注释的纯文本。
      */
     @JsonProperty("plain_text")
-    private String plainText;
+    protected String plainText;
 
     /**
      * 本文中提到的任何链接或概念的 URL（如果有）。
      */
-    private String href;
+    protected String href;
 
 }

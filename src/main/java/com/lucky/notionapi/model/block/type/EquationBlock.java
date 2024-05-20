@@ -17,7 +17,8 @@ public class EquationBlock extends AbstractBlock {
     private Equation equation;
 
     public EquationBlock() {
-        this.equation = new Equation();
+        equation = new Equation();
+        type = EQUATION;
     }
 
     @Data

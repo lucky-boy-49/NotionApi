@@ -16,4 +16,8 @@ public class MentionRichText extends AbstractRichText {
 
     private Mention mention;
 
+    public MentionRichText() {
+        type = MENTION;
+    }
+
 }

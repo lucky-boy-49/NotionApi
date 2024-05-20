@@ -19,7 +19,8 @@ public class TableOfContentsBlock extends AbstractBlock {
     private TableOfContents tableOfContents;
 
     public TableOfContentsBlock() {
-        this.tableOfContents = new TableOfContents();
+        tableOfContents = new TableOfContents();
+        type = TABLE_OF_CONTENTS;
     }
 
     @Data

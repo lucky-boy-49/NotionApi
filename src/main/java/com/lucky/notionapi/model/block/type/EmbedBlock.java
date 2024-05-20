@@ -25,7 +25,8 @@ public class EmbedBlock extends AbstractBlock {
     private Embed embed;
 
     public EmbedBlock() {
-        this.embed = new Embed();
+        embed = new Embed();
+        type = EMBED;
     }
 
     @Data

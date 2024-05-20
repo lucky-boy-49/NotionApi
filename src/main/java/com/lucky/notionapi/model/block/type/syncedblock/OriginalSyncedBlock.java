@@ -15,7 +15,8 @@ import lombok.EqualsAndHashCode;
 public class OriginalSyncedBlock extends AbstractSyncedBlock {
 
     public OriginalSyncedBlock() {
-        this.syncedBlock = new SyncedBlock();
+        syncedBlock = new SyncedBlock();
+        type = SYNCED_BLOCK;
     }
 
     private SyncedBlock syncedBlock;

@@ -25,7 +25,8 @@ public class ColumnListBlock extends AbstractBlock {
     private ColumnList columnList;
 
     public ColumnListBlock() {
-        this.columnList = new ColumnList();
+        columnList = new ColumnList();
+        type = COLUMN_LIST;
     }
 
     @Data

@@ -20,7 +20,8 @@ public class HeadingBlock2 extends AbstractBlock {
     private Heading2 heading2;
 
     public HeadingBlock2() {
-        this.heading2 = new Heading2();
+        heading2 = new Heading2();
+        type = HEADING_2;
     }
 
     @Data

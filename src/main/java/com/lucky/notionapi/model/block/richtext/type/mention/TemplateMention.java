@@ -21,6 +21,10 @@ public class TemplateMention implements Mention {
     @JsonProperty("template_mention")
     private Template template;
 
+    public TemplateMention() {
+        type = TEMPLATE_MENTION;
+    }
+
     @Data
     static class TemplateMentionDate implements Template {
         /**

@@ -19,7 +19,8 @@ public class CodeBlock extends AbstractBlock {
     private Code code;
 
     public CodeBlock() {
-        this.code = new Code();
+        code = new Code();
+        type = CODE;
     }
 
     @Data

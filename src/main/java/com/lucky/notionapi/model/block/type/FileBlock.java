@@ -20,6 +20,10 @@ public class FileBlock extends AbstractBlock {
 
     private File file;
 
+    public FileBlock() {
+        type = FILE;
+    }
+
     @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
     @JsonSubTypes({
             @Type(value = ExternalFile.class, name = "external"),
@@ -37,17 +41,17 @@ public class FileBlock extends AbstractBlock {
          *
          * @see RichTextType
          */
-        private RichTextType[] caption;
+        protected RichTextType[] caption;
 
         /**
          * 文件类型 file\external
          */
-        private String type;
+        protected String type;
 
         /**
          * 文件块的名称，如 Notion UI 中所示。请注意，UI 可能会自动附加 .pdf 或其他扩展名。
          */
-        private String name;
+        protected String name;
 
     }
 
@@ -56,6 +60,11 @@ public class FileBlock extends AbstractBlock {
     static class ExternalFile extends AbstrtactFile {
 
         private External external;
+
+        public ExternalFile() {
+            external = new External();
+            type = "external";
+        }
 
         @Data
         static class External {
@@ -70,6 +79,11 @@ public class FileBlock extends AbstractBlock {
     static class FileFile extends AbstrtactFile {
 
         private File file;
+
+        public FileFile() {
+            file = new File();
+            type = "file";
+        }
 
         @Data
         static class File {

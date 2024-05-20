@@ -10,15 +10,15 @@ import lombok.Data;
 @Data
 public abstract class AbstractUser implements User {
 
-    private String object;
+    protected String object;
 
-    private String id;
+    protected String id;
 
-    private String type;
+    protected String type;
 
-    private String name;
+    protected String name;
 
     @JsonProperty("avatar_url")
-    private String avatarUrl;
+    protected String avatarUrl;
 
 }

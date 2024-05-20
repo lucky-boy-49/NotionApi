@@ -11,9 +11,14 @@ import lombok.Data;
 @Data
 public class DatabaseMention implements Mention {
 
-    private String id;
+    private String type;
 
     private Database database;
+
+    public DatabaseMention() {
+        database = new Database();
+        type = DATABASE;
+    }
 
     @Data
     static class Database {

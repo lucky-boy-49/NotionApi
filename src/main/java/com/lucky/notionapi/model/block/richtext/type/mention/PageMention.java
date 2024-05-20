@@ -15,6 +15,11 @@ public class PageMention implements Mention {
 
     private Page page;
 
+    public PageMention() {
+        type = PAGE;
+        page = new Page();
+    }
+
     @Data
     static class Page {
 

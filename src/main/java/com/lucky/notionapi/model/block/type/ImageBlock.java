@@ -19,4 +19,8 @@ public class ImageBlock extends AbstractBlock {
      */
     private ExternalFile image;
 
+    public ImageBlock() {
+        type = IMAGE;
+    }
+
 }

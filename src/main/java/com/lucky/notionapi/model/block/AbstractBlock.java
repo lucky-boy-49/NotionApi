@@ -28,17 +28,17 @@ public abstract class AbstractBlock implements BlockType {
     /**
      * 块的类型,始终为"block"。
      */
-    private final String object = "block";
+    protected String object = "block";
 
     /**
      * 块的标识符。UUIDv4
      */
-    private String id;
+    protected String id;
 
     /**
      * 块的父块的信息，块父类类型有{@link BlockParent}、{@link PageParent}、{@link DatabaseParent}、{@link WorkspaceParent}
      */
-    private Parent parent;
+    protected Parent parent;
 
     /**
      * 创建此块的日期和时间。格式为 ISO 8601 日期时间字符串。
@@ -47,13 +47,13 @@ public abstract class AbstractBlock implements BlockType {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime createdTime;
+    protected LocalDateTime createdTime;
 
     /**
      * 创建该块的用户。用户类型{@link People}、{@link Bots}
      */
     @JsonProperty("created_by")
-    private User createdBy;
+    protected User createdBy;
 
     /**
      * 该块上次更新的日期和时间。格式为 ISO 8601 日期时间字符串。
@@ -62,29 +62,29 @@ public abstract class AbstractBlock implements BlockType {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime lastEditedTime;
+    protected LocalDateTime lastEditedTime;
 
     /**
      * 最后编辑该块的用户。
      */
     @JsonProperty("last_edited_by")
-    private User lastEditedBy;
+    protected User lastEditedBy;
 
     /**
      * 该块是否已被删除。
      */
     @JsonProperty("in_trash")
-    private Boolean inTrash;
+    protected Boolean inTrash;
 
     /**
      * 该块是否有嵌套在其中的子块。
      */
     @JsonProperty("has_children")
-    private Boolean hasChildren;
+    protected Boolean hasChildren;
 
     /**
      * 块类型。
      */
-    private String type;
+    protected String type;
 
 }

@@ -17,12 +17,12 @@ public abstract class AbstractPageProperties implements PageProperties {
      * 创建或更新页面时，可以使用 id 代替名称。
      * 当属性名称更改时， id 保持不变。
      */
-    private String id;
+    protected String id;
 
     /**
      * 页面对象中属性的类型。可能的类型值为：
      */
-    private String type;
+    protected String type;
 
     /**
      * 属性的自定义名称。
@@ -31,6 +31,6 @@ public abstract class AbstractPageProperties implements PageProperties {
      * 不进行序列化和反序列化。
      */
     @JsonIgnore
-    private String customizeName;
+    protected String customizeName;
 
 }

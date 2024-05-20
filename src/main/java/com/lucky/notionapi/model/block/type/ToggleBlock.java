@@ -20,7 +20,8 @@ public class ToggleBlock extends AbstractBlock {
     private Toggle toggle;
 
     public ToggleBlock() {
-        this.toggle = new Toggle();
+        toggle = new Toggle();
+        type = TOGGLE;
     }
 
     @Data

@@ -15,7 +15,8 @@ import lombok.EqualsAndHashCode;
 public class TableBlock extends AbstractTableBlock {
 
     public TableBlock() {
-        this.table = new Table();
+        table = new Table();
+        type = TABLE;
     }
 
     private Table table;

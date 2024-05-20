@@ -16,4 +16,8 @@ public class FilePDF extends AbstractBlock implements Pdf {
 
     private FileFile pdf;
 
+    public FilePDF() {
+        type = PDF;
+    }
+
 }

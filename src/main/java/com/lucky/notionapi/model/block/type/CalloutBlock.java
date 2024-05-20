@@ -20,7 +20,8 @@ public class CalloutBlock extends AbstractBlock {
     private final Callout callout;
 
     public CalloutBlock() {
-        this.callout = new Callout();
+        callout = new Callout();
+        type = CALLOUT;
     }
 
     @Data

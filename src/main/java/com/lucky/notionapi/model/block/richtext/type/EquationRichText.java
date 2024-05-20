@@ -18,6 +18,11 @@ public class EquationRichText extends AbstractRichText {
      */
     private Equation equation;
 
+    public EquationRichText() {
+        equation = new Equation();
+        type = EQUATION;
+    }
+
     @Data
     static class Equation {
 

@@ -16,4 +16,8 @@ public class ExternalPDF extends AbstractBlock implements Pdf {
 
     private ExternalFile pdf;
 
+    public ExternalPDF() {
+        type = PDF;
+    }
+
 }

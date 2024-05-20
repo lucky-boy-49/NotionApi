@@ -16,6 +16,11 @@ public class UserMention implements Mention {
 
     private User user;
 
+    public UserMention() {
+        type = USER;
+        user = new User();
+    }
+
     @Data
     static class User {
 

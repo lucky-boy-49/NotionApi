@@ -16,4 +16,8 @@ public class FileVideo extends AbstractBlock implements Video {
 
     private FileFile video;
 
+    public FileVideo() {
+        type = VIDEO;
+    }
+
 }

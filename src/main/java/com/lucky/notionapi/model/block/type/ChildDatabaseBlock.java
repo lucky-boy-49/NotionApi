@@ -22,7 +22,8 @@ public class ChildDatabaseBlock extends AbstractBlock {
     private ChildDatabase childDatabase;
 
     public ChildDatabaseBlock() {
-        this.childDatabase = new ChildDatabase();
+        childDatabase = new ChildDatabase();
+        type = CHILD_DATABASE;
     }
 
     @Data

@@ -21,7 +21,8 @@ public class BulletedListItemBlock extends AbstractBlock {
     private final BulletedListItem bulletedListItem;
 
     public BulletedListItemBlock() {
-        this.bulletedListItem = new BulletedListItem();
+        bulletedListItem = new BulletedListItem();
+        type = BULLETED_LIST_ITEM;
     }
 
     @Data

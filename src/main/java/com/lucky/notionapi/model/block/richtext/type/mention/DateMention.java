@@ -21,6 +21,11 @@ public class DateMention implements Mention {
 
     private Date date;
 
+    public DateMention() {
+        type = DATE;
+        date = new Date();
+    }
+
     @Data
     static class Date {
 

@@ -14,12 +14,21 @@ public class TextRichText extends AbstractRichText {
 
     private Text text;
 
+    public TextRichText() {
+        text = new Text();
+        type = TEXT;
+    }
+
     @Data
     static class Text {
 
         private String content;
 
         private Link link;
+
+        public Text() {
+            link = new Link();
+        }
 
         @Data
         static class Link {

@@ -15,6 +15,11 @@ public class LinkPreviewMention implements Mention {
 
     private LinkPreview linkPreview;
 
+    public LinkPreviewMention() {
+        linkPreview = new LinkPreview();
+        type = LINK_PREVIEW;
+    }
+
     @Data
     static class LinkPreview {
 

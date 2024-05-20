@@ -17,7 +17,8 @@ public class DuplicateSyncedBlock extends AbstractSyncedBlock {
     private SyncedBlock syncedBlock;
 
     public DuplicateSyncedBlock() {
-        this.syncedBlock = new SyncedBlock();
+        syncedBlock = new SyncedBlock();
+        type = SYNCED_BLOCK;
     }
 
     @Data

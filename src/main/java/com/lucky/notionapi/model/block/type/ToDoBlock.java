@@ -21,7 +21,8 @@ public class ToDoBlock extends AbstractBlock {
     private ToDo toDo;
 
     public ToDoBlock() {
-        this.toDo = new ToDo();
+        toDo = new ToDo();
+        type = TO_DO;
     }
 
     @Data

@@ -20,7 +20,8 @@ public class BookmarkBlock extends AbstractBlock {
     private Bookmark bookmark;
 
     public BookmarkBlock() {
-        this.bookmark = new Bookmark();
+        bookmark = new Bookmark();
+        type = BOOKMARK;
     }
 
     @Data

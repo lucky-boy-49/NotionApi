@@ -21,7 +21,8 @@ public class NumberedListItemBlock extends AbstractBlock {
     private NumberedListItem numberedListItem;
 
     public NumberedListItemBlock() {
-        this.numberedListItem = new NumberedListItem();
+        numberedListItem = new NumberedListItem();
+        type = NUMBERED_LIST_ITEM;
     }
 
     @Data

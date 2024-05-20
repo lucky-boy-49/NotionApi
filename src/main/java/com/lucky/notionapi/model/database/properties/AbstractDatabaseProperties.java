@@ -16,30 +16,30 @@ public abstract class AbstractDatabaseProperties implements DatabaseProperties {
     /**
      * 属性的标识符，通常是由随机字母和符号组成的短字符串。
      */
-    private String id;
+    protected String id;
 
     /**
      * 属性的名称出现在 Notion 中。
      */
-    private String name;
+    protected String name;
 
     /**
      * 概念中出现的属性的描述。
      */
-    private String description;
+    protected String description;
 
     /**
      * 控制属性行为的类型。
      *
      * @see DatabaseProperties
      */
-    private String type;
+    protected String type;
 
     /**
      * 属性的自定义名称。
      * 如果未设置，则为空。
      */
     @JsonIgnore
-    private String customizeName;
+    protected String customizeName;
 
 }

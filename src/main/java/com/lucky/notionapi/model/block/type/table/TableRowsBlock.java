@@ -19,7 +19,8 @@ import lombok.EqualsAndHashCode;
 public class TableRowsBlock extends AbstractTableBlock {
 
     public TableRowsBlock() {
-        this.tableRow = new TableRow();
+        tableRow = new TableRow();
+        type = TABLE_ROW;
     }
 
     @JsonProperty("table_row")
