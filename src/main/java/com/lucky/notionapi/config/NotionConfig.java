@@ -1,6 +1,7 @@
 package com.lucky.notionapi.config;
 
-import com.lucky.notionapi.utils.ExceptionUtil;
+import com.lucky.notionapi.dao.ErrorDao;
+import com.lucky.notionapi.exception.authenticate.NotionResponseException;
 import com.lucky.notionapi.utils.HttpHeaderUtil;
 import io.netty.channel.ChannelOption;
 import lombok.RequiredArgsConstructor;
@@ -9,13 +10,14 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.client.ReactorResourceFactory;
 import org.springframework.http.client.reactive.ClientHttpConnector;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
+import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.support.WebClientAdapter;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
+import reactor.core.publisher.Mono;
 import reactor.netty.http.client.HttpClient;
 
 import java.time.Duration;
@@ -76,8 +78,13 @@ public class NotionConfig {
                 // 设置默认请求头
                 .defaultHeaders(httpHeaders -> httpHeaders.addAll(httpHeader()))
                 .clientConnector(connector)
-                // 设置默认状态码处理
-                .defaultStatusHandler(HttpStatusCode::isError, ExceptionUtil::getNotionResponseException)
+                .filter(ExchangeFilterFunction.ofResponseProcessor(clientResponse -> {
+                    if (clientResponse.statusCode().isError()) {
+                        return clientResponse.bodyToMono(ErrorDao.class)
+                                .flatMap(ErrorDao -> Mono.error(new NotionResponseException(clientResponse.statusCode().value(), ErrorDao)));
+                    }
+                    return Mono.just(clientResponse);
+                }))
                 .build();
         return HttpServiceProxyFactory.builderFor(WebClientAdapter.create(client)).build();
     }

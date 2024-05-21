@@ -1,5 +1,6 @@
 package com.lucky.notionapi.dao;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
@@ -17,5 +18,11 @@ public class ErrorDao {
     private String code;
 
     private String message;
+
+    @JsonProperty("developer_survey")
+    private String developerSurvey;
+
+    @JsonProperty("request_id")
+    private String requestId;
 
 }
