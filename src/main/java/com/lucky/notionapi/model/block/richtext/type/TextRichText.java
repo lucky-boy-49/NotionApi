@@ -21,7 +21,8 @@ public class TextRichText extends AbstractRichText {
     }
 
     @Data
-    static class Text {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Text {
 
         private String content;
 

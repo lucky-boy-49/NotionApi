@@ -1,5 +1,6 @@
 package com.lucky.notionapi.service.impl;
 
+import com.lucky.notionapi.annotation.NotionException;
 import com.lucky.notionapi.dao.BlockAddRequestDao;
 import com.lucky.notionapi.dao.BlockAddResponseDao;
 import com.lucky.notionapi.model.block.BlockType;
@@ -35,13 +36,12 @@ public class BlockServiceImpl {
      * @param blockId    块的标识符。还接受页面 ID。
      * @return 一级子块对象的分页列表
      */
+    @NotionException("追加块子项")
     public BlockAddResponseDao appendBlockChildren(BlockAddRequestDao requestDao, String blockId) {
-        log.info("追加块子项-->块id：{}，块信息：{}", blockId, requestDao.toString());
+        String body = ObjectMapperUtil.toJson(requestDao);
         BlockService service = factory.createClient(BlockService.class);
-        ResponseEntity<BlockAddResponseDao> response = service.appendBlockChildren(requestDao, blockId);
-        BlockAddResponseDao result = Objects.requireNonNull(response.getBody());
-        log.info("追加块子项成功：{}", result);
-        return result;
+        ResponseEntity<BlockAddResponseDao> response = service.appendBlockChildren(body, blockId);
+        return Objects.requireNonNull(response.getBody());
     }
 
     /**
@@ -50,13 +50,11 @@ public class BlockServiceImpl {
      * @param blockId 块的标识符。
      * @return 块对象
      */
+    @NotionException("检索一个块")
     public BlockType retrieveBlock(String blockId) {
-        log.info("检索块-->块id：{}", blockId);
         BlockService service = factory.createClient(BlockService.class);
         ResponseEntity<BlockType> response = service.retrieveBlock(blockId);
-        BlockType result = Objects.requireNonNull(response.getBody());
-        log.info("检索块成功：{}", result);
-        return result;
+        return Objects.requireNonNull(response.getBody());
     }
 
 }

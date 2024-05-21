@@ -26,7 +26,8 @@ public class BookmarkBlock extends AbstractBlock {
     }
 
     @Data
-    static class Bookmark {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Bookmark {
 
         /**
          * 富文本对象数组

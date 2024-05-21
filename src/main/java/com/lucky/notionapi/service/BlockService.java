@@ -31,7 +31,7 @@ public interface BlockService {
      * @return 一级子块对象的分页列表
      */
     @PatchExchange(value = "/{blockId}/children", contentType = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<BlockAddResponseDao> appendBlockChildren(@RequestBody BlockAddRequestDao requestBody, @PathVariable String blockId);
+    ResponseEntity<BlockAddResponseDao> appendBlockChildren(@RequestBody() String requestBody, @PathVariable String blockId);
 
     /**
      * 使用指定的 ID 检索 Block 对象。<br>
