@@ -10,6 +10,7 @@ import com.lucky.notionapi.model.block.richtext.type.TextRichText;
 import com.lucky.notionapi.model.block.type.BookmarkBlock;
 import com.lucky.notionapi.model.block.type.BreadcrumbBlock;
 import com.lucky.notionapi.model.block.type.BulletedListItemBlock;
+import com.lucky.notionapi.model.block.type.CalloutBlock;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -63,6 +64,24 @@ class BlockServiceImplTest {
         bulletedListItem.setRichText(new RichTextType[]{textRichText});
         bulletedListItem.setColor(Color.BLUE.getColor());
         bulletedListItemBlock.setBulletedListItem(bulletedListItem);
+        requestDao.setChildren(children);
+        BlockAddResponseDao blockAddResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
+        System.out.println(blockAddResponseDao);
+    }
+
+    @Test
+    void appendBlockChildrenCalloutBlock() {
+        BlockAddRequestDao requestDao = new BlockAddRequestDao();
+        BlockType[] children = new BlockType[1];
+        CalloutBlock calloutBlock = new CalloutBlock();
+        children[0] = calloutBlock;
+        CalloutBlock.Callout callout = new CalloutBlock.Callout();
+        TextRichText textRichText = new TextRichText();
+        textRichText.setText(new TextRichText.Text());
+        textRichText.getText().setContent("notion追加标注");
+        callout.setRichText(new RichTextType[]{textRichText});
+        callout.setColor(Color.BLUE.getColor());
+        calloutBlock.setCallout(callout);
         requestDao.setChildren(children);
         BlockAddResponseDao blockAddResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
         System.out.println(blockAddResponseDao);
