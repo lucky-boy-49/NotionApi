@@ -81,7 +81,7 @@ public class NotionConfig {
                 .filter(ExchangeFilterFunction.ofResponseProcessor(clientResponse -> {
                     if (clientResponse.statusCode().isError()) {
                         return clientResponse.bodyToMono(ErrorDao.class)
-                                .flatMap(ErrorDao -> Mono.error(new NotionResponseException(clientResponse.statusCode().value(), ErrorDao)));
+                                .flatMap(errorDao -> Mono.error(new NotionResponseException(clientResponse.statusCode().value(), errorDao)));
                     }
                     return Mono.just(clientResponse);
                 }))
