@@ -3,11 +3,13 @@ package com.lucky.notionapi.service.impl;
 import com.lucky.notionapi.NotionClient;
 import com.lucky.notionapi.dao.BlockAddRequestDao;
 import com.lucky.notionapi.dao.BlockAddResponseDao;
+import com.lucky.notionapi.enumerate.Color;
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
 import com.lucky.notionapi.model.block.richtext.type.TextRichText;
 import com.lucky.notionapi.model.block.type.BookmarkBlock;
 import com.lucky.notionapi.model.block.type.BreadcrumbBlock;
+import com.lucky.notionapi.model.block.type.BulletedListItemBlock;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -48,6 +50,23 @@ class BlockServiceImplTest {
         System.out.println(blockAddResponseDao);
     }
 
+    @Test
+    void appendBlockChildrenBulletedListItemBlock() {
+        BlockAddRequestDao requestDao = new BlockAddRequestDao();
+        BlockType[] children = new BlockType[1];
+        BulletedListItemBlock bulletedListItemBlock = new BulletedListItemBlock();
+        children[0] = bulletedListItemBlock;
+        BulletedListItemBlock.BulletedListItem bulletedListItem = new BulletedListItemBlock.BulletedListItem();
+        TextRichText textRichText = new TextRichText();
+        textRichText.setText(new TextRichText.Text());
+        textRichText.getText().setContent("notion追加测试项目符号列表项");
+        bulletedListItem.setRichText(new RichTextType[]{textRichText});
+        bulletedListItem.setColor(Color.BLUE.getColor());
+        bulletedListItemBlock.setBulletedListItem(bulletedListItem);
+        requestDao.setChildren(children);
+        BlockAddResponseDao blockAddResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
+        System.out.println(blockAddResponseDao);
+    }
 
     @Test
     void retrieveBlock() {
