@@ -25,8 +25,9 @@ public class BreadcrumbBlock extends AbstractBlock {
         type = BREADCRUMB;
     }
 
+    @Data
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Breadcrumb {
-
     }
 
 }
