@@ -1,5 +1,6 @@
 package com.lucky.notionapi.dao;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import lombok.Data;
@@ -10,6 +11,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AuthenticateRequestDao {
 
     /**
@@ -36,7 +38,8 @@ public class AuthenticateRequestDao {
     private ExternalAccount externalAccount;
 
     @Data
-    static class ExternalAccount {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class ExternalAccount {
 
         private String key;
 

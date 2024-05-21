@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.database.properties.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
@@ -13,12 +14,14 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RollupDatabaseProperties extends AbstractDatabaseProperties {
 
     private Rollup rollup;
 
     @Data
-    static class Rollup {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Rollup {
 
         /**
          * 从相关页面计算汇总值的函数。

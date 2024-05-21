@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.enumerate.Color;
 import com.lucky.notionapi.model.block.AbstractBlock;
@@ -15,18 +16,19 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BulletedListItemBlock extends AbstractBlock {
 
     @JsonProperty("bulleted_list_item")
-    private final BulletedListItem bulletedListItem;
+    private BulletedListItem bulletedListItem;
 
     public BulletedListItemBlock() {
-        bulletedListItem = new BulletedListItem();
         type = BULLETED_LIST_ITEM;
     }
 
     @Data
-    static class BulletedListItem {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class BulletedListItem {
 
         /**
          * 富文本数组

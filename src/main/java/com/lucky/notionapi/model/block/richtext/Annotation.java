@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.enumerate.Color;
 import lombok.Data;
 
@@ -9,6 +10,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Annotation {
 
     /**

@@ -1,6 +1,7 @@
 package com.lucky.notionapi.model.database.properties;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
@@ -11,6 +12,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class AbstractDatabaseProperties implements DatabaseProperties {
 
     /**

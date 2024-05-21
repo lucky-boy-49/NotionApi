@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type.table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,17 +13,18 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TableBlock extends AbstractTableBlock {
 
     public TableBlock() {
-        table = new Table();
         type = TABLE;
     }
 
     private Table table;
 
     @Data
-    static class Table {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Table {
 
         /**
          * 表中的列数。

@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.file;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -8,6 +9,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ExternalFile extends AbstractFile {
 
     /**
@@ -16,7 +18,8 @@ public class ExternalFile extends AbstractFile {
     private External external;
 
     @Data
-    static class External {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class External {
 
         private String url;
 

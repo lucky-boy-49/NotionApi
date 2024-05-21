@@ -1,6 +1,7 @@
 package com.lucky.notionapi.model.comment;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -20,6 +21,7 @@ import java.time.LocalDateTime;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Comment {
 
     private String object;

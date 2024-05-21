@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.page.properties.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.enumerate.Color;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
@@ -14,6 +15,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MultiSelectPageProperties extends AbstractPageProperties {
 
     /**
@@ -29,14 +31,16 @@ public class MultiSelectPageProperties extends AbstractPageProperties {
     private MultiSelect multiSelect;
 
     @Data
-    static class MultiSelect {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class MultiSelect {
 
         private Options[] options;
 
     }
 
     @Data
-    static class Options {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Options {
 
         /**
          * 选项的颜色。

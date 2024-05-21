@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.page.properties.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
@@ -12,6 +13,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class NumberPageProperties extends AbstractPageProperties {
 
     /**
@@ -27,7 +29,8 @@ public class NumberPageProperties extends AbstractPageProperties {
     private Number number2;
 
     @Data
-    static class Number {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Number {
 
         private String format;
 

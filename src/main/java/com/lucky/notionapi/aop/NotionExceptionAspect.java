@@ -3,7 +3,7 @@ package com.lucky.notionapi.aop;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lucky.notionapi.annotation.NotionException;
-import com.lucky.notionapi.exception.authenticate.NotionResponseException;
+import com.lucky.notionapi.exception.NotionResponseException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;

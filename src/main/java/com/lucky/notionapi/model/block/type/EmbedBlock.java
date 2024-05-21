@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.block.AbstractBlock;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,17 +21,18 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmbedBlock extends AbstractBlock {
 
     private Embed embed;
 
     public EmbedBlock() {
-        embed = new Embed();
         type = EMBED;
     }
 
     @Data
-    static class Embed {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Embed {
 
         /**
          * 嵌入块显示的网站链接。

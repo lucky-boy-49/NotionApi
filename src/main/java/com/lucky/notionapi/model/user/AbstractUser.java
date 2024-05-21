@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.user;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -8,6 +9,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class AbstractUser implements User {
 
     protected String object;

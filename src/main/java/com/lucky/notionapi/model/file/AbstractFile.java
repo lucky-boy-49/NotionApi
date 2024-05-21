@@ -1,11 +1,13 @@
 package com.lucky.notionapi.model.file;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
  * @author 贺佳
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class AbstractFile implements FileType {
 
     /**

@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.enumerate.CodeLanguage;
 import com.lucky.notionapi.model.block.AbstractBlock;
@@ -14,17 +15,18 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CodeBlock extends AbstractBlock {
 
     private Code code;
 
     public CodeBlock() {
-        code = new Code();
         type = CODE;
     }
 
     @Data
-    static class Code {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Code {
 
         /**
          * 代码块标题中的富文本。

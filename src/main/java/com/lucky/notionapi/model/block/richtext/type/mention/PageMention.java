@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext.type.mention;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PageMention implements Mention {
 
     private String type;
@@ -17,11 +19,11 @@ public class PageMention implements Mention {
 
     public PageMention() {
         type = PAGE;
-        page = new Page();
     }
 
     @Data
-    static class Page {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Page {
 
         private String id;
 

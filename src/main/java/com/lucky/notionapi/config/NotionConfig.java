@@ -1,7 +1,7 @@
 package com.lucky.notionapi.config;
 
 import com.lucky.notionapi.dao.ErrorDao;
-import com.lucky.notionapi.exception.authenticate.NotionResponseException;
+import com.lucky.notionapi.exception.NotionResponseException;
 import com.lucky.notionapi.utils.HttpHeaderUtil;
 import io.netty.channel.ChannelOption;
 import lombok.RequiredArgsConstructor;

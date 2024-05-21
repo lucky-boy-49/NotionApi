@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.block.AbstractBlock;
 import lombok.Data;
@@ -12,6 +13,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ChildDatabaseBlock extends AbstractBlock {
 
     /**
@@ -22,12 +24,12 @@ public class ChildDatabaseBlock extends AbstractBlock {
     private ChildDatabase childDatabase;
 
     public ChildDatabaseBlock() {
-        childDatabase = new ChildDatabase();
         type = CHILD_DATABASE;
     }
 
     @Data
-    static class ChildDatabase {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class ChildDatabase {
 
         /**
          * 数据库的纯文本标题。

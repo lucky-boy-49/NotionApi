@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.enumerate.Color;
 import com.lucky.notionapi.model.block.AbstractBlock;
@@ -13,17 +14,18 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class QuoteBlock extends AbstractBlock {
 
     private Quote quote;
 
     public QuoteBlock() {
-        quote = new Quote();
         type = QUOTE;
     }
 
     @Data
-    static class Quote {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Quote {
 
         /**
          * 报价块中显示的富文本。

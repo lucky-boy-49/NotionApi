@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.block.richtext.AbstractRichText;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,6 +12,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EquationRichText extends AbstractRichText {
 
     /**
@@ -19,12 +21,12 @@ public class EquationRichText extends AbstractRichText {
     private Equation equation;
 
     public EquationRichText() {
-        equation = new Equation();
         type = EQUATION;
     }
 
     @Data
-    static class Equation {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Equation {
 
         private String expression;
 

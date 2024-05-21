@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -11,6 +12,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class AbstractRichText implements RichTextType {
 
     /**

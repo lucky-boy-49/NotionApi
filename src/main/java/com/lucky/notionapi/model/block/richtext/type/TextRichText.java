@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.block.richtext.AbstractRichText;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,7 +16,6 @@ public class TextRichText extends AbstractRichText {
     private Text text;
 
     public TextRichText() {
-        text = new Text();
         type = TEXT;
     }
 
@@ -26,12 +26,9 @@ public class TextRichText extends AbstractRichText {
 
         private Link link;
 
-        public Text() {
-            link = new Link();
-        }
-
         @Data
-        static class Link {
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        public static class Link {
 
             private String url;
 

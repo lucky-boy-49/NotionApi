@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.database.properties.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,19 +12,22 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SelectDatabaseProperties extends AbstractDatabaseProperties {
 
     private Select select;
 
     @Data
-    static class Select {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Select {
 
         private Options[] options;
 
     }
 
     @Data
-    static class Options {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Options {
 
         /**
          * Notion UI 中呈现的选项颜色。可能的值包括

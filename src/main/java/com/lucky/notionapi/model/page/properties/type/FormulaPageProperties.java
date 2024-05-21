@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.page.properties.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
@@ -15,12 +16,14 @@ import java.util.Date;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class FormulaPageProperties extends AbstractPageProperties {
 
     private Formula formula;
 
     @Data
-    static class Formula {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Formula {
 
         /**
          * 指示公式结果的数据类型的字符串。

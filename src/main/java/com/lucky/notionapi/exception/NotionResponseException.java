@@ -1,4 +1,4 @@
-package com.lucky.notionapi.exception.authenticate;
+package com.lucky.notionapi.exception;
 
 import com.lucky.notionapi.dao.ErrorDao;
 import com.lucky.notionapi.enumerate.ErrorCodes;

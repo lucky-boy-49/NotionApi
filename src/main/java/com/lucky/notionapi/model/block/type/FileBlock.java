@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
@@ -16,6 +17,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class FileBlock extends AbstractBlock {
 
     private File file;
@@ -29,12 +31,13 @@ public class FileBlock extends AbstractBlock {
             @Type(value = ExternalFile.class, name = "external"),
             @Type(value = FileFile.class, name = "file")
     })
-    interface File {
+    public interface File {
 
     }
 
     @Data
-    static abstract class AbstrtactFile implements File {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static abstract class AbstrtactFile implements File {
 
         /**
          * 文件块的标题。
@@ -57,17 +60,18 @@ public class FileBlock extends AbstractBlock {
 
     @Data
     @EqualsAndHashCode(callSuper = true)
-    static class ExternalFile extends AbstrtactFile {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class ExternalFile extends AbstrtactFile {
 
         private External external;
 
         public ExternalFile() {
-            external = new External();
             type = "external";
         }
 
         @Data
-        static class External {
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        public static class External {
 
             private String url;
         }
@@ -76,17 +80,18 @@ public class FileBlock extends AbstractBlock {
 
     @Data
     @EqualsAndHashCode(callSuper = true)
-    static class FileFile extends AbstrtactFile {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class FileFile extends AbstrtactFile {
 
         private File file;
 
         public FileFile() {
-            file = new File();
             type = "file";
         }
 
         @Data
-        static class File {
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        public static class File {
 
             private String url;
 

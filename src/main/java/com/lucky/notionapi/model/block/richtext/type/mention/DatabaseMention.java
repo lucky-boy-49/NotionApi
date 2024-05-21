@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext.type.mention;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DatabaseMention implements Mention {
 
     private String type;
@@ -16,12 +18,12 @@ public class DatabaseMention implements Mention {
     private Database database;
 
     public DatabaseMention() {
-        database = new Database();
         type = DATABASE;
     }
 
     @Data
-    static class Database {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Database {
 
         private String id;
 

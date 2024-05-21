@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.database.properties.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
@@ -13,6 +14,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RelationDatabaseProperties extends AbstractDatabaseProperties {
 
     /**
@@ -21,7 +23,8 @@ public class RelationDatabaseProperties extends AbstractDatabaseProperties {
     private Relation relation;
 
     @Data
-    static class Relation {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Relation {
 
         /**
          * 关系属性引用的数据库。

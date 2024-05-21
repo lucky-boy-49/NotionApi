@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.database.properties.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.enumerate.Color;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
@@ -13,12 +14,14 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class StatusDatabaseProperties extends AbstractDatabaseProperties {
 
     private Status status;
 
     @Data
-    static class Status {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Status {
 
         private Options[] options;
 
@@ -27,7 +30,8 @@ public class StatusDatabaseProperties extends AbstractDatabaseProperties {
     }
 
     @Data
-    static class Options {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Options {
 
         /**
          * 选项的颜色。
@@ -51,7 +55,8 @@ public class StatusDatabaseProperties extends AbstractDatabaseProperties {
     }
 
     @Data
-    static class Groups {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Groups {
 
         /**
          * 选项的颜色。

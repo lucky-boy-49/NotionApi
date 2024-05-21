@@ -1,6 +1,7 @@
 package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -19,12 +20,14 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DatePageProperties extends AbstractPageProperties {
 
     private Date date;
 
     @Data
-    static class Date {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Date {
 
         /**
          * （可选）表示日期范围结束的字符串。

@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.block.AbstractBlock;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,16 +12,17 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ColumnBlock extends AbstractBlock {
 
     private Column column;
 
     public ColumnBlock() {
-        column = new Column();
         type = COLUMN;
     }
     @Data
-    static class Column {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Column {
 
     }
 

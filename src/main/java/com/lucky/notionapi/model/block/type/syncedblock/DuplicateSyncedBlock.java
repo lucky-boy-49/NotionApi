@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type.syncedblock;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,24 +12,26 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DuplicateSyncedBlock extends AbstractSyncedBlock {
 
     @JsonProperty("synced_block")
     private SyncedBlock syncedBlock;
 
     public DuplicateSyncedBlock() {
-        syncedBlock = new SyncedBlock();
         type = SYNCED_BLOCK;
     }
 
     @Data
-    static class SyncedBlock {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class SyncedBlock {
 
         @JsonProperty("synced_from")
         private SyncedFrom syncedFrom;
 
         @Data
-        static class SyncedFrom {
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        public static class SyncedFrom {
 
             @JsonProperty("block_id")
             private String blockId;

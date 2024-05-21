@@ -1,5 +1,6 @@
 package com.lucky.notionapi.dao;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.block.BlockType;
 import lombok.Data;
@@ -10,6 +11,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BlockAddResponseDao {
 
     /**

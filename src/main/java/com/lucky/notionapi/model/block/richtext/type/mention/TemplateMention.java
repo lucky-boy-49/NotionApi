@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext.type.mention;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
@@ -14,6 +15,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TemplateMention implements Mention {
 
     private String type;
@@ -25,8 +27,22 @@ public class TemplateMention implements Mention {
         type = TEMPLATE_MENTION;
     }
 
+    @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
+    @JsonSubTypes({
+            @Type(value = TemplateMentionDate.class, name = Template.TEMPLATE_MENTION_DATE),
+            @Type(value = TemplateMentionUser.class, name = Template.TEMPLATE_MENTION_USER),
+    })
+    public interface Template {
+
+        String TEMPLATE_MENTION_DATE = "template_mention_date";
+
+        String TEMPLATE_MENTION_USER = "template_mention_user";
+
+    }
+
     @Data
-    static class TemplateMentionDate implements Template {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class TemplateMentionDate implements Template {
         /**
          * type 键为 "template_mention_date" 则{@link #templateMentionDate}可能为可能的值包括： "today" 和 "now" 。
          */
@@ -38,7 +54,8 @@ public class TemplateMention implements Mention {
     }
 
     @Data
-    static class TemplateMentionUser implements Template {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class TemplateMentionUser implements Template {
         /**
          * type 键为 "template_mention_user" 则{@link #templateMentionUser}可能的值是 "me" 。
          */
@@ -46,19 +63,6 @@ public class TemplateMention implements Mention {
 
         @JsonProperty("template_mention_user")
         private String templateMentionUser;
-
-    }
-
-    @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")
-    @JsonSubTypes({
-            @Type(value = TemplateMentionDate.class, name = Template.TEMPLATE_MENTION_DATE),
-            @Type(value = TemplateMentionUser.class, name = Template.TEMPLATE_MENTION_USER),
-    })
-    interface Template {
-
-        String TEMPLATE_MENTION_DATE = "template_mention_date";
-
-        String TEMPLATE_MENTION_USER = "template_mention_user";
 
     }
 

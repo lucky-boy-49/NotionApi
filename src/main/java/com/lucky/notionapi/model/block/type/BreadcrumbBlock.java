@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.block.AbstractBlock;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,6 +13,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BreadcrumbBlock extends AbstractBlock {
 
     /**
@@ -20,11 +22,10 @@ public class BreadcrumbBlock extends AbstractBlock {
     private Breadcrumb breadcrumb;
 
     public BreadcrumbBlock() {
-        breadcrumb = new Breadcrumb();
         type = BREADCRUMB;
     }
 
-    static class Breadcrumb {
+    public static class Breadcrumb {
 
     }
 

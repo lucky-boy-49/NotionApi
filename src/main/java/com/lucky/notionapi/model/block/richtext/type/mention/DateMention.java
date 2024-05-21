@@ -1,6 +1,7 @@
 package com.lucky.notionapi.model.block.richtext.type.mention;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DateMention implements Mention {
 
     private String type;
@@ -23,11 +25,11 @@ public class DateMention implements Mention {
 
     public DateMention() {
         type = DATE;
-        date = new Date();
     }
 
     @Data
-    static class Date {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Date {
 
         @JsonDeserialize(using = LocalDateTimeDeserializer.class)
         @JsonSerialize(using = LocalDateTimeSerializer.class)

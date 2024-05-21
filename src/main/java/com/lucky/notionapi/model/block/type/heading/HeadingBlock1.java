@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type.heading;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.enumerate.Color;
 import com.lucky.notionapi.model.block.AbstractBlock;
@@ -14,18 +15,19 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class HeadingBlock1 extends AbstractBlock {
 
     @JsonProperty("heading_1")
     private Heading1 heading1;
 
     public HeadingBlock1() {
-        heading1 = new Heading1();
         type = HEADING_1;
     }
 
     @Data
-    static class Heading1 {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Heading1 {
 
         /**
          * 标题的富文本。

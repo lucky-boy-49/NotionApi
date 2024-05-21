@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.enumerate.Color;
 import com.lucky.notionapi.model.block.AbstractBlock;
@@ -15,18 +16,19 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class NumberedListItemBlock extends AbstractBlock {
 
     @JsonProperty("numbered_list_item")
     private NumberedListItem numberedListItem;
 
     public NumberedListItemBlock() {
-        numberedListItem = new NumberedListItem();
         type = NUMBERED_LIST_ITEM;
     }
 
     @Data
-    static class NumberedListItem {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class NumberedListItem {
 
         /**
          * numbered_list_item 块中显示的富文本。

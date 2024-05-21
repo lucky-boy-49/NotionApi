@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.block.AbstractBlock;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,6 +12,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ChildPageBlock extends AbstractBlock {
 
     /**
@@ -20,12 +22,12 @@ public class ChildPageBlock extends AbstractBlock {
     private ChildPage childPage;
 
     public ChildPageBlock() {
-        childPage = new ChildPage();
         type = CHILD_PAGE;
     }
 
     @Data
-    static class ChildPage {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class ChildPage {
 
         /**
          * 页面的纯文本 title 。

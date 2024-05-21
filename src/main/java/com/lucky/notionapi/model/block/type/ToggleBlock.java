@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.enumerate.Color;
 import com.lucky.notionapi.model.block.AbstractBlock;
@@ -15,17 +16,18 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ToggleBlock extends AbstractBlock {
 
     private Toggle toggle;
 
     public ToggleBlock() {
-        toggle = new Toggle();
         type = TOGGLE;
     }
 
     @Data
-    static class Toggle {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Toggle {
 
         /**
          * 显示在切换块中的富文本。

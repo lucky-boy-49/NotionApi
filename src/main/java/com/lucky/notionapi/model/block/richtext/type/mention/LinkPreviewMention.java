@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.richtext.type.mention;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class LinkPreviewMention implements Mention {
 
     private String type;
@@ -16,12 +18,12 @@ public class LinkPreviewMention implements Mention {
     private LinkPreview linkPreview;
 
     public LinkPreviewMention() {
-        linkPreview = new LinkPreview();
         type = LINK_PREVIEW;
     }
 
     @Data
-    static class LinkPreview {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class LinkPreview {
 
         private String url;
 

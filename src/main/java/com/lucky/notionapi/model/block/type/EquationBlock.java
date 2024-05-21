@@ -1,5 +1,6 @@
 package com.lucky.notionapi.model.block.type;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.block.AbstractBlock;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,17 +13,18 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EquationBlock extends AbstractBlock {
 
     private Equation equation;
 
     public EquationBlock() {
-        equation = new Equation();
         type = EQUATION;
     }
 
     @Data
-    static class Equation {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Equation {
 
         /**
          * KaTeX 兼容的字符串。
