@@ -22,7 +22,7 @@ public class BlockAddResponseDao {
     /**
      * 块结果
      */
-    private BlockType[] result;
+    private BlockType[] results;
 
     /**
      * 下一页游标
