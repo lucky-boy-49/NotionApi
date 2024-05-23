@@ -2,6 +2,7 @@ package com.lucky.notionapi.model.block.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.block.AbstractBlock;
+import com.lucky.notionapi.model.block.BlockType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -23,6 +24,8 @@ public class ColumnBlock extends AbstractBlock {
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Column {
+
+        private BlockType[] children;
 
     }
 

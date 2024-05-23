@@ -34,6 +34,8 @@ public class ColumnListBlock extends AbstractBlock {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class ColumnList {
 
+        private ColumnBlock[] children;
+
     }
 
 }
