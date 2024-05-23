@@ -45,6 +45,23 @@ public class BlockServiceImpl {
     }
 
     /**
+     * 追加块子项<br>
+     * 将一个块对象数组附加到容器块的子内容。<br>
+     * 如果块已经有子内容，则新的子内容将被添加到现有子内容之后。<br>
+     * 例子：<a href="https://developers.notion.com/reference/patch-block-children" target="_blank">追加子块</a>
+     *
+     * @param bodyJson 作为块对象数组附加到容器块的子内容 json格式
+     * @param blockId  块的标识符。还接受页面 ID。
+     * @return 一级子块对象的分页列表
+     */
+    @NotionException("追加块子项")
+    public BlockAddResponseDao appendBlockChildren(String bodyJson, String blockId) {
+        BlockService service = factory.createClient(BlockService.class);
+        ResponseEntity<BlockAddResponseDao> response = service.appendBlockChildren(bodyJson, blockId);
+        return Objects.requireNonNull(response.getBody());
+    }
+
+    /**
      * 检索一个块<br>
      *
      * @param blockId 块的标识符。
