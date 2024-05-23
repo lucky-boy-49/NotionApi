@@ -12,7 +12,7 @@ import lombok.Data;
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class BlockAddResponseDao {
+public class BlockResponseDao {
 
     /**
      * 响应类型
