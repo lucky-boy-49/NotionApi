@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.model.file.ExternalFile;
 import com.lucky.notionapi.model.file.FileType;
 import com.lucky.notionapi.model.page.properties.PageProperties;
@@ -114,5 +115,10 @@ public class Page {
      */
     @JsonProperty("public_url")
     private String publicUrl;
+
+    /**
+     * 页面孩子
+     */
+    private BlockType[] children;
 
 }

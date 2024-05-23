@@ -23,7 +23,6 @@ public class PagePropertiesSerializer extends JsonSerializer<List<PageProperties
         try {
             jg.writeStartObject();
             properties.forEach(p -> {
-
                 AbstractPageProperties ap = (AbstractPageProperties) p;
                 try {
                     jg.writePOJOField(ap.getCustomizeName(), p);
@@ -32,6 +31,7 @@ public class PagePropertiesSerializer extends JsonSerializer<List<PageProperties
                 }
 
             });
+            jg.writeEndObject();
         } catch (IOException e) {
             log.error("页属性序列化异常：", e);
         }
