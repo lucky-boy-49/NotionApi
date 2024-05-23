@@ -108,14 +108,28 @@ public class BlockServiceImpl {
      * 例子：<a href="https://developers.notion.com/reference/update-a-block" target="_blank">更新块内容</a>
      *
      * @param blockId   块id。
-     * @param blockType 更新的块内容
+     * @param block 更新的块内容
+     * @param inTrash 是否删除
      * @return 更新后的块对象
      */
     @NotionException("更新块内容")
-    public BlockType updateBlock(String blockId, AbstractBlock block) {
-        String body = ObjectMapperUtil.toJson(block);
+    public BlockType updateBlock(String blockId, AbstractBlock block, Boolean inTrash) {
+        String body = ObjectMapperUtil.toJson(block, inTrash);
         BlockService service = factory.createClient(BlockService.class);
         ResponseEntity<BlockType> response = service.updateBlock(blockId, body);
+        return Objects.requireNonNull(response.getBody());
+    }
+
+    /**
+     * 删除块<br>
+     *
+     * @param blockId 块id
+     * @return 块信息
+     */
+    @NotionException("删除块")
+    public BlockType deleteBlock(String blockId) {
+        BlockService service = factory.createClient(BlockService.class);
+        ResponseEntity<BlockType> response = service.deleteBlock(blockId);
         return Objects.requireNonNull(response.getBody());
     }
 

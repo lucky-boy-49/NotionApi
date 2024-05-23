@@ -184,7 +184,13 @@ class BlockServiceImplTest {
         textRichText.setText(new TextRichText.Text());
         textRichText.getText().setContent("notion更新测试");
         quoteBlock.getQuote().setRichText(new RichTextType[]{textRichText});
-        BlockType responseBlock = client.blockService().updateBlock("b2049330-5583-46bc-a7b3-7d3a2fb3aa8a", quoteBlock);
+        BlockType responseBlock = client.blockService().updateBlock("b2049330-5583-46bc-a7b3-7d3a2fb3aa8a", quoteBlock, null);
+        System.out.println(responseBlock);
+    }
+
+    @Test
+    void deleteBlock() {
+        BlockType responseBlock = client.blockService().deleteBlock("b2049330-5583-46bc-a7b3-7d3a2fb3aa8a");
         System.out.println(responseBlock);
     }
 

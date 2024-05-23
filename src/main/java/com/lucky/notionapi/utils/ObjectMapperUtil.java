@@ -23,4 +23,13 @@ public class ObjectMapperUtil {
         return "";
     }
 
+    public static String toJson(Object... objs) {
+        try {
+            return OBJECT_MAPPER.writeValueAsString(objs);
+        } catch (JsonProcessingException e) {
+            log.error("实体类转换Json异常：", e);
+        }
+        return "";
+    }
+
 }

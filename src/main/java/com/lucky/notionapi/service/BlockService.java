@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.service.annotation.DeleteExchange;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;
 import org.springframework.web.service.annotation.PatchExchange;
@@ -67,8 +68,21 @@ public interface BlockService {
      * 块的子块不能直接使用此端点更新。而是使用 Append 块子项来添加子项。<br>
      * 要更新 heading 块的切换，您可以在请求中包含可选的 is_toggleable 属性。可以在 heading 块中添加和删除切换。但是，
      * 如果 heading 块有子项，则无法从该块中删除切换。在从 heading 块撤销切换之前，必须删除所有子级。<br>
+     * @param blockId 块id
+     * @param requestBody 请求体中的块对象将替换指定块的内容。
+     * @return 更新后的块对象
      */
     @PatchExchange("/{blockId}")
     ResponseEntity<BlockType> updateBlock(@PathVariable String blockId, @RequestBody String requestBody);
+
+    /**
+     * 使用指定的 ID 将块对象（包括页面块）设置为 in_trash: true 。注意：在 Notion UI 应用程序中，这会将块移动到“垃圾箱”，仍然可以访问和恢复它。<br>
+     * 要使用 API 恢复块，请分别使用更新块或更新页面。
+     *
+     * @param blockId 块id
+     * @return 删除的块信息
+     */
+    @DeleteExchange("/{blockId}")
+    ResponseEntity<BlockType> deleteBlock(@PathVariable String blockId);
 
 }
