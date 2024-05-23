@@ -59,4 +59,16 @@ public interface BlockService {
     @GetExchange("/{blockId}/children")
     ResponseEntity<BlockResponseDao> retrieveBlockChildren(@PathVariable String blockId, @RequestParam Map<String, Object> param);
 
+    /**
+     * 根据块类型更新指定块id的内容。<br>
+     * 注意：更新将替换给定字段的整个值。如果省略字段（例如：更新 to_do 块时省略 checked ），则该值不会更改。<br>
+     * 要更新“页”类型块，请使用更新页面端点。更新页面的 title 会更新关联的页块中显示的文本。<br>
+     * 要更新 child_database 类型块，请使用更新数据库端点。更新页面的 title 会更新关联的 child_database 块中显示的文本。<br>
+     * 块的子块不能直接使用此端点更新。而是使用 Append 块子项来添加子项。<br>
+     * 要更新 heading 块的切换，您可以在请求中包含可选的 is_toggleable 属性。可以在 heading 块中添加和删除切换。但是，
+     * 如果 heading 块有子项，则无法从该块中删除切换。在从 heading 块撤销切换之前，必须删除所有子级。<br>
+     */
+    @PatchExchange("/{blockId}")
+    ResponseEntity<BlockType> updateBlock(@PathVariable String blockId, @RequestBody String requestBody);
+
 }

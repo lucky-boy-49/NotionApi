@@ -3,6 +3,7 @@ package com.lucky.notionapi.service.impl;
 import com.lucky.notionapi.annotation.NotionException;
 import com.lucky.notionapi.dao.BlockAddRequestDao;
 import com.lucky.notionapi.dao.BlockResponseDao;
+import com.lucky.notionapi.model.block.AbstractBlock;
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.service.BlockService;
 import com.lucky.notionapi.utils.ObjectMapperUtil;
@@ -98,6 +99,23 @@ public class BlockServiceImpl {
         }
         BlockService service = factory.createClient(BlockService.class);
         ResponseEntity<BlockResponseDao> response = service.retrieveBlockChildren(blockId, params);
+        return Objects.requireNonNull(response.getBody());
+    }
+
+    /**
+     * 更新块内容<br>
+     * 更新一个块的内容。<br>
+     * 例子：<a href="https://developers.notion.com/reference/update-a-block" target="_blank">更新块内容</a>
+     *
+     * @param blockId   块id。
+     * @param blockType 更新的块内容
+     * @return 更新后的块对象
+     */
+    @NotionException("更新块内容")
+    public BlockType updateBlock(String blockId, AbstractBlock block) {
+        String body = ObjectMapperUtil.toJson(block);
+        BlockService service = factory.createClient(BlockService.class);
+        ResponseEntity<BlockType> response = service.updateBlock(blockId, body);
         return Objects.requireNonNull(response.getBody());
     }
 
