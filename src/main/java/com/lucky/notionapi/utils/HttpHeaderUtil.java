@@ -16,7 +16,7 @@ public class HttpHeaderUtil {
 
     public HttpHeaders getDefaultHeaders() {
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Content-Type", "application/json");
+        headers.set("Content-Type", "application/json; charset=utf-8");
         headers.set("Notion-Version", configProperties.getVersion());
         headers.set("Authorization", configProperties.getToken());
         return headers;

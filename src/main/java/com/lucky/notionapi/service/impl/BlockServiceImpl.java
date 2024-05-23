@@ -109,12 +109,11 @@ public class BlockServiceImpl {
      *
      * @param blockId   块id。
      * @param block 更新的块内容
-     * @param inTrash 是否删除
      * @return 更新后的块对象
      */
     @NotionException("更新块内容")
-    public BlockType updateBlock(String blockId, AbstractBlock block, Boolean inTrash) {
-        String body = ObjectMapperUtil.toJson(block, inTrash);
+    public BlockType updateBlock(String blockId, AbstractBlock block) {
+        String body = ObjectMapperUtil.toJson(block);
         BlockService service = factory.createClient(BlockService.class);
         ResponseEntity<BlockType> response = service.updateBlock(blockId, body);
         return Objects.requireNonNull(response.getBody());

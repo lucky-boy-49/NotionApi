@@ -58,7 +58,7 @@ public interface BlockService {
      * @return 块对象的分页列表
      */
     @GetExchange("/{blockId}/children")
-    ResponseEntity<BlockResponseDao> retrieveBlockChildren(@PathVariable String blockId, @RequestParam Map<String, Object> param);
+    ResponseEntity<BlockResponseDao> retrieveBlockChildren(@PathVariable String blockId, @RequestParam(defaultValue = "") Map<String, Object> param);
 
     /**
      * 根据块类型更新指定块id的内容。<br>

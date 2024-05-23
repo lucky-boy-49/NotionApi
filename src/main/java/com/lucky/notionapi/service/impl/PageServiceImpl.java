@@ -25,10 +25,30 @@ public class PageServiceImpl {
     private final HttpServiceProxyFactory factory;
 
 
+    /**
+     * 创建页面
+     *
+     * @param page 页面数据
+     * @return 页面数据
+     */
     @NotionException("创建页面")
     public Page createPage(Page page) {
         PageService service = factory.createClient(PageService.class);
         ResponseEntity<Page> response = service.createPage(ObjectMapperUtil.toJson(page));
+        return Objects.requireNonNull(response.getBody());
+    }
+
+    /**
+     * 检索页面
+     *
+     * @param pageId  页面id
+     * @param filters 过滤条件
+     * @return 页面数据
+     */
+    @NotionException("检索页面")
+    public Page queryPage(String pageId, String[] filters) {
+        PageService service = factory.createClient(PageService.class);
+        ResponseEntity<Page> response = service.retrievePage(pageId, filters);
         return Objects.requireNonNull(response.getBody());
     }
 

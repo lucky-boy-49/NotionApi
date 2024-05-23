@@ -14,17 +14,11 @@ public class ObjectMapperUtil {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    public static String toJson(Object obj) {
-        try {
-            return OBJECT_MAPPER.writeValueAsString(obj);
-        } catch (JsonProcessingException e) {
-            log.error("实体类转换Json异常：", e);
-        }
-        return "";
-    }
-
     public static String toJson(Object... objs) {
         try {
+            if (objs.length == 1) {
+                return OBJECT_MAPPER.writeValueAsString(objs[0]);
+            }
             return OBJECT_MAPPER.writeValueAsString(objs);
         } catch (JsonProcessingException e) {
             log.error("实体类转换Json异常：", e);

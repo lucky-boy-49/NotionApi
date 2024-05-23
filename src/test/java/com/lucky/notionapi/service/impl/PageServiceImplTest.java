@@ -47,4 +47,10 @@ class PageServiceImplTest {
         System.out.println(responsePage);
 
     }
+
+    @Test
+    void queryPage() {
+        Page page = client.pageService().queryPage("89529312369f46cca58b3d98a4c15114", null);
+        System.out.println(page);
+    }
 }
