@@ -166,5 +166,7 @@ class BlockServiceImplTest {
 
     @Test
     void retrieveBlock() {
+        BlockType response = client.blockService().retrieveBlock("89529312369f46cca58b3d98a4c15114");
+        System.out.println(response);
     }
 }
