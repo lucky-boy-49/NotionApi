@@ -132,6 +132,39 @@ class BlockServiceImplTest {
     }
 
     @Test
+    void appendBlockColumnListBlock() {
+        BlockAddRequestDao requestDao = new BlockAddRequestDao();
+        BlockType[] children = new BlockType[1];
+
+        ColumnListBlock columnListBlock = new ColumnListBlock();
+        ColumnBlock columnBlock1 = new ColumnBlock();
+        columnBlock1.setColumn(new ColumnBlock.Column());
+        TextRichText textRichText = new TextRichText();
+        textRichText.setText(new TextRichText.Text());
+        textRichText.getText().setContent("notion追加测试1");
+        CalloutBlock calloutBlock = new CalloutBlock();
+        calloutBlock.setCallout(new CalloutBlock.Callout());
+        calloutBlock.getCallout().setRichText(new RichTextType[]{textRichText});
+        columnBlock1.getColumn().setChildren(new BlockType[]{calloutBlock});
+        ColumnBlock columnBlock2 = new ColumnBlock();
+        columnBlock2.setColumn(new ColumnBlock.Column());
+        TextRichText textRichText2 = new TextRichText();
+        textRichText2.setText(new TextRichText.Text());
+        textRichText2.getText().setContent("notion追加测试1");
+        CalloutBlock calloutBlock2 = new CalloutBlock();
+        calloutBlock2.setCallout(new CalloutBlock.Callout());
+        calloutBlock2.getCallout().setRichText(new RichTextType[]{textRichText2});
+        columnBlock2.getColumn().setChildren(new BlockType[]{calloutBlock2});
+        columnListBlock.setColumnList(new ColumnListBlock.ColumnList());
+        columnListBlock.getColumnList().setChildren(new ColumnBlock[]{columnBlock1, columnBlock2});
+        children[0] = columnListBlock;
+
+        requestDao.setChildren(children);
+        BlockAddResponseDao blockAddResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
+        System.out.println(blockAddResponseDao);
+    }
+
+    @Test
     void retrieveBlock() {
     }
 }
