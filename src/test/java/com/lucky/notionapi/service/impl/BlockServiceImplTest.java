@@ -98,29 +98,30 @@ class BlockServiceImplTest {
         caption.getText().setContent("Java代码追加测试");
         TextRichText richText = new TextRichText();
         richText.setText(new TextRichText.Text());
-        richText.getText().setContent("@Test\n" +
-                "    void appendBlockCodeBlock() {\n" +
-                "        BlockAddRequestDao requestDao = new BlockAddRequestDao();\n" +
-                "        BlockType[] children = new BlockType[1];\n" +
-                "\n" +
-                "        CodeBlock codeBlock = new CodeBlock();\n" +
-                "        children[0] = codeBlock;\n" +
-                "        CodeBlock.Code code = new CodeBlock.Code();\n" +
-                "        code.setLanguage(\"java\");\n" +
-                "        TextRichText caption = new TextRichText();\n" +
-                "        caption.setText(new TextRichText.Text());\n" +
-                "        caption.getText().setContent(\"Java代码追加测试\");\n" +
-                "        TextRichText richText = new TextRichText();\n" +
-                "        richText.setText(new TextRichText.Text());\n" +
-                "        richText.getText().setContent(\"Java代码追加测试\");\n" +
-                "        code.setCaption(new RichTextType[]{caption});\n" +
-                "        code.setRichText(new RichTextType[]{richText});\n" +
-                "        codeBlock.setCode(code);\n" +
-                "\n" +
-                "        requestDao.setChildren(children);\n" +
-                "        BlockAddResponseDao blockAddResponseDao = client.blockService().appendBlockChildren(requestDao, \"89529312369f46cca58b3d98a4c15114\");\n" +
-                "        System.out.println(blockAddResponseDao);\n" +
-                "    }");
+        richText.getText().setContent("""
+                @Test
+                void appendBlockCodeBlock() {
+                    BlockAddRequestDao requestDao = new BlockAddRequestDao();
+                    BlockType[] children = new BlockType[1];
+
+                    CodeBlock codeBlock = new CodeBlock();
+                    children[0] = codeBlock;
+                    CodeBlock.Code code = new CodeBlock.Code();
+                    code.setLanguage("java");
+                    TextRichText caption = new TextRichText();
+                    caption.setText(new TextRichText.Text());
+                    caption.getText().setContent("Java代码追加测试");
+                    TextRichText richText = new TextRichText();
+                    richText.setText(new TextRichText.Text());
+                    richText.getText().setContent("Java代码追加测试");
+                    code.setCaption(new RichTextType[]{caption});
+                    code.setRichText(new RichTextType[]{richText});
+                    codeBlock.setCode(code);
+
+                    requestDao.setChildren(children);
+                    BlockAddResponseDao blockAddResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
+                    System.out.println(blockAddResponseDao);
+                }""");
         code.setCaption(new RichTextType[]{caption});
         code.setRichText(new RichTextType[]{richText});
         codeBlock.setCode(code);
