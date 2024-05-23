@@ -39,7 +39,7 @@ public class CodeBlock extends AbstractBlock {
          * 代码块中的富文本。
          */
         @JsonProperty("rich_text")
-        private RichTextType richText;
+        private RichTextType[] richText;
 
         /**
          * 代码块中包含的代码的语言。
