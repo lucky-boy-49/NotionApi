@@ -1,14 +1,17 @@
 package com.lucky.notionapi.service;
 
-import com.lucky.notionapi.dao.BlockAddResponseDao;
+import com.lucky.notionapi.dao.BlockResponseDao;
 import com.lucky.notionapi.model.block.BlockType;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;
 import org.springframework.web.service.annotation.PatchExchange;
+
+import java.util.Map;
 
 /**
  * Notion块服务接口<br>
@@ -31,7 +34,7 @@ public interface BlockService {
      * @return 一级子块对象的分页列表
      */
     @PatchExchange(value = "/{blockId}/children", contentType = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<BlockAddResponseDao> appendBlockChildren(@RequestBody() String requestBody, @PathVariable String blockId);
+    ResponseEntity<BlockResponseDao> appendBlockChildren(@RequestBody() String requestBody, @PathVariable String blockId);
 
     /**
      * 使用指定的 ID 检索 Block 对象。<br>
@@ -44,5 +47,16 @@ public interface BlockService {
      */
     @GetExchange("/{blockId}")
     ResponseEntity<BlockType> retrieveBlock(@PathVariable String blockId);
+
+    /**
+     * 使用指定的 ID 返回块中包含的子块对象的分页数组。为了接收块的完整表示，您可能需要递归地检索子块的子块。<br>
+     * 仅返回指定块的第一级子级。<br>
+     *
+     * @param blockId 块id
+     * @param param   {@code page_size}响应中所需的完整列表中的项目数。最多：100;{@code start_cursor}如果提供，此端点将返回从提供的光标之后开始的一页结果。如果未提供，此端点将返回结果的第一页。。
+     * @return 块对象的分页列表
+     */
+    @GetExchange("/{blockId}/children")
+    ResponseEntity<BlockResponseDao> retrieveBlockChildren(@PathVariable String blockId, @RequestParam Map<String, Object> param);
 
 }
