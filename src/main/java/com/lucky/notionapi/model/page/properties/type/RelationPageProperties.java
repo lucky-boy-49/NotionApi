@@ -2,6 +2,7 @@ package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.model.communal.Relation;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -29,13 +30,5 @@ public class RelationPageProperties extends AbstractPageProperties {
      * 相关页面引用的数组。页面引用是一个具有 id 键和与另一个数据库中的页面 ID 相对应的字符串值的对象。
      */
     private Relation[] relation;
-
-    @Data
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public static class Relation {
-
-        private String id;
-
-    }
 
 }

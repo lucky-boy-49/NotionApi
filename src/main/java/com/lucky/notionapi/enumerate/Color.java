@@ -3,6 +3,7 @@ package com.lucky.notionapi.enumerate;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+
 /**
  * 颜色枚举
  * @author jiahe
