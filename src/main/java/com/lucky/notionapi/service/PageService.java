@@ -45,8 +45,8 @@ public interface PageService {
      *                         请指定每个页面属性 ID。例如： ?filter_properties=iAk8&filter_properties=b7dh 。
      * @return 页数据
      */
-    @GetExchange("{blockId}")
-    ResponseEntity<Page> retrievePage(@PathVariable String blockId,
+    @GetExchange("{pageId}")
+    ResponseEntity<Page> retrievePage(@PathVariable String pageId,
                                       @RequestParam(value = "filter_properties", defaultValue = "") String[] filterProperties);
 
 }
