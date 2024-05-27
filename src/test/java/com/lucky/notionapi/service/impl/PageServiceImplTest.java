@@ -2,11 +2,13 @@ package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.NotionClient;
 import com.lucky.notionapi.dao.PropertyItemDao;
+import com.lucky.notionapi.dao.UpdatePagePropertyRequestDao;
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
 import com.lucky.notionapi.model.block.richtext.type.TextRichText;
 import com.lucky.notionapi.model.block.type.QuoteBlock;
 import com.lucky.notionapi.model.page.Page;
+import com.lucky.notionapi.model.page.properties.type.NumberPageProperties;
 import com.lucky.notionapi.model.page.properties.type.TitlePageProperties;
 import com.lucky.notionapi.model.parent.type.PageParent;
 import org.junit.jupiter.api.Test;
@@ -51,7 +53,7 @@ class PageServiceImplTest {
 
     @Test
     void queryPage() {
-        Page page = client.pageService().queryPage("e3d2cad87e1d4f73b10cf6b56ea4e9a0", null);
+        Page page = client.pageService().queryPage("4e4071b6cf6e43099e7069f46634227c", null);
         System.out.println(page);
     }
 
@@ -60,5 +62,16 @@ class PageServiceImplTest {
         PropertyItemDao propertyItemDao = client.pageService().retrievePagePropertyItem("e3d2cad87e1d4f73b10cf6b56ea4e9a0",
                 "xx%3A%3C", null);
         System.out.println(propertyItemDao);
+    }
+
+    @Test
+    void updatePageProperty() {
+        UpdatePagePropertyRequestDao requestDao = new UpdatePagePropertyRequestDao();
+        NumberPageProperties properties = new NumberPageProperties();
+        properties.setNumber(10);
+        properties.setCustomizeName("笔记数");
+        requestDao.setProperties(properties);
+        Page page = client.pageService().updatePageProperty("9fe91fc65d5f43edb3f26c9166caa79f", requestDao);
+        System.out.println(page);
     }
 }

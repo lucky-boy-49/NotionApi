@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;
+import org.springframework.web.service.annotation.PatchExchange;
 import org.springframework.web.service.annotation.PostExchange;
 
 import java.util.Map;
@@ -50,7 +51,7 @@ public interface PageService {
      */
     @GetExchange("{pageId}")
     ResponseEntity<Page> retrievePage(@PathVariable String pageId,
-                                      @RequestParam(value = "filter_properties", defaultValue = "")
+                                      @RequestParam(value = "filter_properties", required = false)
                                       String[] filterProperties);
 
     /**
@@ -66,6 +67,18 @@ public interface PageService {
      */
     @GetExchange("/{pageId}/properties/{propertyId}")
     ResponseEntity<PropertyItemDao> retrievePagePropertyItem(@PathVariable String pageId, @PathVariable String propertyId,
-                                                             @RequestParam(defaultValue = "", required = false) Map<String, String> param);
+                                                             @RequestParam(required = false) Map<String, String> param);
+
+    /**
+     * 更新数据库中页面的 properties 。该端点的 properties body 参数只能用于更新数据库子数据库页面的 properties 。页面的 properties 模式必须与父数据库的属性相匹配。<br>
+     * 该端点可用于更新任何页面 icon 或 cover ，也可用于 delete 或恢复任何页面。<br>
+     * 要添加页面内容而不是页面属性，请使用附加块子终端。在向页面添加块状子代时，可将 page_id 作为 block_id 传递。<br>
+     *
+     * @param pageId 页面id
+     * @param body   更新内容
+     * @return 更新后的页面信息
+     */
+    @PatchExchange("{pageId}")
+    ResponseEntity<Page> updatePageProperties(@PathVariable String pageId, @RequestBody String body);
 
 }

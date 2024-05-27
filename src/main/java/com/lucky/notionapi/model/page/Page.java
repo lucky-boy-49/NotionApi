@@ -1,12 +1,9 @@
 package com.lucky.notionapi.model.page;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.model.file.ExternalFile;
 import com.lucky.notionapi.model.file.FileType;
@@ -17,7 +14,6 @@ import com.lucky.notionapi.utils.serializer.PagePropertiesDeserializer;
 import com.lucky.notionapi.utils.serializer.PagePropertiesSerializer;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -44,10 +40,7 @@ public class Page {
      * 创建此页面的日期和时间。格式为 ISO 8601 日期时间字符串。
      */
     @JsonProperty("created_time")
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime createdTime;
+    private String createdTime;
 
     /**
      * 创建该页面的用户。
@@ -59,10 +52,7 @@ public class Page {
      * 此页面更新的日期和时间。格式为 ISO 8601 日期时间字符串。
      */
     @JsonProperty("last_edited_time")
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime lastEditedTime;
+    private String lastEditedTime;
 
     /**
      * 最后编辑页面的用户。
