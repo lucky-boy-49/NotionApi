@@ -7,7 +7,9 @@ import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
 import com.lucky.notionapi.model.block.richtext.type.TextRichText;
 import com.lucky.notionapi.model.block.type.QuoteBlock;
+import com.lucky.notionapi.model.communal.Date;
 import com.lucky.notionapi.model.page.Page;
+import com.lucky.notionapi.model.page.properties.type.DatePageProperties;
 import com.lucky.notionapi.model.page.properties.type.NumberPageProperties;
 import com.lucky.notionapi.model.page.properties.type.TitlePageProperties;
 import com.lucky.notionapi.model.parent.type.PageParent;
@@ -68,9 +70,13 @@ class PageServiceImplTest {
     void updatePageProperty() {
         UpdatePagePropertyRequestDao requestDao = new UpdatePagePropertyRequestDao();
         NumberPageProperties properties = new NumberPageProperties();
-        properties.setNumber(10);
+        properties.setNumber(30);
         properties.setCustomizeName("笔记数");
-        requestDao.setProperties(properties);
+        DatePageProperties datePageProperties = new DatePageProperties();
+        datePageProperties.setDate(new Date());
+        datePageProperties.getDate().setStart("2024-01-01");
+        datePageProperties.setCustomizeName("开始时间");
+        requestDao.setProperties(List.of(properties, datePageProperties));
         Page page = client.pageService().updatePageProperty("9fe91fc65d5f43edb3f26c9166caa79f", requestDao);
         System.out.println(page);
     }
