@@ -42,4 +42,8 @@ public class FormulaPageProperties extends AbstractPageProperties {
 
     }
 
+    public FormulaPageProperties() {
+        type = FORMULA;
+    }
+
 }

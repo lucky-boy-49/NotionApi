@@ -18,4 +18,8 @@ public class DatePageProperties extends AbstractPageProperties {
 
     private Date date;
 
+    public DatePageProperties() {
+        type = DATE;
+    }
+
 }

@@ -40,4 +40,8 @@ public class RollupPageProperties extends AbstractPageProperties {
 
     private ObjectNode unsupported;
 
+    public RollupPageProperties() {
+        type = ROLLUP;
+    }
+
 }

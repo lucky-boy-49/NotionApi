@@ -20,4 +20,8 @@ public class URLPageProperties extends AbstractPageProperties {
      */
     private String url;
 
+    public URLPageProperties() {
+        type = URL;
+    }
+
 }

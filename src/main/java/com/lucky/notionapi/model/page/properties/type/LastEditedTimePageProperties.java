@@ -23,4 +23,8 @@ public class LastEditedTimePageProperties extends AbstractPageProperties {
     @JsonProperty("last_edited_time")
     private String lastEditedTime;
 
+    public LastEditedTimePageProperties() {
+        type = LAST_EDITED_TIME;
+    }
+
 }

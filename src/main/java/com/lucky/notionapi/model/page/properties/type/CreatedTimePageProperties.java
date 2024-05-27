@@ -19,4 +19,8 @@ public class CreatedTimePageProperties extends AbstractPageProperties {
     @JsonProperty("created_time")
     private String createdTime;
 
+    public CreatedTimePageProperties() {
+        type = CREATED_TIME;
+    }
+
 }

@@ -24,4 +24,8 @@ public class LastEditedByPageProperties extends AbstractPageProperties {
     @JsonProperty("last_edited_by")
     private User lastEditedBy;
 
+    public LastEditedByPageProperties() {
+        type = LAST_EDITED_BY;
+    }
+
 }

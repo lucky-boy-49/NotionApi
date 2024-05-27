@@ -24,4 +24,8 @@ public class PeoplePageProperties extends AbstractPageProperties {
     @JsonProperty("people")
     private User[] people;
 
+    public PeoplePageProperties() {
+        type = PEOPLE;
+    }
+
 }

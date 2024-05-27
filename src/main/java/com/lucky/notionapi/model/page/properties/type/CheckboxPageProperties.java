@@ -20,4 +20,8 @@ public class CheckboxPageProperties extends AbstractPageProperties {
      */
     private Boolean checkbox;
 
+    public CheckboxPageProperties() {
+        type = CHECKBOX;
+    }
+
 }

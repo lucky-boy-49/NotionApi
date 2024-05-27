@@ -17,4 +17,8 @@ public class EmailPageProperties extends AbstractPageProperties {
 
     private String email;
 
+    public EmailPageProperties() {
+        type = EMAIL;
+    }
+
 }

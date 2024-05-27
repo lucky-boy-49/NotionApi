@@ -23,4 +23,8 @@ public class TitlePageProperties extends AbstractPageProperties {
      */
     private RichTextType[] title;
 
+    public TitlePageProperties() {
+        type = TITLE;
+    }
+
 }

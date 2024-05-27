@@ -23,4 +23,8 @@ public class FilePageProperties extends AbstractPageProperties {
      */
     private FileType[] files;
 
+    public FilePageProperties() {
+        type = FILES;
+    }
+
 }

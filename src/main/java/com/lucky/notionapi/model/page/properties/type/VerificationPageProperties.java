@@ -45,4 +45,8 @@ public class VerificationPageProperties extends AbstractPageProperties {
 
     }
 
+    public VerificationPageProperties() {
+        type = VERIFICATION;
+    }
+
 }

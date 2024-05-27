@@ -29,4 +29,8 @@ public class UniqueIDPageProperties extends AbstractPageProperties {
 
     }
 
+    public UniqueIDPageProperties() {
+        type = UNIQUE_ID;
+    }
+
 }

@@ -43,4 +43,8 @@ public class StatusPageProperties extends AbstractPageProperties {
 
     }
 
+    public StatusPageProperties() {
+        type = STATUS;
+    }
+
 }

@@ -31,4 +31,8 @@ public class RelationPageProperties extends AbstractPageProperties {
      */
     private Relation[] relation;
 
+    public RelationPageProperties() {
+        type = RELATION;
+    }
+
 }

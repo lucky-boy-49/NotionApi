@@ -19,4 +19,8 @@ public class PhoneNumberPageProperties extends AbstractPageProperties {
     @JsonProperty("phone_number")
     private String phoneNumber;
 
+    public PhoneNumberPageProperties() {
+        type = PEOPLE;
+    }
+
 }

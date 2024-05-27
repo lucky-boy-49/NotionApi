@@ -35,4 +35,8 @@ public class NumberPageProperties extends AbstractPageProperties {
 //
 //    }
 
+    public NumberPageProperties() {
+        type = NUMBER;
+    }
+
 }

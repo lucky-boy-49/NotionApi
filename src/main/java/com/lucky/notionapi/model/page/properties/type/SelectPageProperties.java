@@ -43,4 +43,8 @@ public class SelectPageProperties extends AbstractPageProperties {
 
     }
 
+    public SelectPageProperties() {
+        type = SELECT;
+    }
+
 }

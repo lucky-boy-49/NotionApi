@@ -24,4 +24,7 @@ public class CreatedByPageProperties extends AbstractPageProperties {
     @JsonProperty("created_by")
     private User createdBy;
 
+    public CreatedByPageProperties() {
+        type = CREATED_BY;
+    }
 }

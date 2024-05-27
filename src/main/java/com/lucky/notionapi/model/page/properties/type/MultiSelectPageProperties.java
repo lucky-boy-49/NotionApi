@@ -64,4 +64,8 @@ public class MultiSelectPageProperties extends AbstractPageProperties {
 
     }
 
+    public MultiSelectPageProperties() {
+        type = MULTI_SELECT;
+    }
+
 }

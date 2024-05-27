@@ -25,4 +25,8 @@ public class RichTextPageProperties extends AbstractPageProperties {
     @JsonProperty("rich_text")
     private RichTextType[] richText;
 
+    public RichTextPageProperties() {
+        type = RICH_TEXT;
+    }
+
 }
