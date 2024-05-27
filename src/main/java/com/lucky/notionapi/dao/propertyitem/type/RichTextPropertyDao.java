@@ -18,6 +18,6 @@ import lombok.EqualsAndHashCode;
 public class RichTextPropertyDao extends AbstractPropertyItem {
 
     @JsonProperty("rich_text")
-    private RichTextType[] richText;
+    private RichTextType richText;
 
 }

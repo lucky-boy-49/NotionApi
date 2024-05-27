@@ -2,6 +2,7 @@ package com.lucky.notionapi.dao.propertyitem;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.dao.PropertyItemDao;
 import lombok.Data;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class PaginatedProperty {
+public class PaginatedProperty implements PropertyItemDao {
 
     /**
      * 总是 "list" 。

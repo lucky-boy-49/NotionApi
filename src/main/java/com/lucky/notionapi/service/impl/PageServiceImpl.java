@@ -1,6 +1,7 @@
 package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.annotation.NotionException;
+import com.lucky.notionapi.dao.PropertyItemDao;
 import com.lucky.notionapi.model.page.Page;
 import com.lucky.notionapi.service.PageService;
 import com.lucky.notionapi.utils.ObjectMapperUtil;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -49,6 +51,16 @@ public class PageServiceImpl {
     public Page queryPage(String pageId, String[] filters) {
         PageService service = factory.createClient(PageService.class);
         ResponseEntity<Page> response = service.retrievePage(pageId, filters);
+        return Objects.requireNonNull(response.getBody());
+    }
+
+    @NotionException("读取页面属性项")
+    public PropertyItemDao retrievePagePropertyItem(String pageId, String propertyId, Map<String, String> params) {
+        if (params == null) {
+            params = Map.of();
+        }
+        PageService service = factory.createClient(PageService.class);
+        ResponseEntity<PropertyItemDao> response = service.retrievePagePropertyItem(pageId, propertyId, params);
         return Objects.requireNonNull(response.getBody());
     }
 

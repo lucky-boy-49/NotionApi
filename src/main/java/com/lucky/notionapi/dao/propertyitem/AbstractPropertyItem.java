@@ -1,6 +1,7 @@
 package com.lucky.notionapi.dao.propertyitem;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
@@ -28,5 +29,8 @@ public abstract class AbstractPropertyItem implements PropertyItem {
      * 属性的类型。可能的值:{@link PropertyItem}
      */
     protected String type;
+
+    @JsonProperty("next_url")
+    protected String nextUrl;
 
 }

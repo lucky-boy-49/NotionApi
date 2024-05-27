@@ -3,6 +3,7 @@ package com.lucky.notionapi.dao.propertyitem;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.lucky.notionapi.dao.PropertyItemDao;
 import com.lucky.notionapi.dao.propertyitem.type.*;
 
 import static com.lucky.notionapi.dao.propertyitem.PropertyItem.*;
@@ -35,7 +36,7 @@ import static com.lucky.notionapi.dao.propertyitem.PropertyItem.*;
         @Type(value = LastEditedTimePropertyDao.class, name = LAST_EDITED_TIME),
         @Type(value = LastEditedByPropertyDao.class, name = LAST_EDITED_BY),
 })
-public interface PropertyItem {
+public interface PropertyItem extends PropertyItemDao {
 
     /**
      * 标题属性值

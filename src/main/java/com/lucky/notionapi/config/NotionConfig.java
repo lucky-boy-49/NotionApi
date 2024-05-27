@@ -17,6 +17,7 @@ import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.support.WebClientAdapter;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
+import org.springframework.web.util.DefaultUriBuilderFactory;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.client.HttpClient;
 
@@ -63,6 +64,10 @@ public class NotionConfig {
      */
     @Bean()
     public HttpServiceProxyFactory httpServiceProxyFactory() {
+
+        DefaultUriBuilderFactory factory = new DefaultUriBuilderFactory(notionConfigProps.getBaseUrl());
+        factory.setEncodingMode(DefaultUriBuilderFactory.EncodingMode.NONE);
+
         Function<HttpClient, HttpClient> mapper = client -> client
                 // 设置响应超时时间
                 .responseTimeout(Duration.ofSeconds(30))
@@ -78,6 +83,7 @@ public class NotionConfig {
                 // 设置默认请求头
                 .defaultHeaders(httpHeaders -> httpHeaders.addAll(httpHeader()))
                 .clientConnector(connector)
+                .uriBuilderFactory(factory)
                 .filter(ExchangeFilterFunction.ofResponseProcessor(clientResponse -> {
                     if (clientResponse.statusCode().isError()) {
                         return clientResponse.bodyToMono(ErrorDao.class)

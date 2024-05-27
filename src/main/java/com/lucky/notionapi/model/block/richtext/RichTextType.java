@@ -12,7 +12,7 @@ import static com.lucky.notionapi.model.block.richtext.RichTextType.*;
 /**
  * @author jiahe
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, defaultImpl = TextRichText.class)
 @JsonSubTypes({
         @Type(value = TextRichText.class, name = TEXT),
         @Type(value = MentionRichText.class, name = MENTION),

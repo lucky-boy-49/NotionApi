@@ -1,6 +1,7 @@
 package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.NotionClient;
+import com.lucky.notionapi.dao.PropertyItemDao;
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
 import com.lucky.notionapi.model.block.richtext.type.TextRichText;
@@ -50,7 +51,14 @@ class PageServiceImplTest {
 
     @Test
     void queryPage() {
-        Page page = client.pageService().queryPage("89529312369f46cca58b3d98a4c15114", null);
+        Page page = client.pageService().queryPage("e3d2cad87e1d4f73b10cf6b56ea4e9a0", null);
         System.out.println(page);
+    }
+
+    @Test
+    void retrievePagePropertyItem() {
+        PropertyItemDao propertyItemDao = client.pageService().retrievePagePropertyItem("e3d2cad87e1d4f73b10cf6b56ea4e9a0",
+                "xx%3A%3C", null);
+        System.out.println(propertyItemDao);
     }
 }

@@ -65,7 +65,7 @@ public class NotionExceptionAspect {
     @AfterThrowing(pointcut = "pointcut()", throwing = "e")
     public void afterThrowable(Throwable e) {
         if (e instanceof NotionResponseException) {
-            log.error("notion请求异常：{}", ((NotionResponseException) e).getError().getMessage() + e.getMessage());
+            log.error("notion请求异常：{}", ((NotionResponseException) e).getError().getMessage() + ":" + e.getMessage());
         }
     }
 
