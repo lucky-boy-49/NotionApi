@@ -1,18 +1,11 @@
 package com.lucky.notionapi.model.comment;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
 import com.lucky.notionapi.model.parent.Parent;
 import com.lucky.notionapi.model.user.User;
 import lombok.Data;
-
-import java.time.LocalDateTime;
 
 /**
  * 评论·对象表示 Notion 页面或块上的注释。可以通过有权访问页面/块和正确功能的集成来查看或创建评论。<br>
@@ -34,16 +27,10 @@ public class Comment {
     private String discussionId;
 
     @JsonProperty("created_time")
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime createdTime;
+    private String createdTime;
 
     @JsonProperty("last_edited_time")
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime lastEditedTime;
+    private String lastEditedTime;
 
     @JsonProperty("created_by")
     private User createdBy;

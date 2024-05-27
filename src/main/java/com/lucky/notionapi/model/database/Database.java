@@ -1,12 +1,9 @@
 package com.lucky.notionapi.model.database;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
 import com.lucky.notionapi.model.database.properties.DatabaseProperties;
 import com.lucky.notionapi.model.file.FileType;
@@ -16,7 +13,6 @@ import com.lucky.notionapi.utils.serializer.DatabasePropertiesDeserializer;
 import com.lucky.notionapi.utils.serializer.DatabasePropertiesSerializer;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -42,10 +38,7 @@ public class Database {
      * 创建此数据库的日期和时间。格式为 ISO 8601 日期时间字符串。
      */
     @JsonProperty("created_time")
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime createdTime;
+    private String createdTime;
 
     /**
      * 创建数据库的用户。
@@ -57,10 +50,7 @@ public class Database {
      * 该数据库更新的日期和时间。格式为 ISO 8601 日期时间字符串。
      */
     @JsonProperty("last_edited_time")
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime lastEditedTime;
+    private String lastEditedTime;
 
     /**
      * 最后编辑数据库的用户。
