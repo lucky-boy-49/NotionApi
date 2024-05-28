@@ -74,7 +74,9 @@ public class PageServiceImpl {
     }
 
     /**
-     * 更新页面属性
+     * 更新页面属性<br>
+     * <p><b>注意：</b> 也可以用于删除页面（非永久删除），通过 API 删除页面，发送更新页面请求，并将 in_trash 主体参数设置为 true 。
+     * 要恢复页面，请将 in_trash 设置为 false 。</p>
      *
      * @param pageId     页面id
      * @param requestDao 修改数据
