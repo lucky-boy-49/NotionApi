@@ -34,6 +34,8 @@ import static com.lucky.notionapi.model.database.properties.DatabaseProperties.*
         @Type(value = StatusDatabaseProperties.class, name = STATUS),
         @Type(value = TitleDatabaseProperties.class, name = TITLE),
         @Type(value = URLDatabaseProperties.class, name = URL),
+        @Type(value = SinglePropertyRelationDatabaseProperties.class, name = SINGLE_PROPERTY),
+        @Type(value = DualPropertyRelationDatabaseProperties.class, name = DUAL_PROPERTY),
 })
 public interface DatabaseProperties {
 
@@ -118,5 +120,8 @@ public interface DatabaseProperties {
      */
     String URL = "url";
 
+    String SINGLE_PROPERTY = "single_property";
+
+    String DUAL_PROPERTY = "dual_property";
 
 }

@@ -21,6 +21,6 @@ public class TitleDatabaseProperties extends AbstractDatabaseProperties {
     /**
      * 富文本对象的数组。
      */
-    private RichTextType[] title;
+    private RichTextType title;
 
 }

@@ -1,6 +1,7 @@
 package com.lucky.notionapi.model.database.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.model.communal.Formula;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,16 +17,5 @@ import lombok.EqualsAndHashCode;
 public class FormulaDatabaseProperties extends AbstractDatabaseProperties {
 
     private Formula formula;
-
-    @Data
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public static class Formula {
-
-        /**
-         * 用于计算该属性值的公式。
-         */
-        private String expression;
-
-    }
 
 }

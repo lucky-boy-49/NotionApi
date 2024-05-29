@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Getter
 @RequiredArgsConstructor
-public enum Color {
+public enum ColorEnum {
 
     /**
      * 蓝色

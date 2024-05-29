@@ -3,7 +3,7 @@ package com.lucky.notionapi.service.impl;
 import com.lucky.notionapi.NotionClient;
 import com.lucky.notionapi.dao.BlockAddRequestDao;
 import com.lucky.notionapi.dao.BlockResponseDao;
-import com.lucky.notionapi.enumerate.Color;
+import com.lucky.notionapi.enumerate.ColorEnum;
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
 import com.lucky.notionapi.model.block.richtext.type.TextRichText;
@@ -59,7 +59,7 @@ class BlockServiceImplTest {
         textRichText.setText(new TextRichText.Text());
         textRichText.getText().setContent("notion追加测试项目符号列表项");
         bulletedListItem.setRichText(new RichTextType[]{textRichText});
-        bulletedListItem.setColor(Color.BLUE.getColor());
+        bulletedListItem.setColor(ColorEnum.BLUE.getColor());
         bulletedListItemBlock.setBulletedListItem(bulletedListItem);
         requestDao.setChildren(children);
         BlockResponseDao blockResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
@@ -77,7 +77,7 @@ class BlockServiceImplTest {
         textRichText.setText(new TextRichText.Text());
         textRichText.getText().setContent("notion追加标注");
         callout.setRichText(new RichTextType[]{textRichText});
-        callout.setColor(Color.BLUE.getColor());
+        callout.setColor(ColorEnum.BLUE.getColor());
         calloutBlock.setCallout(callout);
         requestDao.setChildren(children);
         BlockResponseDao blockResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");

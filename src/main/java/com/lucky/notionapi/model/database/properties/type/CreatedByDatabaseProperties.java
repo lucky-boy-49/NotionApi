@@ -2,6 +2,7 @@ package com.lucky.notionapi.model.database.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.model.communal.CreatedBy;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,11 +19,5 @@ public class CreatedByDatabaseProperties extends AbstractDatabaseProperties {
 
     @JsonProperty("created_by")
     private CreatedBy createdBy;
-
-    @Data
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public static class CreatedBy {
-
-    }
 
 }

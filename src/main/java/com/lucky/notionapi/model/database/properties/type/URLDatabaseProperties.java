@@ -1,6 +1,7 @@
 package com.lucky.notionapi.model.database.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.model.communal.URL;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,6 +19,6 @@ public class URLDatabaseProperties extends AbstractDatabaseProperties {
     /**
      * 描述网址的字符串。
      */
-    private String url;
+    private URL url;
 
 }

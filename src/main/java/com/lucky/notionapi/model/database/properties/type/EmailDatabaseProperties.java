@@ -1,6 +1,7 @@
 package com.lucky.notionapi.model.database.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.model.communal.Email;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,11 +17,5 @@ import lombok.EqualsAndHashCode;
 public class EmailDatabaseProperties extends AbstractDatabaseProperties {
 
     private Email email;
-
-    @Data
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public static class Email {
-
-    }
 
 }

@@ -1,7 +1,7 @@
 package com.lucky.notionapi.model.block.richtext;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.lucky.notionapi.enumerate.Color;
+import com.lucky.notionapi.enumerate.ColorEnum;
 import lombok.Data;
 
 /**
@@ -40,7 +40,7 @@ public class Annotation {
 
     /**
      * 文本的颜色。
-     * @see Color
+     * @see ColorEnum
      */
     private String color;
 

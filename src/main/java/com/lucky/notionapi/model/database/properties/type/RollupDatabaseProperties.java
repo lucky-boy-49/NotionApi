@@ -1,7 +1,7 @@
 package com.lucky.notionapi.model.database.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.model.communal.Rollup;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,40 +18,5 @@ import lombok.EqualsAndHashCode;
 public class RollupDatabaseProperties extends AbstractDatabaseProperties {
 
     private Rollup rollup;
-
-    @Data
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public static class Rollup {
-
-        /**
-         * 从相关页面计算汇总值的函数。
-         */
-        private String function;
-
-        /**
-         * 汇总的相关数据库属性的id 。
-         */
-        @JsonProperty("relation_property_id")
-        private String relationPropertyId;
-
-        /**
-         * 汇总的相关数据库属性的 name 。
-         */
-        @JsonProperty("relation_property_name")
-        private String relationPropertyName;
-
-        /**
-         * 汇总属性的 id 。
-         */
-        @JsonProperty("rollup_property_id")
-        private String rollupPropertyId;
-
-        /**
-         * 汇总属性的 name 。
-         */
-        @JsonProperty("rollup_property_name")
-        private String rollupPropertyName;
-
-    }
 
 }

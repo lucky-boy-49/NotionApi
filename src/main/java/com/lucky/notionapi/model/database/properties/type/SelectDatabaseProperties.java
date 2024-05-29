@@ -1,6 +1,7 @@
 package com.lucky.notionapi.model.database.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.model.communal.Select;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,34 +17,5 @@ import lombok.EqualsAndHashCode;
 public class SelectDatabaseProperties extends AbstractDatabaseProperties {
 
     private Select select;
-
-    @Data
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public static class Select {
-
-        private Options[] options;
-
-    }
-
-    @Data
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public static class Options {
-
-        /**
-         * Notion UI 中呈现的选项颜色。可能的值包括
-         */
-        private String color;
-
-        /**
-         * 选项的标识符。即使名称改变，它也不会改变。这些有时（但并非总是）是 UUID。
-         */
-        private String id;
-
-        /**
-         * 选项的名称出现在 Notion UI 中。
-         */
-        private String name;
-
-    }
 
 }

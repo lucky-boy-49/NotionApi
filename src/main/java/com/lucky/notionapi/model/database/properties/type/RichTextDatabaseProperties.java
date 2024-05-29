@@ -22,6 +22,6 @@ public class RichTextDatabaseProperties extends AbstractDatabaseProperties {
      * 富文本对象数组
      */
     @JsonProperty("rich_text")
-    private RichTextType[] richText;
+    private RichTextType richText;
 
 }

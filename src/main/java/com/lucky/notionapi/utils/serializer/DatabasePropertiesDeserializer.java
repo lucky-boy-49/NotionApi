@@ -37,7 +37,7 @@ public class DatabasePropertiesDeserializer extends JsonDeserializer<List<Databa
             }
             return databasePropertiesList;
         } catch (IOException e) {
-            log.error("反序列化页属性失败", e);
+            log.error("反序列化数据库属性失败", e);
         }
         return List.of();
     }

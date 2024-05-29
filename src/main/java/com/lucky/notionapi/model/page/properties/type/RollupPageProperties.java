@@ -1,6 +1,7 @@
 package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
@@ -39,6 +40,9 @@ public class RollupPageProperties extends AbstractPageProperties {
     private Integer number;
 
     private ObjectNode unsupported;
+
+    @JsonProperty("has_more")
+    private Boolean hasMore;
 
     public RollupPageProperties() {
         type = ROLLUP;
