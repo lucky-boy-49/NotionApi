@@ -5,12 +5,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.parent.AbstractParent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 页面父级
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PageParent extends AbstractParent {
@@ -21,9 +23,15 @@ public class PageParent extends AbstractParent {
     @JsonProperty("page_id")
     private String pageId;
 
-    public PageParent() {
-        // 始终为"page_id"
-        type = "page_id";
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public PageParent(Boolean initType) {
+        if (initType) {
+            type = "page_id";
+        }
     }
 
     @Override

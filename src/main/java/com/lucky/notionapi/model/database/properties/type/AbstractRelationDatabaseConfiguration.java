@@ -20,11 +20,11 @@ public abstract class AbstractRelationDatabaseConfiguration extends AbstractData
      * 此关系指向的数据库。该数据库必须与集成共享。
      */
     @JsonProperty("database_id")
-    private String databaseId;
+    protected String databaseId;
 
     /**
      * 关系的类型。可以是 "single_property" 或 "dual_property" 。
      */
-    private String type;
+    protected String type;
 
 }

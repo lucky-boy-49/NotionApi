@@ -18,6 +18,17 @@ public class IncompleteRollupProperty extends AbstractRollup {
 
     private Incomplete incomplete;
 
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public IncompleteRollupProperty(Boolean initType) {
+        if (initType) {
+            type = INCOMPLETE;
+        }
+    }
+
     @Data
     public static class Incomplete {
 

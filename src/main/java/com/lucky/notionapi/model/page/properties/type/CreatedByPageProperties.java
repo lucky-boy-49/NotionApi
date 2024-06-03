@@ -6,6 +6,7 @@ import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import com.lucky.notionapi.model.user.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 由...创建
@@ -13,6 +14,7 @@ import lombok.EqualsAndHashCode;
  * @author 贺佳
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CreatedByPageProperties extends AbstractPageProperties {
@@ -24,7 +26,15 @@ public class CreatedByPageProperties extends AbstractPageProperties {
     @JsonProperty("created_by")
     private User createdBy;
 
-    public CreatedByPageProperties() {
-        type = CREATED_BY;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public CreatedByPageProperties(Boolean initType) {
+        if (initType) {
+            type = CREATED_BY;
+        }
     }
+
 }

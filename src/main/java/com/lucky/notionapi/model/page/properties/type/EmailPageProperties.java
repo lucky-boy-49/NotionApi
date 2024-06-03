@@ -6,6 +6,7 @@ import com.lucky.notionapi.model.communal.Email;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 邮箱
@@ -13,6 +14,7 @@ import lombok.EqualsAndHashCode;
  * @author 贺佳
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmailPageProperties extends AbstractPageProperties {
@@ -29,8 +31,15 @@ public class EmailPageProperties extends AbstractPageProperties {
     @JsonProperty(value = "email", access = JsonProperty.Access.READ_ONLY)
     private Email emailObject;
 
-    public EmailPageProperties() {
-        type = EMAIL;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public EmailPageProperties(Boolean initType) {
+        if (initType) {
+            type = EMAIL;
+        }
     }
 
 }

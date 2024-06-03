@@ -6,6 +6,7 @@ import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import com.lucky.notionapi.model.user.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 人员数据库属性在 Notion UI 中呈现为包含人员提及的列。 people 类型对象为空；没有额外的配置。
@@ -13,6 +14,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PeopleDatabaseProperties extends AbstractDatabaseProperties {
@@ -22,5 +24,16 @@ public class PeopleDatabaseProperties extends AbstractDatabaseProperties {
      */
     @JsonProperty("people")
     private User[] people;
+
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public PeopleDatabaseProperties(Boolean initType) {
+        if (initType) {
+            type = PEOPLE;
+        }
+    }
 
 }

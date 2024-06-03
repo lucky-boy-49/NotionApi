@@ -6,6 +6,7 @@ import com.lucky.notionapi.model.block.richtext.RichTextType;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 富文本<br>
@@ -14,6 +15,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RichTextDatabaseProperties extends AbstractDatabaseProperties {
@@ -23,5 +25,16 @@ public class RichTextDatabaseProperties extends AbstractDatabaseProperties {
      */
     @JsonProperty("rich_text")
     private RichTextType richText;
+
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public RichTextDatabaseProperties(Boolean initType) {
+        if (initType) {
+            type = PHONE_NUMBER;
+        }
+    }
 
 }

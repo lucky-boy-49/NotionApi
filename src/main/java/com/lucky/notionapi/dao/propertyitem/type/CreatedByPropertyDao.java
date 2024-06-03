@@ -6,6 +6,7 @@ import com.lucky.notionapi.dao.propertyitem.AbstractPropertyItem;
 import com.lucky.notionapi.model.user.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 创建者属性值<br>
@@ -14,11 +15,23 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CreatedByPropertyDao extends AbstractPropertyItem {
 
     @JsonProperty("created_by")
     private User createdBy;
+
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public CreatedByPropertyDao(Boolean initType) {
+        if (initType) {
+            type = CREATED_BY;
+        }
+    }
 
 }

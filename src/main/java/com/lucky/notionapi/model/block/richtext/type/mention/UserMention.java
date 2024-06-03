@@ -2,6 +2,7 @@ package com.lucky.notionapi.model.block.richtext.type.mention;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 用户提及类型对象
@@ -11,6 +12,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserMention implements Mention {
 
@@ -18,8 +20,15 @@ public class UserMention implements Mention {
 
     private User user;
 
-    public UserMention() {
-        type = USER;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public UserMention(Boolean initType) {
+        if (initType) {
+            type = USER;
+        }
     }
 
     @Data

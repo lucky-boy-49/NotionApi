@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 唯一身份<br>
@@ -12,6 +13,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UniqueIDPageProperties extends AbstractPageProperties {
@@ -29,8 +31,15 @@ public class UniqueIDPageProperties extends AbstractPageProperties {
 
     }
 
-    public UniqueIDPageProperties() {
-        type = UNIQUE_ID;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public UniqueIDPageProperties(Boolean initType) {
+        if (initType) {
+            type = UNIQUE_ID;
+        }
     }
 
 }

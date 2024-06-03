@@ -6,6 +6,7 @@ import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import com.lucky.notionapi.model.user.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 无法保证检索页面端点为每个 people 页面属性返回超过 25 人。如果 people 页面属性包含超过 25 人，
@@ -14,6 +15,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PeoplePageProperties extends AbstractPageProperties {
@@ -24,8 +26,15 @@ public class PeoplePageProperties extends AbstractPageProperties {
     @JsonProperty("people")
     private User[] people;
 
-    public PeoplePageProperties() {
-        type = PEOPLE;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public PeoplePageProperties(Boolean initType) {
+        if (initType) {
+            type = PEOPLE;
+        }
     }
 
 }

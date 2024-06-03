@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 模板提及类型对象
@@ -15,6 +16,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TemplateMention implements Mention {
 
@@ -23,8 +25,15 @@ public class TemplateMention implements Mention {
     @JsonProperty("template_mention")
     private Template template;
 
-    public TemplateMention() {
-        type = TEMPLATE_MENTION;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public TemplateMention(Boolean initType) {
+        if (initType) {
+            type = TEMPLATE_MENTION;
+        }
     }
 
     @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, property = "type")

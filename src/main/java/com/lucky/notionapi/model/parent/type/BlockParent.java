@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.parent.AbstractParent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 块父级
@@ -12,6 +13,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BlockParent extends AbstractParent {
@@ -22,15 +24,20 @@ public class BlockParent extends AbstractParent {
     @JsonProperty("block_id")
     private String blockId;
 
-    public BlockParent() {
-        /*
-          始终为“block_id”
-         */
-        type = "block_id";
-    }
-
     @Override
     public String getType() {
         return type;
     }
+
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public BlockParent(Boolean initType) {
+        if (initType) {
+            type = "block_id";
+        }
+    }
+
 }

@@ -5,12 +5,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.parent.AbstractParent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 数据库父级
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DatabaseParent extends AbstractParent {
@@ -21,9 +23,15 @@ public class DatabaseParent extends AbstractParent {
     @JsonProperty("database_id")
     private String databaseId;
 
-    public DatabaseParent() {
-        // 始终为"database_id"
-        type = "database_id";
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public DatabaseParent(Boolean initType) {
+        if (initType) {
+            type = "database_id";
+        }
     }
 
     @Override

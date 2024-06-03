@@ -5,6 +5,7 @@ import com.lucky.notionapi.model.block.richtext.RichTextType;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 标题<br>
@@ -14,6 +15,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TitleDatabaseProperties extends AbstractDatabaseProperties {
@@ -22,5 +24,16 @@ public class TitleDatabaseProperties extends AbstractDatabaseProperties {
      * 富文本对象的数组。
      */
     private RichTextType title;
+
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public TitleDatabaseProperties(Boolean initType) {
+        if (initType) {
+            type = TITLE;
+        }
+    }
 
 }

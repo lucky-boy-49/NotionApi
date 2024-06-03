@@ -3,6 +3,7 @@ package com.lucky.notionapi.model.block.richtext.type.mention;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.communal.Date;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 日期提及类型对象
@@ -10,6 +11,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DateMention implements Mention {
 
@@ -17,8 +19,15 @@ public class DateMention implements Mention {
 
     private Date date;
 
-    public DateMention() {
-        type = DATE;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public DateMention(Boolean initType) {
+        if (initType) {
+            type = DATE;
+        }
     }
 
 }

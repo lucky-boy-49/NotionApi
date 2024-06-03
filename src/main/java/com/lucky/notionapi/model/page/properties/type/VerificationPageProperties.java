@@ -5,6 +5,7 @@ import com.lucky.notionapi.model.communal.Verification;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 认证<br>
@@ -14,14 +15,22 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class VerificationPageProperties extends AbstractPageProperties {
 
     private Verification verification;
 
-    public VerificationPageProperties() {
-        type = VERIFICATION;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public VerificationPageProperties(Boolean initType) {
+        if (initType) {
+            type = VERIFICATION;
+        }
     }
 
 }

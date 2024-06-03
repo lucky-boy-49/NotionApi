@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 复选框
@@ -11,6 +12,7 @@ import lombok.EqualsAndHashCode;
  * @author 贺佳
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CheckboxPageProperties extends AbstractPageProperties {
@@ -20,8 +22,15 @@ public class CheckboxPageProperties extends AbstractPageProperties {
      */
     private Boolean checkbox;
 
-    public CheckboxPageProperties() {
-        type = CHECKBOX;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public CheckboxPageProperties(Boolean initType) {
+        if (initType) {
+            type = CHECKBOX;
+        }
     }
 
 }

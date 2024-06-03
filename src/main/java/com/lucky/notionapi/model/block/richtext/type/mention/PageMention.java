@@ -2,6 +2,7 @@ package com.lucky.notionapi.model.block.richtext.type.mention;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 页面提及类型对象
@@ -10,6 +11,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PageMention implements Mention {
 
@@ -17,8 +19,15 @@ public class PageMention implements Mention {
 
     private Page page;
 
-    public PageMention() {
-        type = PAGE;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public PageMention(Boolean initType) {
+        if (initType) {
+            type = PAGE;
+        }
     }
 
     @Data

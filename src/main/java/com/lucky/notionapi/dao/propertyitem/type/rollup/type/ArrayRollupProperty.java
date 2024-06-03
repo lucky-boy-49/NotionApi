@@ -19,4 +19,15 @@ public class ArrayRollupProperty extends AbstractRollup {
 
     private PropertyItem[] results;
 
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public ArrayRollupProperty(Boolean initType) {
+        if (initType) {
+            type = ARRAY;
+        }
+    }
+
 }

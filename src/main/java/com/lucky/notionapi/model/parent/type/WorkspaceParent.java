@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.parent.AbstractParent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 工作区父级
@@ -11,6 +12,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class WorkspaceParent extends AbstractParent {
@@ -20,9 +22,15 @@ public class WorkspaceParent extends AbstractParent {
      */
     private final String workspace = "true";
 
-    public WorkspaceParent() {
-        // 始终为“workspace”
-        type = "workspace";
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public WorkspaceParent(Boolean initType) {
+        if (initType) {
+            type = "workspace";
+        }
     }
 
     @Override

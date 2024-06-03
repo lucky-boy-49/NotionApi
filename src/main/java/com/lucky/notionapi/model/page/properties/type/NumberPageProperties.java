@@ -6,6 +6,7 @@ import com.lucky.notionapi.model.communal.NumberFormat;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 数字
@@ -13,6 +14,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class NumberPageProperties extends AbstractPageProperties {
@@ -29,8 +31,15 @@ public class NumberPageProperties extends AbstractPageProperties {
     @JsonProperty(value = "number", access = JsonProperty.Access.WRITE_ONLY)
     private NumberFormat number2;
 
-    public NumberPageProperties() {
-        type = NUMBER;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public NumberPageProperties(Boolean initType) {
+        if (initType) {
+            type = NUMBER;
+        }
     }
 
 }

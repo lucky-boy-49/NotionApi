@@ -7,6 +7,7 @@ import com.lucky.notionapi.model.communal.Options;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 选择<br>
@@ -14,6 +15,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StatusDatabaseProperties extends AbstractDatabaseProperties {
@@ -59,6 +61,17 @@ public class StatusDatabaseProperties extends AbstractDatabaseProperties {
         @JsonProperty("option_ids")
         private String[] optionIds;
 
+    }
+
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public StatusDatabaseProperties(Boolean initType) {
+        if (initType) {
+            type = STATUS;
+        }
     }
 
 }

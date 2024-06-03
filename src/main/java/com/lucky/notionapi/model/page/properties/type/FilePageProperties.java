@@ -5,6 +5,7 @@ import com.lucky.notionapi.model.file.FileType;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 文件
@@ -14,6 +15,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FilePageProperties extends AbstractPageProperties {
@@ -23,8 +25,15 @@ public class FilePageProperties extends AbstractPageProperties {
      */
     private FileType[] files;
 
-    public FilePageProperties() {
-        type = FILES;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public FilePageProperties(Boolean initType) {
+        if (initType) {
+            type = FILES;
+        }
     }
 
 }

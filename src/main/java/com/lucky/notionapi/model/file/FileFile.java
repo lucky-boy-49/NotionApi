@@ -4,12 +4,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 文件对象包含有关上传到 Notion 的文件的数据，或有关链接到 Notion 的外部文件的数据。
  * @author 贺佳
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FileFile extends AbstractFile {
@@ -28,6 +30,17 @@ public class FileFile extends AbstractFile {
         @JsonProperty("expiry_time")
         private String expiryTime;
 
+    }
+
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public FileFile(Boolean initType) {
+        if (initType) {
+            type = FILE;
+        }
     }
 
 }

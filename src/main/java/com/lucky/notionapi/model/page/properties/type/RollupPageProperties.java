@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RollupPageProperties extends AbstractPageProperties {
@@ -44,8 +46,15 @@ public class RollupPageProperties extends AbstractPageProperties {
     @JsonProperty("has_more")
     private Boolean hasMore;
 
-    public RollupPageProperties() {
-        type = ROLLUP;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public RollupPageProperties(Boolean initType) {
+        if (initType) {
+            type = ROLLUP;
+        }
     }
 
 }

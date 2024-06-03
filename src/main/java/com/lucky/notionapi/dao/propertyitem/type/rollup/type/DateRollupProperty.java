@@ -19,4 +19,15 @@ public class DateRollupProperty extends AbstractRollup {
 
     private Date date;
 
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public DateRollupProperty(Boolean initType) {
+        if (initType) {
+            type = DATE;
+        }
+    }
+
 }

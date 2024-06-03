@@ -6,6 +6,7 @@ import com.lucky.notionapi.model.communal.Relation;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 关系<br>
@@ -15,6 +16,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RelationPageProperties extends AbstractPageProperties {
@@ -31,8 +33,15 @@ public class RelationPageProperties extends AbstractPageProperties {
      */
     private Relation[] relation;
 
-    public RelationPageProperties() {
-        type = RELATION;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public RelationPageProperties(Boolean initType) {
+        if (initType) {
+            type = RELATION;
+        }
     }
 
 }

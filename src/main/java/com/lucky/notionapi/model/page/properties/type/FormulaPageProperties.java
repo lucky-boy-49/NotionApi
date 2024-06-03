@@ -5,6 +5,7 @@ import com.lucky.notionapi.model.communal.Formula;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 公式
@@ -13,14 +14,22 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FormulaPageProperties extends AbstractPageProperties {
 
     private Formula formula;
 
-    public FormulaPageProperties() {
-        type = FORMULA;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public FormulaPageProperties(Boolean initType) {
+        if (initType) {
+            type = FORMULA;
+        }
     }
 
 }

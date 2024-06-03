@@ -18,4 +18,15 @@ public class NumberRollupProperty extends AbstractRollup {
 
     private Integer number;
 
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public NumberRollupProperty(Boolean initType) {
+        if (initType) {
+            type = NUMBER;
+        }
+    }
+
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.block.richtext.AbstractRichText;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 富文本类型对象:方程
@@ -11,6 +12,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EquationRichText extends AbstractRichText {
@@ -20,8 +22,15 @@ public class EquationRichText extends AbstractRichText {
      */
     private Equation equation;
 
-    public EquationRichText() {
-        type = EQUATION;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public EquationRichText(Boolean initType) {
+        if (initType) {
+            type = EQUATION;
+        }
     }
 
     @Data

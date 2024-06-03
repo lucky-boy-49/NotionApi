@@ -6,6 +6,7 @@ import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import com.lucky.notionapi.model.user.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 最后编辑者
@@ -13,6 +14,7 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LastEditedByPageProperties extends AbstractPageProperties {
@@ -24,8 +26,15 @@ public class LastEditedByPageProperties extends AbstractPageProperties {
     @JsonProperty("last_edited_by")
     private User lastEditedBy;
 
-    public LastEditedByPageProperties() {
-        type = LAST_EDITED_BY;
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public LastEditedByPageProperties(Boolean initType) {
+        if (initType) {
+            type = LAST_EDITED_BY;
+        }
     }
 
 }

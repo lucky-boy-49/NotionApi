@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.dao.propertyitem.AbstractPropertyItem;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 创建时间属性值<br>
@@ -13,11 +14,23 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CreatedTimePropertyDao extends AbstractPropertyItem {
 
     @JsonProperty("created_time")
     private String createdTime;
+
+    /**
+     * 根据{@code initType}情况是否初始化{@code type}
+     *
+     * @param initType 是否初始化{@code type}
+     */
+    public CreatedTimePropertyDao(Boolean initType) {
+        if (initType) {
+            type = CREATE_TIME;
+        }
+    }
 
 }
