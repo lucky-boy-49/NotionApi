@@ -25,21 +25,19 @@ class DatabaseServiceImplTest {
 
         // 父类信息
         PageParent parent = new PageParent();
-        parent.setPageId("917417f5eef647a6b151a67d1345aaea");
+        parent.setPageId("89529312369f46cca58b3d98a4c15114");
         body.setParent(parent);
 
         // 标题
         TextRichText title = new TextRichText();
         title.setText(new TextRichText.Text());
-        title.getText().setContent("数据库测试");
+        title.getText().setContent("数据库测试2");
         body.setTitle(new RichTextType[]{title});
 
         // 属性
         TextRichText text = new TextRichText();
-        text.setText(new TextRichText.Text());
-        text.getText().setContent("HJ");
         TitleDatabaseProperties titleDatabaseProperties = new TitleDatabaseProperties();
-        titleDatabaseProperties.setTitle(new RichTextType[]{text});
+        titleDatabaseProperties.setTitle(text);
         titleDatabaseProperties.setCustomizeName("作者");
         body.setProperties(List.of(titleDatabaseProperties));
 

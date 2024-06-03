@@ -26,7 +26,8 @@ public class DatabaseServiceImpl {
     @NotionException("创建数据库")
     public Database createDatabase(DatabaseDao body) {
         DatabaseService client = factory.createClient(DatabaseService.class);
-        ResponseEntity<Database> response = client.createDatabase(ObjectMapperUtil.toJson(body));
+        String bodyJson = ObjectMapperUtil.toJson(body);
+        ResponseEntity<Database> response = client.createDatabase(bodyJson);
         return response.getBody();
     }
 
