@@ -21,7 +21,8 @@ import static com.lucky.notionapi.dao.propertyitem.type.rollup.Rollup.*;
  *
  * @author jiahe
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, defaultImpl = NumberRollupProperty.class)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, defaultImpl = NumberRollupProperty.class,
+        include = JsonTypeInfo.As.EXISTING_PROPERTY)
 @JsonSubTypes({
         @Type(value = NumberRollupProperty.class, name = NUMBER),
         @Type(value = DateRollupProperty.class, name = DATE),

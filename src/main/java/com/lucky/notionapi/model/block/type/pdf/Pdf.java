@@ -8,7 +8,7 @@ import com.lucky.notionapi.model.block.BlockType;
 /**
  * @author 贺佳
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, include = JsonTypeInfo.As.EXISTING_PROPERTY)
 @JsonSubTypes({
         @Type(value = ExternalPDF.class, name = "external"),
         @Type(value = FilePDF.class, name = "file"),

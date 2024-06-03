@@ -22,7 +22,8 @@ import static com.lucky.notionapi.model.block.BlockType.*;
  *
  * @author jiahe
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, defaultImpl = BookmarkBlock.class)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, defaultImpl = BookmarkBlock.class,
+        include = JsonTypeInfo.As.EXISTING_PROPERTY)
 @JsonSubTypes({
         @Type(value = BookmarkBlock.class, name = BOOKMARK),
         @Type(value = BreadcrumbBlock.class, name = BREADCRUMB),

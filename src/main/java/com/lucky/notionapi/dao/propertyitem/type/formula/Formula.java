@@ -16,7 +16,8 @@ import static com.lucky.notionapi.dao.propertyitem.type.formula.Formula.*;
  *
  * @author jiahe
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, defaultImpl = StringFormulaProperty.class)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, defaultImpl = StringFormulaProperty.class,
+        include = JsonTypeInfo.As.EXISTING_PROPERTY)
 @JsonSubTypes({
         @Type(value = StringFormulaProperty.class, name = STRING),
         @Type(value = NumberFormulaProperty.class, name = NUMBER),

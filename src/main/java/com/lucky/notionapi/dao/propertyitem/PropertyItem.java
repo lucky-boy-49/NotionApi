@@ -14,7 +14,8 @@ import static com.lucky.notionapi.dao.propertyitem.PropertyItem.*;
  *
  * @author jiahe
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, defaultImpl = TitlePropertyDao.class)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, defaultImpl = TitlePropertyDao.class,
+        include = JsonTypeInfo.As.EXISTING_PROPERTY)
 @JsonSubTypes({
         @Type(value = TitlePropertyDao.class, name = TITLE),
         @Type(value = RichTextPropertyDao.class, name = RICH_TEXT),

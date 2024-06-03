@@ -11,7 +11,7 @@ import static com.lucky.notionapi.model.page.properties.PageProperties.*;
  *
  * @author 贺佳
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, include = JsonTypeInfo.As.EXISTING_PROPERTY)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = CheckboxPageProperties.class, name = CHECKBOX),
         @JsonSubTypes.Type(value = CreatedByPageProperties.class, name = CREATED_BY),

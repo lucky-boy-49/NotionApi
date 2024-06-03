@@ -12,7 +12,7 @@ import static com.lucky.notionapi.model.database.properties.DatabaseProperties.*
  *
  * @author jiahe
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, include = JsonTypeInfo.As.EXISTING_PROPERTY)
 @JsonSubTypes({
         @Type(value = CheckboxDatabaseProperties.class, name = CHECKBOX),
         @Type(value = CreatedByDatabaseProperties.class, name = CREATED_BY),
