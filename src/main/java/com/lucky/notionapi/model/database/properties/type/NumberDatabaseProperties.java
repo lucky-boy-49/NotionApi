@@ -23,7 +23,7 @@ public class NumberDatabaseProperties extends AbstractDatabaseProperties {
     /**
      * 数字格式
      */
-    private NumberFormat number2;
+    private NumberFormat number;
 
     /**
      * 根据{@code initType}情况是否初始化{@code type}

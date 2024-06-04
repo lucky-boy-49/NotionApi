@@ -15,6 +15,6 @@ import lombok.EqualsAndHashCode;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class NumberPropertyDao extends AbstractPropertyItem {
 
-    private Integer number;
+    private Number number;
 
 }
