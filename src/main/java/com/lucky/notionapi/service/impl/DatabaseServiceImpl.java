@@ -2,6 +2,8 @@ package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.annotation.NotionException;
 import com.lucky.notionapi.dao.DatabaseDao;
+import com.lucky.notionapi.dao.QueryDatabaseDao;
+import com.lucky.notionapi.dto.QueryDatabaseDto;
 import com.lucky.notionapi.model.database.Database;
 import com.lucky.notionapi.service.DatabaseService;
 import com.lucky.notionapi.utils.ObjectMapperUtil;
@@ -28,6 +30,14 @@ public class DatabaseServiceImpl {
         DatabaseService client = factory.createClient(DatabaseService.class);
         String bodyJson = ObjectMapperUtil.toJson(body);
         ResponseEntity<Database> response = client.createDatabase(bodyJson);
+        return response.getBody();
+    }
+
+    @NotionException("查询数据库")
+    public QueryDatabaseDto queryDatabase(String databaseId, QueryDatabaseDao body) {
+        DatabaseService client = factory.createClient(DatabaseService.class);
+        String bodyJson = ObjectMapperUtil.toJson(body);
+        ResponseEntity<QueryDatabaseDto> response = client.queryDatabase(databaseId, bodyJson);
         return response.getBody();
     }
 

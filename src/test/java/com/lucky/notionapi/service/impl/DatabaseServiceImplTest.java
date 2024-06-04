@@ -2,10 +2,14 @@ package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.NotionClient;
 import com.lucky.notionapi.dao.DatabaseDao;
+import com.lucky.notionapi.dao.QueryDatabaseDao;
+import com.lucky.notionapi.dto.QueryDatabaseDto;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
 import com.lucky.notionapi.model.block.richtext.type.TextRichText;
 import com.lucky.notionapi.model.database.Database;
+import com.lucky.notionapi.model.database.filter.conditions.RelationFilter;
 import com.lucky.notionapi.model.database.properties.type.TitleDatabaseProperties;
+import com.lucky.notionapi.model.database.sort.PropertySort;
 import com.lucky.notionapi.model.parent.type.PageParent;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +46,25 @@ class DatabaseServiceImplTest {
         body.setProperties(List.of(titleDatabaseProperties));
 
         Database result = client.databaseService().createDatabase(body);
+        System.out.println(result);
+    }
+
+    @Test
+    void queryDatabase() {
+        QueryDatabaseDao body = new QueryDatabaseDao();
+        body.setStartCursor("7727107a-cad7-44e6-89ba-6ebdce1ab848");
+        body.setPageSize(1);
+        RelationFilter filter = new RelationFilter();
+        filter.setProperty("父任务");
+        filter.setRelation(new RelationFilter.RelationConditions());
+        filter.getRelation().setContains("a4b40cf6-e9e8-4e20-bac6-932bbb80748d");
+        body.setFilter(filter);
+        PropertySort sort = new PropertySort();
+        sort.setProperty("最后编写时间");
+        sort.setDirection("descending");
+        body.setSorts(List.of(sort).toArray(new PropertySort[0]));
+
+        QueryDatabaseDto result = client.databaseService().queryDatabase("18b5c7f05ce04ffeb4c329b5bb71a7e3", body);
         System.out.println(result);
     }
 }
