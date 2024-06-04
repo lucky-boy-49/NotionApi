@@ -3,6 +3,7 @@ package com.lucky.notionapi.service.impl;
 import com.lucky.notionapi.annotation.Notion;
 import com.lucky.notionapi.dao.DatabaseDao;
 import com.lucky.notionapi.dao.QueryDatabaseDao;
+import com.lucky.notionapi.dao.UpdateDatabaseDao;
 import com.lucky.notionapi.dto.QueryDatabaseDto;
 import com.lucky.notionapi.model.database.Database;
 import com.lucky.notionapi.service.DatabaseService;
@@ -64,6 +65,14 @@ public class DatabaseServiceImpl {
     public Database retrieveDatabase(String databaseId) {
         DatabaseService client = factory.createClient(DatabaseService.class);
         ResponseEntity<Database> response = client.retrieveDatabase(databaseId);
+        return response.getBody();
+    }
+
+    @Notion("更新数据库")
+    public Database updateDatabase(String databaseId, UpdateDatabaseDao body) {
+        DatabaseService client = factory.createClient(DatabaseService.class);
+        String bodyJson = ObjectMapperUtil.toJson(body);
+        ResponseEntity<Database> response = client.updateDatabase(databaseId, bodyJson);
         return response.getBody();
     }
 

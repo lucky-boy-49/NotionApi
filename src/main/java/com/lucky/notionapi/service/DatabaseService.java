@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;
+import org.springframework.web.service.annotation.PatchExchange;
 import org.springframework.web.service.annotation.PostExchange;
 
 /**
@@ -49,5 +50,15 @@ public interface DatabaseService {
      */
     @GetExchange("{databaseId}")
     ResponseEntity<Database> retrieveDatabase(@PathVariable String databaseId);
+
+    /**
+     * 更新指定数据库的数据库对象（标题、说明或属性）。
+     *
+     * @param dataBaseId 数据库id
+     * @param body       数据库更新内容
+     * @return 数据库信息
+     */
+    @PatchExchange("{dataBaseId}")
+    ResponseEntity<Database> updateDatabase(@PathVariable String dataBaseId, @RequestBody String body);
 
 }

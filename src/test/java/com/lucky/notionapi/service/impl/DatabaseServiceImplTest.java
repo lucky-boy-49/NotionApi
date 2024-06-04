@@ -3,11 +3,13 @@ package com.lucky.notionapi.service.impl;
 import com.lucky.notionapi.NotionClient;
 import com.lucky.notionapi.dao.DatabaseDao;
 import com.lucky.notionapi.dao.QueryDatabaseDao;
+import com.lucky.notionapi.dao.UpdateDatabaseDao;
 import com.lucky.notionapi.dto.QueryDatabaseDto;
 import com.lucky.notionapi.model.block.richtext.RichTextType;
 import com.lucky.notionapi.model.block.richtext.type.TextRichText;
 import com.lucky.notionapi.model.database.Database;
 import com.lucky.notionapi.model.database.filter.conditions.RelationFilter;
+import com.lucky.notionapi.model.database.properties.type.RichTextDatabaseProperties;
 import com.lucky.notionapi.model.database.properties.type.TitleDatabaseProperties;
 import com.lucky.notionapi.model.database.sort.PropertySort;
 import com.lucky.notionapi.model.parent.type.PageParent;
@@ -69,8 +71,19 @@ class DatabaseServiceImplTest {
     }
 
     @Test
-    void searchDatabase() {
+    void retrieveDatabase() {
         Database result = client.databaseService().retrieveDatabase("917417f5eef647a6b151a67d1345aaea");
+        System.out.println(result);
+    }
+
+    @Test
+    void updateDatabase() {
+        UpdateDatabaseDao body = new UpdateDatabaseDao();
+        RichTextDatabaseProperties properties = new RichTextDatabaseProperties();
+        properties.setRichText(new TextRichText());
+        properties.setCustomizeName("Rt%40_");
+        body.setProperties(List.of(properties));
+        Database result = client.databaseService().updateDatabase("69056df24f404d79ae5a0e83ef435f17", body);
         System.out.println(result);
     }
 }
