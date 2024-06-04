@@ -2,7 +2,7 @@ package com.lucky.notionapi.aop;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lucky.notionapi.annotation.NotionException;
+import com.lucky.notionapi.annotation.Notion;
 import com.lucky.notionapi.exception.NotionResponseException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
 public class NotionExceptionAspect {
 
     //设置切入点：这里直接拦截被@NotionException
-    @Pointcut("@annotation(com.lucky.notionapi.annotation.NotionException)")
+    @Pointcut("@annotation(com.lucky.notionapi.annotation.Notion)")
     public void pointcut() {
     }
 
@@ -36,7 +36,7 @@ public class NotionExceptionAspect {
     public void before(JoinPoint joinPoint) {
         MethodSignature sign = (MethodSignature) joinPoint.getSignature();
         Method method = sign.getMethod();
-        NotionException annotation = method.getAnnotation(NotionException.class);
+        Notion annotation = method.getAnnotation(Notion.class);
         Object[] args = joinPoint.getArgs();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -50,7 +50,7 @@ public class NotionExceptionAspect {
     public void after(JoinPoint joinPoint, Object returnValue) {
         MethodSignature sign = (MethodSignature) joinPoint.getSignature();
         Method method = sign.getMethod();
-        NotionException annotation = method.getAnnotation(NotionException.class);
+        Notion annotation = method.getAnnotation(Notion.class);
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             log.info("{}的执行结果-->{}", annotation.value(), objectMapper.writeValueAsString(returnValue));

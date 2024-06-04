@@ -1,6 +1,6 @@
 package com.lucky.notionapi.service.impl;
 
-import com.lucky.notionapi.annotation.NotionException;
+import com.lucky.notionapi.annotation.Notion;
 import com.lucky.notionapi.dao.PropertyItemDao;
 import com.lucky.notionapi.dao.UpdatePagePropertyRequestDao;
 import com.lucky.notionapi.model.page.Page;
@@ -34,7 +34,7 @@ public class PageServiceImpl {
      * @param page 页面数据
      * @return 页面数据
      */
-    @NotionException("创建页面")
+    @Notion("创建页面")
     public Page createPage(Page page) {
         PageService service = factory.createClient(PageService.class);
         ResponseEntity<Page> response = service.createPage(ObjectMapperUtil.toJson(page));
@@ -48,7 +48,7 @@ public class PageServiceImpl {
      * @param filters 过滤条件
      * @return 页面数据
      */
-    @NotionException("检索页面")
+    @Notion("检索页面")
     public Page queryPage(String pageId, String[] filters) {
         PageService service = factory.createClient(PageService.class);
         ResponseEntity<Page> response = service.retrievePage(pageId, filters);
@@ -63,7 +63,7 @@ public class PageServiceImpl {
      * @param params     分页参数
      * @return 属性项数据
      */
-    @NotionException("获取页面属性项")
+    @Notion("获取页面属性项")
     public PropertyItemDao retrievePagePropertyItem(String pageId, String propertyId, Map<String, String> params) {
         if (params == null) {
             params = Map.of();
@@ -82,7 +82,7 @@ public class PageServiceImpl {
      * @param requestDao 修改数据
      * @return 页面数据
      */
-    @NotionException("更新页面属性")
+    @Notion("更新页面属性")
     public Page updatePageProperty(String pageId, UpdatePagePropertyRequestDao requestDao) {
         String body = ObjectMapperUtil.toJson(requestDao);
         PageService service = factory.createClient(PageService.class);

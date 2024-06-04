@@ -1,6 +1,6 @@
 package com.lucky.notionapi.service.impl;
 
-import com.lucky.notionapi.annotation.NotionException;
+import com.lucky.notionapi.annotation.Notion;
 import com.lucky.notionapi.dao.DatabaseDao;
 import com.lucky.notionapi.dao.QueryDatabaseDao;
 import com.lucky.notionapi.dto.QueryDatabaseDto;
@@ -25,7 +25,13 @@ public class DatabaseServiceImpl {
 
     private final HttpServiceProxyFactory factory;
 
-    @NotionException("创建数据库")
+    /**
+     * 创建数据库
+     *
+     * @param body 数据库信息
+     * @return 数据库信息
+     */
+    @Notion("创建数据库")
     public Database createDatabase(DatabaseDao body) {
         DatabaseService client = factory.createClient(DatabaseService.class);
         String bodyJson = ObjectMapperUtil.toJson(body);
@@ -33,11 +39,31 @@ public class DatabaseServiceImpl {
         return response.getBody();
     }
 
-    @NotionException("查询数据库")
+    /**
+     * 查询数据库
+     *
+     * @param databaseId 数据库id
+     * @param body       查询条件
+     * @return 数据库信息
+     */
+    @Notion("查询数据库")
     public QueryDatabaseDto queryDatabase(String databaseId, QueryDatabaseDao body) {
         DatabaseService client = factory.createClient(DatabaseService.class);
         String bodyJson = ObjectMapperUtil.toJson(body);
         ResponseEntity<QueryDatabaseDto> response = client.queryDatabase(databaseId, bodyJson);
+        return response.getBody();
+    }
+
+    /**
+     * 检索数据库
+     *
+     * @param databaseId 数据库id
+     * @return 数据库信息
+     */
+    @Notion("检索数据库")
+    public Database retrieveDatabase(String databaseId) {
+        DatabaseService client = factory.createClient(DatabaseService.class);
+        ResponseEntity<Database> response = client.retrieveDatabase(databaseId);
         return response.getBody();
     }
 

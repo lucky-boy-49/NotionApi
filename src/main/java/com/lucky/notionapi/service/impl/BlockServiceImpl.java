@@ -1,6 +1,6 @@
 package com.lucky.notionapi.service.impl;
 
-import com.lucky.notionapi.annotation.NotionException;
+import com.lucky.notionapi.annotation.Notion;
 import com.lucky.notionapi.dao.BlockAddRequestDao;
 import com.lucky.notionapi.dao.BlockResponseDao;
 import com.lucky.notionapi.model.block.AbstractBlock;
@@ -40,7 +40,7 @@ public class BlockServiceImpl {
      * @param blockId    块的标识符。还接受页面 ID。
      * @return 一级子块对象的分页列表
      */
-    @NotionException("追加块子项")
+    @Notion("追加块子项")
     public BlockResponseDao appendBlockChildren(BlockAddRequestDao requestDao, String blockId) {
         String body = ObjectMapperUtil.toJson(requestDao);
         BlockService service = factory.createClient(BlockService.class);
@@ -58,7 +58,7 @@ public class BlockServiceImpl {
      * @param blockId  块的标识符。还接受页面 ID。
      * @return 一级子块对象的分页列表
      */
-    @NotionException("追加块子项")
+    @Notion("追加块子项")
     public BlockResponseDao appendBlockChildren(String bodyJson, String blockId) {
         BlockService service = factory.createClient(BlockService.class);
         ResponseEntity<BlockResponseDao> response = service.appendBlockChildren(bodyJson, blockId);
@@ -71,7 +71,7 @@ public class BlockServiceImpl {
      * @param blockId 块的标识符。
      * @return 块对象
      */
-    @NotionException("检索一个块")
+    @Notion("检索一个块")
     public BlockType retrieveBlock(String blockId) {
         BlockService service = factory.createClient(BlockService.class);
         ResponseEntity<BlockType> response = service.retrieveBlock(blockId);
@@ -88,7 +88,7 @@ public class BlockServiceImpl {
      * @param pageSize    分页的大小。
      * @return 一级子块对象的分页列表
      */
-    @NotionException("检索块的子块")
+    @Notion("检索块的子块")
     public BlockResponseDao retrieveBlockChildren(String blockId, @Nullable String startCursor, @Nullable Integer pageSize) {
         Map<String, Object> params = new HashMap<>();
         if (startCursor != null) {
@@ -111,7 +111,7 @@ public class BlockServiceImpl {
      * @param block 更新的块内容
      * @return 更新后的块对象
      */
-    @NotionException("更新块内容")
+    @Notion("更新块内容")
     public BlockType updateBlock(String blockId, AbstractBlock block) {
         String body = ObjectMapperUtil.toJson(block);
         BlockService service = factory.createClient(BlockService.class);
@@ -125,7 +125,7 @@ public class BlockServiceImpl {
      * @param blockId 块id
      * @return 块信息
      */
-    @NotionException("删除块")
+    @Notion("删除块")
     public BlockType deleteBlock(String blockId) {
         BlockService service = factory.createClient(BlockService.class);
         ResponseEntity<BlockType> response = service.deleteBlock(blockId);

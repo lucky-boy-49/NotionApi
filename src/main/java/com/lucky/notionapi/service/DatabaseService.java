@@ -5,6 +5,7 @@ import com.lucky.notionapi.model.database.Database;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;
 import org.springframework.web.service.annotation.PostExchange;
 
@@ -39,5 +40,14 @@ public interface DatabaseService {
      */
     @PostExchange("{databaseId}/query")
     ResponseEntity<QueryDatabaseDto> queryDatabase(@PathVariable String databaseId, @RequestBody String body);
+
+    /**
+     * 为提供的数据库 ID 检索数据库对象（描述数据库结构和列的信息）。响应符合集成功能的任何限制。
+     *
+     * @param databaseId 数据库id
+     * @return 数据库信息
+     */
+    @GetExchange("{databaseId}")
+    ResponseEntity<Database> retrieveDatabase(@PathVariable String databaseId);
 
 }

@@ -67,4 +67,10 @@ class DatabaseServiceImplTest {
         QueryDatabaseDto result = client.databaseService().queryDatabase("18b5c7f05ce04ffeb4c329b5bb71a7e3", body);
         System.out.println(result);
     }
+
+    @Test
+    void searchDatabase() {
+        Database result = client.databaseService().retrieveDatabase("917417f5eef647a6b151a67d1345aaea");
+        System.out.println(result);
+    }
 }
