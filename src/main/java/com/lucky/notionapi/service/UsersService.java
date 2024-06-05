@@ -37,4 +37,12 @@ public interface UsersService {
     @GetExchange("/{user_id}")
     ResponseEntity<User> retrieveUser(@PathVariable(value = "user_id") String userId);
 
+    /**
+     * 读取与授权头中提供的 API 标记相关联的机器人用户。机器人将有一个 owner 字段，其中包含授权集成者的信息。
+     *
+     * @return 机器人用户信息
+     */
+    @GetExchange("/me")
+    ResponseEntity<User> retrieveTokenBotUser();
+
 }

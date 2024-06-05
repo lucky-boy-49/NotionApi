@@ -24,4 +24,10 @@ class UsersServiceImplTest {
         User response = client.usersService().retrieveUser("5a4cbcce-93a6-4afe-a55e-397188bf40ca");
         System.out.println(response);
     }
+
+    @Test
+    void retrieveTokenBotUser() {
+        User response = client.usersService().retrieveTokenBotUser();
+        System.out.println(response);
+    }
 }
