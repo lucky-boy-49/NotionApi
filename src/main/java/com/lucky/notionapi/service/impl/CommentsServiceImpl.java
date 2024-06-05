@@ -1,7 +1,9 @@
 package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.annotation.Notion;
+import com.lucky.notionapi.dao.CreateCommentDao;
 import com.lucky.notionapi.dto.RetrieveCommentsDto;
+import com.lucky.notionapi.model.comment.Comment;
 import com.lucky.notionapi.service.CommentsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,9 +31,21 @@ public class CommentsServiceImpl {
      * @return 评论列表
      */
     @Notion("检索评论")
-    RetrieveCommentsDto retrieveComments(String blockId, String startCursor, Integer pageSize) {
+    public RetrieveCommentsDto retrieveComments(String blockId, String startCursor, Integer pageSize) {
         CommentsService client = factory.createClient(CommentsService.class);
         return client.retrieveComments(blockId, startCursor, pageSize).getBody();
+    }
+
+    /**
+     * 创建评论
+     *
+     * @param body 评论内容
+     * @return 评论信息
+     */
+    @Notion("创建评论")
+    public Comment createComment(CreateCommentDao body) {
+        CommentsService client = factory.createClient(CommentsService.class);
+        return client.createComment(body).getBody();
     }
 
 }
