@@ -29,6 +29,8 @@ public class NotionClientConfig {
 
     private final CommentsServiceImpl commentsService;
 
+    private final SearchServiceImpl searchService;
+
     /**
      * 初始化 NotionClient
      *
@@ -36,7 +38,8 @@ public class NotionClientConfig {
      */
     @Bean
     public NotionClient notionClient() {
-        return new NotionClient(authenticateService, blockService, pageService, databaseService, usersService, commentsService);
+        return new NotionClient(authenticateService, blockService, pageService, databaseService, usersService,
+                commentsService, searchService);
     }
 
 }

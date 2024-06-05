@@ -7,13 +7,13 @@ import com.lucky.notionapi.model.PageOrDatabase;
 import lombok.Data;
 
 /**
- * 查询数据库结果对象
+ * 搜索DTO
  *
  * @author jiahe
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class QueryDatabaseDto {
+public class SearchDto {
 
     private String object;
 
