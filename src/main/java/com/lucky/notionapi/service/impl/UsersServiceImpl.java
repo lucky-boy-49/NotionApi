@@ -46,6 +46,11 @@ public class UsersServiceImpl {
         return client.retrieveUser(userId).getBody();
     }
 
+    /**
+     * 读取令牌的机器人用户
+     *
+     * @return 用户信息
+     */
     @Notion("读取令牌的机器人用户")
     public User retrieveTokenBotUser() {
         UsersService client = factory.createClient(UsersService.class);
