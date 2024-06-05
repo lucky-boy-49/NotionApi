@@ -2,6 +2,7 @@ package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.annotation.Notion;
 import com.lucky.notionapi.dto.ListAllUsersDto;
+import com.lucky.notionapi.model.user.User;
 import com.lucky.notionapi.service.UsersService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +32,18 @@ public class UsersServiceImpl {
     public ListAllUsersDto listAllUsers(String startCursor, Integer pageSize) {
         UsersService client = factory.createClient(UsersService.class);
         return client.listAllUsers(startCursor, pageSize).getBody();
+    }
+
+    /**
+     * 检索用户
+     *
+     * @param userId 用户id
+     * @return 用户信息
+     */
+    @Notion("检索用户")
+    public User retrieveUser(String userId) {
+        UsersService client = factory.createClient(UsersService.class);
+        return client.retrieveUser(userId).getBody();
     }
 
 }

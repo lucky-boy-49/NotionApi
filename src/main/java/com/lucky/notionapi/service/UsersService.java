@@ -1,7 +1,9 @@
 package com.lucky.notionapi.service;
 
 import com.lucky.notionapi.dto.ListAllUsersDto;
+import com.lucky.notionapi.model.user.User;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -25,5 +27,14 @@ public interface UsersService {
     @GetExchange
     ResponseEntity<ListAllUsersDto> listAllUsers(@RequestParam(value = "start_cursor", required = false) String startCursor,
                                                  @RequestParam(value = "start_cursor", required = false) Integer pageSize);
+
+    /**
+     * 使用指定的 ID 检索用户。
+     *
+     * @param userId 用户 ID
+     * @return 用户信息
+     */
+    @GetExchange("/{user_id}")
+    ResponseEntity<User> retrieveUser(@PathVariable(value = "user_id") String userId);
 
 }
