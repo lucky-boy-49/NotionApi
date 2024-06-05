@@ -1,0 +1,20 @@
+package com.lucky.notionapi.service.impl;
+
+import com.lucky.notionapi.NotionClient;
+import com.lucky.notionapi.dto.ListAllUsersDto;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class UsersServiceImplTest {
+
+    @Autowired
+    private NotionClient client;
+
+    @Test
+    void listAllUsers() {
+        ListAllUsersDto response = client.usersService().listAllUsers(null, null);
+        System.out.println(response);
+    }
+}
