@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 import java.util.Objects;
@@ -27,7 +28,7 @@ public class AuthenticateServiceImpl {
      * @param requestDao 请求参数
      * @return 响应结果
      */
-    public AuthenticateResponseDao createToken(AuthenticateRequestDao requestDao) {
+    public AuthenticateResponseDao createToken(@Validated AuthenticateRequestDao requestDao) {
         log.info("创建Token：{}", requestDao.toString());
         AuthenticateService service = factory.createClient(AuthenticateService.class);
         ResponseEntity<AuthenticateResponseDao> token = service.createToken(requestDao);

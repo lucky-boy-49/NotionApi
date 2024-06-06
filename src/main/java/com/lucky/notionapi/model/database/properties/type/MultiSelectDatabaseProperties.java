@@ -2,9 +2,12 @@ package com.lucky.notionapi.model.database.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.communal.MultiSelect;
 import com.lucky.notionapi.model.communal.Options;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -25,11 +28,13 @@ public class MultiSelectDatabaseProperties extends AbstractDatabaseProperties {
      * 更新时使用
      */
     @JsonProperty(value = "multi_select", access = JsonProperty.Access.READ_ONLY)
+    @Size(max = NotionConfig.ANY_MULTI_SELECT_SIZE, message = NotionConfig.ANY_MULTI_SELECT_MESSAGE)
     private Options[] options;
 
     /**
      * 获取时使用
      */
+    @Valid
     @JsonProperty(value = "multi_select", access = JsonProperty.Access.WRITE_ONLY)
     private MultiSelect multiSelect;
 

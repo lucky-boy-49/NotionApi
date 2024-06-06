@@ -35,6 +35,87 @@ import java.util.function.Function;
 @EnableConfigurationProperties(NotionConfigProperties.class)
 public class NotionConfig {
 
+    /**
+     * 富文本对象内容限制
+     */
+    public static final int TEXT_CONTENT_SIZE = 2000;
+    /**
+     * 富文本对象内容限制
+     */
+    public static final String TEXT_CONTENT_MESSAGE = "富文本对象内容不超过2000个字符";
+    /**
+     * 富文本对象链接限制
+     */
+    public static final int TEXT_LINK_URL_SIZE = 2000;
+    /**
+     * 富文本对象链接限制
+     */
+    public static final String TEXT_LINK_URL_MESSAGE = "富文本对象的链接不超过2000个字符";
+    /**
+     * 数学公式限制
+     */
+    public static final int EQUATION_EXPRESSION_SIZE = 1000;
+    /**
+     * 数学公式限制
+     */
+    public static final String EQUATION_EXPRESSION_MESSAGE = "数学公式对象的表达式不超过1000个字符";
+    /**
+     * 块类型的任意数组限制，包括富文本对象
+     */
+    public static final int BLOCK_ARRAY_SIZE = 100;
+    /**
+     * 块类型的任意数组限制，包括富文本对象
+     */
+    public static final String BLOCK_ARRAY_MESSAGE = "所有块类型的任意数组，包括富文本对象，数组不超过100个";
+    /**
+     * 任何URL限制
+     */
+    public static final int ANY_URL_SIZE = 2000;
+    /**
+     * 任何URL限制
+     */
+    public static final String ANY_URL_MESSAGE = "任何URL不能超过2000个字符";
+    /**
+     * 任何电子邮件限制
+     */
+    public static final int ANY_EMAIL_SIZE = 200;
+    /**
+     * 任何电子邮件限制
+     */
+    public static final String ANY_EMAIL_MESSAGE = "任何电子邮件不能超过200个字符";
+    /**
+     * 如何电话号码限制
+     */
+    public static final int ANY_PHONE_NUMBER_SIZE = 200;
+    /**
+     * 如何电话号码限制
+     */
+    public static final String ANY_PHONE_NUMBER_MESSAGE = "任何电话号码不能超过200个字符";
+    /**
+     * 任何多选限制
+     */
+    public static final int ANY_MULTI_SELECT_SIZE = 100;
+    /**
+     * 任何多选限制
+     */
+    public static final String ANY_MULTI_SELECT_MESSAGE = "任何多选不能超过100个选项";
+    /**
+     * 任何关系限制
+     */
+    public static final int ANY_RELATION_SIZE = 100;
+    /**
+     * 任何关系限制
+     */
+    public static final String ANY_RELATION_MESSAGE = "任何关系不能超过100个关系";
+    /**
+     * 任何人限制
+     */
+    public static final int ANY_PEOPLE_SIZE = 100;
+    /**
+     * 任何人限制
+     */
+    public static final String ANY_PEOPLE_MESSAGE = "任何人不能超过100个用户";
+
     private final NotionConfigProperties notionConfigProps;
 
     /**

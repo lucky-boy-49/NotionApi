@@ -3,7 +3,6 @@ package com.lucky.notionapi.model.block;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.lucky.notionapi.model.block.richtext.type.mention.Mention;
 import com.lucky.notionapi.model.block.type.*;
 import com.lucky.notionapi.model.block.type.heading.HeadingBlock1;
 import com.lucky.notionapi.model.block.type.heading.HeadingBlock2;
@@ -12,6 +11,7 @@ import com.lucky.notionapi.model.block.type.pdf.Pdf;
 import com.lucky.notionapi.model.block.type.syncedblock.AbstractSyncedBlock;
 import com.lucky.notionapi.model.block.type.table.AbstractTableBlock;
 import com.lucky.notionapi.model.block.type.video.Video;
+import com.lucky.notionapi.model.communal.richtext.type.mention.Mention;
 
 import static com.lucky.notionapi.model.block.BlockType.*;
 

@@ -2,8 +2,10 @@ package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.communal.Email;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -23,6 +25,7 @@ public class EmailPageProperties extends AbstractPageProperties {
      * 在获取页面请求中返回的 email 页面属性值
      */
     @JsonProperty(value = "email", access = JsonProperty.Access.WRITE_ONLY)
+    @Size(max = NotionConfig.ANY_EMAIL_SIZE, message = NotionConfig.ANY_EMAIL_MESSAGE)
     private String email;
 
     /**

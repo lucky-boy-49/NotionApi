@@ -1,6 +1,9 @@
-package com.lucky.notionapi.model.block.richtext.type.mention;
+package com.lucky.notionapi.model.communal.richtext.type.mention;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.config.NotionConfig;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,6 +20,7 @@ public class LinkPreviewMention implements Mention {
 
     private String type;
 
+    @Valid
     private LinkPreview linkPreview;
 
     /**
@@ -34,6 +38,7 @@ public class LinkPreviewMention implements Mention {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class LinkPreview {
 
+        @Size(max = NotionConfig.ANY_EMAIL_SIZE, message = NotionConfig.ANY_EMAIL_MESSAGE)
         private String url;
 
     }

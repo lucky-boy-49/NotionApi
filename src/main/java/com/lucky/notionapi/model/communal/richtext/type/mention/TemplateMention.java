@@ -1,4 +1,4 @@
-package com.lucky.notionapi.model.block.richtext.type.mention;
+package com.lucky.notionapi.model.communal.richtext.type.mention;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

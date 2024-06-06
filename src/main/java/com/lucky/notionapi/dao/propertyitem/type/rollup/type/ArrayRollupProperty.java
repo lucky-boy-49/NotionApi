@@ -1,8 +1,10 @@
 package com.lucky.notionapi.dao.propertyitem.type.rollup.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.dao.propertyitem.PropertyItem;
 import com.lucky.notionapi.dao.propertyitem.type.rollup.AbstractRollup;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,6 +19,7 @@ import lombok.EqualsAndHashCode;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ArrayRollupProperty extends AbstractRollup {
 
+    @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
     private PropertyItem[] results;
 
     /**

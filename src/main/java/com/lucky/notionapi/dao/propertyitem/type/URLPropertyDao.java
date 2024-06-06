@@ -1,7 +1,9 @@
 package com.lucky.notionapi.dao.propertyitem.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.dao.propertyitem.AbstractPropertyItem;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,6 +18,7 @@ import lombok.EqualsAndHashCode;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class URLPropertyDao extends AbstractPropertyItem {
 
+    @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
     private String url;
 
 }

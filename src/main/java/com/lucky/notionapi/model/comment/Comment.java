@@ -2,9 +2,11 @@ package com.lucky.notionapi.model.comment;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.config.NotionConfig;
+import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import com.lucky.notionapi.model.parent.Parent;
 import com.lucky.notionapi.model.user.User;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 /**
@@ -36,6 +38,7 @@ public class Comment {
     private User createdBy;
 
     @JsonProperty("rich_text")
+    @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
     private RichTextType[] richText;
 
 }

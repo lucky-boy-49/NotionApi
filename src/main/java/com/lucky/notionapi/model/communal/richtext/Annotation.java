@@ -1,4 +1,4 @@
-package com.lucky.notionapi.model.block.richtext;
+package com.lucky.notionapi.model.communal.richtext;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.enumerate.ColorEnum;

@@ -1,7 +1,9 @@
-package com.lucky.notionapi.model.block.richtext.type;
+package com.lucky.notionapi.model.communal.richtext.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.lucky.notionapi.model.block.richtext.AbstractRichText;
+import com.lucky.notionapi.config.NotionConfig;
+import com.lucky.notionapi.model.communal.richtext.AbstractRichText;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -37,6 +39,7 @@ public class EquationRichText extends AbstractRichText {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Equation {
 
+        @Size(max = NotionConfig.EQUATION_EXPRESSION_SIZE, message = NotionConfig.EQUATION_EXPRESSION_MESSAGE)
         private String expression;
 
     }

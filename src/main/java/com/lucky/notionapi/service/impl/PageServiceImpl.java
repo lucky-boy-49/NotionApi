@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 import java.util.Map;
@@ -35,7 +36,7 @@ public class PageServiceImpl {
      * @return 页面数据
      */
     @Notion("创建页面")
-    public Page createPage(Page page) {
+    public Page createPage(@Validated Page page) {
         PageService service = factory.createClient(PageService.class);
         ResponseEntity<Page> response = service.createPage(ObjectMapperUtil.toJson(page));
         return Objects.requireNonNull(response.getBody());
@@ -83,7 +84,7 @@ public class PageServiceImpl {
      * @return 页面数据
      */
     @Notion("更新页面属性")
-    public Page updatePageProperty(String pageId, UpdatePagePropertyRequestDao requestDao) {
+    public Page updatePageProperty(String pageId, @Validated UpdatePagePropertyRequestDao requestDao) {
         String body = ObjectMapperUtil.toJson(requestDao);
         PageService service = factory.createClient(PageService.class);
         ResponseEntity<Page> response = service.updatePageProperties(pageId, body);

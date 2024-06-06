@@ -2,7 +2,10 @@ package com.lucky.notionapi.dao;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.block.BlockType;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 /**
@@ -22,6 +25,8 @@ public class BlockResponseDao {
     /**
      * 块结果
      */
+    @Valid
+    @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
     private BlockType[] results;
 
     /**
@@ -44,6 +49,7 @@ public class BlockResponseDao {
     /**
      * 当前块内容
      */
+    @Valid
     private BlockType block;
 
 }

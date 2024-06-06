@@ -1,8 +1,11 @@
 package com.lucky.notionapi.model.block.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.block.AbstractBlock;
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.model.communal.richtext.RichTextType;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -19,6 +22,7 @@ public class BookmarkBlock extends AbstractBlock {
     /**
      * 书签对象
      */
+    @Valid
     private Bookmark bookmark;
 
     public BookmarkBlock() {
@@ -32,11 +36,13 @@ public class BookmarkBlock extends AbstractBlock {
         /**
          * 富文本对象数组
          */
+        @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
         private RichTextType[] caption;
 
         /**
          * 书签的链接
          */
+        @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
         private String url;
 
     }

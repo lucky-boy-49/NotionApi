@@ -1,7 +1,9 @@
 package com.lucky.notionapi.dao.propertyitem.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.dao.propertyitem.AbstractPropertyItem;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -18,6 +20,7 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmailPropertyDao extends AbstractPropertyItem {
 
+    @Size(max = NotionConfig.ANY_EMAIL_SIZE, message = NotionConfig.ANY_EMAIL_MESSAGE)
     private String email;
 
     /**

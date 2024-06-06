@@ -8,6 +8,7 @@ import com.lucky.notionapi.service.CommentsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 /**
@@ -43,7 +44,7 @@ public class CommentsServiceImpl {
      * @return 评论信息
      */
     @Notion("创建评论")
-    public Comment createComment(CreateCommentDao body) {
+    public Comment createComment(@Validated CreateCommentDao body) {
         CommentsService client = factory.createClient(CommentsService.class);
         return client.createComment(body).getBody();
     }

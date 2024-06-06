@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.lucky.notionapi.model.PageOrDatabase;
+import jakarta.validation.Valid;
 import lombok.Data;
 
 /**
@@ -17,6 +18,7 @@ public class SearchDto {
 
     private String object;
 
+    @Valid
     private PageOrDatabase[] results;
 
     @JsonProperty("next_cursor")

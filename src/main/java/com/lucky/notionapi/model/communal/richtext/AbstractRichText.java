@@ -1,7 +1,9 @@
-package com.lucky.notionapi.model.block.richtext;
+package com.lucky.notionapi.model.communal.richtext;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 /**
@@ -34,6 +36,7 @@ public abstract class AbstractRichText implements RichTextType {
     /**
      * 本文中提到的任何链接或概念的 URL（如果有）。
      */
+    @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
     protected String href;
 
 }

@@ -1,7 +1,9 @@
 package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,7 @@ public class URLPageProperties extends AbstractPageProperties {
     /**
      * 描述网址的字符串。
      */
+    @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
     private String url;
 
     /**

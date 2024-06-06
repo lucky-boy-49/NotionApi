@@ -1,13 +1,13 @@
-package com.lucky.notionapi.model.block.richtext;
+package com.lucky.notionapi.model.communal.richtext;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.lucky.notionapi.model.block.richtext.type.EquationRichText;
-import com.lucky.notionapi.model.block.richtext.type.MentionRichText;
-import com.lucky.notionapi.model.block.richtext.type.TextRichText;
+import com.lucky.notionapi.model.communal.richtext.type.EquationRichText;
+import com.lucky.notionapi.model.communal.richtext.type.MentionRichText;
+import com.lucky.notionapi.model.communal.richtext.type.TextRichText;
 
-import static com.lucky.notionapi.model.block.richtext.RichTextType.*;
+import static com.lucky.notionapi.model.communal.richtext.RichTextType.*;
 
 /**
  * @author jiahe

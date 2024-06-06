@@ -4,14 +4,17 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.PageOrDatabase;
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import com.lucky.notionapi.model.database.properties.DatabaseProperties;
 import com.lucky.notionapi.model.file.FileType;
 import com.lucky.notionapi.model.parent.Parent;
 import com.lucky.notionapi.model.user.User;
 import com.lucky.notionapi.utils.serializer.DatabasePropertiesDeserializer;
 import com.lucky.notionapi.utils.serializer.DatabasePropertiesSerializer;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.util.List;
@@ -62,21 +65,25 @@ public class Database implements PageOrDatabase {
     /**
      * Notion 中显示的数据库名称。
      */
+    @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
     private RichTextType[] title;
 
     /**
      * Notion 中出现的数据库描述。
      */
+    @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
     private RichTextType[] description;
 
     /**
      * 页面图标。
      */
+    @Valid
     private FileType icon;
 
     /**
      * 页面封面图片。
      */
+    @Valid
     private FileType cover;
 
     /**
@@ -94,6 +101,7 @@ public class Database implements PageOrDatabase {
     /**
      * Notion 数据库的 URL。
      */
+    @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
     private String url;
 
     /**
@@ -112,6 +120,7 @@ public class Database implements PageOrDatabase {
      * 公共页面 URL（如果页面已发布到网络）。否则， null 。
      */
     @JsonProperty("public_url")
+    @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
     private String publicUrl;
 
 }

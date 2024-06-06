@@ -2,7 +2,7 @@ package com.lucky.notionapi.model.block.richtext.type;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lucky.notionapi.model.block.richtext.type.mention.Mention;
+import com.lucky.notionapi.model.communal.richtext.type.mention.Mention;
 import org.junit.jupiter.api.Test;
 
 

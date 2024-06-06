@@ -3,10 +3,11 @@ package com.lucky.notionapi.dao;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import com.lucky.notionapi.model.database.properties.DatabaseProperties;
 import com.lucky.notionapi.utils.serializer.DatabasePropertiesDeserializer;
 import com.lucky.notionapi.utils.serializer.DatabasePropertiesSerializer;
+import jakarta.validation.Valid;
 import lombok.Data;
 
 import java.util.List;
@@ -23,11 +24,13 @@ public class UpdateDatabaseDao {
     /**
      * 一个富文本对象数组，表示在 Notion UI 中显示的数据库标题。如果省略，则数据库标题保持不变。
      */
+    @Valid
     private RichTextType title;
 
     /**
      * 一个富文本对象数组，表示在 Notion UI 中显示的数据库描述。如果省略，则数据库说明保持不变。
      */
+    @Valid
     private RichTextType description;
 
     /**
@@ -48,6 +51,7 @@ public class UpdateDatabaseDao {
      * 如果要更改属性的公式，请将其键设置为要更改的属性的名称或 ID，并将其值设置为新属性公式。
      * <p>
      */
+    @Valid
     @JsonSerialize(using = DatabasePropertiesSerializer.class)
     @JsonDeserialize(using = DatabasePropertiesDeserializer.class)
     private List<DatabaseProperties> properties;

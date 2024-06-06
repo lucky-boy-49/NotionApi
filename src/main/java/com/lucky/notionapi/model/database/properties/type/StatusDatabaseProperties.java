@@ -2,9 +2,12 @@ package com.lucky.notionapi.model.database.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.enumerate.ColorEnum;
 import com.lucky.notionapi.model.communal.Options;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -20,14 +23,17 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StatusDatabaseProperties extends AbstractDatabaseProperties {
 
+    @Valid
     private Status status;
 
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Status {
 
+        @Size(max = NotionConfig.ANY_MULTI_SELECT_SIZE, message = NotionConfig.ANY_MULTI_SELECT_MESSAGE)
         private Options[] options;
 
+        @Size(max = NotionConfig.ANY_MULTI_SELECT_SIZE, message = NotionConfig.ANY_MULTI_SELECT_MESSAGE)
         private Groups[] groups;
 
     }

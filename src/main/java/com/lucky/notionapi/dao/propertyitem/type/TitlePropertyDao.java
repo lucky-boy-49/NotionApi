@@ -2,7 +2,8 @@ package com.lucky.notionapi.dao.propertyitem.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.dao.propertyitem.AbstractPropertyItem;
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.model.communal.richtext.RichTextType;
+import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,6 +22,7 @@ public class TitlePropertyDao extends AbstractPropertyItem {
      *
      * @see RichTextType
      */
+    @Valid
     private RichTextType title;
 
 }

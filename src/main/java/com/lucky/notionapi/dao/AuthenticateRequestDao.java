@@ -2,6 +2,8 @@ package com.lucky.notionapi.dao;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 /**
@@ -29,6 +31,7 @@ public class AuthenticateRequestDao {
      * 中未包含 "redirect_uri" 查询参数，请勿包含此字段。在大多数情况下，该字段是必需的。
      */
     @JsonProperty("redirect_uri")
+    @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
     private String redirectUri;
 
     private ExternalAccount externalAccount;

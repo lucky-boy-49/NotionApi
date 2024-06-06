@@ -2,6 +2,9 @@ package com.lucky.notionapi.model.file;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -19,12 +22,14 @@ public class FileFile extends AbstractFile {
     /**
      * 包含特定于类型的配置的对象。对于外部文件，对于 Notion 托管的文件，对象的键是 file 。
      */
+    @Valid
     private File file;
 
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class File {
 
+        @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
         private String url;
 
         @JsonProperty("expiry_time")

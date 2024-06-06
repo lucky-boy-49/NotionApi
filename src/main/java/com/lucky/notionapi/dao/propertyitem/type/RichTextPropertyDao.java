@@ -3,7 +3,8 @@ package com.lucky.notionapi.dao.propertyitem.type;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.dao.propertyitem.AbstractPropertyItem;
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.model.communal.richtext.RichTextType;
+import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,6 +18,7 @@ import lombok.EqualsAndHashCode;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RichTextPropertyDao extends AbstractPropertyItem {
 
+    @Valid
     @JsonProperty("rich_text")
     private RichTextType richText;
 

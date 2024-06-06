@@ -3,6 +3,7 @@ package com.lucky.notionapi.model.database.properties.type;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.communal.Select;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
+import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SelectDatabaseProperties extends AbstractDatabaseProperties {
 
+    @Valid
     private Select select;
 
     /**

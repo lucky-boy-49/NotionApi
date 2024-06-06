@@ -2,7 +2,10 @@ package com.lucky.notionapi.dao.propertyitem;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.dao.PropertyItemDao;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.util.List;
@@ -30,11 +33,13 @@ public class PaginatedProperty implements PropertyItemDao {
     /**
      * property_item 对象列表。
      */
+    @Valid
     private List<PropertyItem> results;
 
     /**
      * 描述属性的 property_item 对象。
      */
+    @Valid
     @JsonProperty("property_item")
     private PropertyItem propertyItem;
 
@@ -42,6 +47,7 @@ public class PaginatedProperty implements PropertyItemDao {
      * 用户可以请求获取下一页结果的 URL。
      */
     @JsonProperty("next_url")
+    @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
     private String nextUrl;
 
     /**

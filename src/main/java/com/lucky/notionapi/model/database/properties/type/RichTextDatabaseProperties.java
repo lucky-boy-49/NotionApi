@@ -2,8 +2,9 @@ package com.lucky.notionapi.model.database.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
+import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class RichTextDatabaseProperties extends AbstractDatabaseProperties {
     /**
      * 富文本对象数组
      */
+    @Valid
     @JsonProperty("rich_text")
     private RichTextType richText;
 

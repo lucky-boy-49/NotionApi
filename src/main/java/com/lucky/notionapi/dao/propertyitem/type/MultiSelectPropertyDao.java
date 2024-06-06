@@ -2,8 +2,10 @@ package com.lucky.notionapi.dao.propertyitem.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.dao.propertyitem.AbstractPropertyItem;
 import com.lucky.notionapi.enumerate.ColorEnum;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,6 +20,7 @@ import lombok.EqualsAndHashCode;
 public class MultiSelectPropertyDao extends AbstractPropertyItem {
 
     @JsonProperty("multi_select")
+    @Size(max = NotionConfig.ANY_MULTI_SELECT_SIZE, message = NotionConfig.ANY_MULTI_SELECT_MESSAGE)
     private MultiSelect[] multiSelect;
 
     @Data

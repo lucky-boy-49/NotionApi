@@ -1,7 +1,10 @@
-package com.lucky.notionapi.model.block.richtext.type;
+package com.lucky.notionapi.model.communal.richtext.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.lucky.notionapi.model.block.richtext.AbstractRichText;
+import com.lucky.notionapi.config.NotionConfig;
+import com.lucky.notionapi.model.communal.richtext.AbstractRichText;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -16,6 +19,7 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TextRichText extends AbstractRichText {
 
+    @Valid
     private Text text;
 
     /**
@@ -33,14 +37,17 @@ public class TextRichText extends AbstractRichText {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Text {
 
+        @Size(max = NotionConfig.TEXT_CONTENT_SIZE, message = NotionConfig.TEXT_CONTENT_MESSAGE)
         private String content;
 
+        @Valid
         private Link link;
 
         @Data
         @JsonInclude(JsonInclude.Include.NON_NULL)
         public static class Link {
 
+            @Size(max = NotionConfig.TEXT_LINK_URL_SIZE, message = NotionConfig.TEXT_LINK_URL_MESSAGE)
             private String url;
 
         }

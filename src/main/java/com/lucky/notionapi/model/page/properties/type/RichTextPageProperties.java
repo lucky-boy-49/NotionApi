@@ -2,8 +2,10 @@ package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.config.NotionConfig;
+import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -25,6 +27,7 @@ public class RichTextPageProperties extends AbstractPageProperties {
      * 富文本对象数组
      */
     @JsonProperty("rich_text")
+    @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
     private RichTextType[] richText;
 
     /**

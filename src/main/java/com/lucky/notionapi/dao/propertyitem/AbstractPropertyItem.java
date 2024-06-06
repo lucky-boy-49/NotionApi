@@ -2,6 +2,8 @@ package com.lucky.notionapi.dao.propertyitem;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 /**
@@ -31,6 +33,7 @@ public abstract class AbstractPropertyItem implements PropertyItem {
     protected String type;
 
     @JsonProperty("next_url")
+    @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
     protected String nextUrl;
 
 }

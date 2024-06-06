@@ -1,8 +1,11 @@
 package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.file.FileType;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -23,6 +26,8 @@ public class FilePageProperties extends AbstractPageProperties {
     /**
      * 包含有关文件信息的对象数组。
      */
+    @Valid
+    @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
     private FileType[] files;
 
     /**

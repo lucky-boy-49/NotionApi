@@ -1,7 +1,7 @@
 package com.lucky.notionapi.model.database.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.lucky.notionapi.model.block.richtext.RichTextType;
+import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

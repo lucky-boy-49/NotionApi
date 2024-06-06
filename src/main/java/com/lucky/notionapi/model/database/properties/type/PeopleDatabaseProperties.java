@@ -2,8 +2,10 @@ package com.lucky.notionapi.model.database.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
 import com.lucky.notionapi.model.user.User;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -23,6 +25,7 @@ public class PeopleDatabaseProperties extends AbstractDatabaseProperties {
      * 用户对象的数组。
      */
     @JsonProperty("people")
+    @Size(max = NotionConfig.ANY_PEOPLE_SIZE, message = NotionConfig.ANY_PEOPLE_MESSAGE)
     private User[] people;
 
     /**

@@ -2,8 +2,10 @@ package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.communal.Relation;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -31,6 +33,7 @@ public class RelationPageProperties extends AbstractPageProperties {
     /**
      * 相关页面引用的数组。页面引用是一个具有 id 键和与另一个数据库中的页面 ID 相对应的字符串值的对象。
      */
+    @Size(max = NotionConfig.ANY_RELATION_SIZE, message = NotionConfig.ANY_RELATION_MESSAGE)
     private Relation[] relation;
 
     /**

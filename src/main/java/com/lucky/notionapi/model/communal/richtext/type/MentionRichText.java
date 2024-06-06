@@ -1,8 +1,9 @@
-package com.lucky.notionapi.model.block.richtext.type;
+package com.lucky.notionapi.model.communal.richtext.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.lucky.notionapi.model.block.richtext.AbstractRichText;
-import com.lucky.notionapi.model.block.richtext.type.mention.Mention;
+import com.lucky.notionapi.model.communal.richtext.AbstractRichText;
+import com.lucky.notionapi.model.communal.richtext.type.mention.Mention;
+import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MentionRichText extends AbstractRichText {
 
+    @Valid
     private Mention mention;
 
     /**

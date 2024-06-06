@@ -3,6 +3,7 @@ package com.lucky.notionapi.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.model.comment.Comment;
+import jakarta.validation.Valid;
 import lombok.Data;
 
 /**
@@ -16,6 +17,7 @@ public class RetrieveCommentsDto {
 
     private String object;
 
+    @Valid
     private Comment[] results;
 
     @JsonProperty("next_cursor")

@@ -1,11 +1,11 @@
-package com.lucky.notionapi.model.block.richtext.type.mention;
+package com.lucky.notionapi.model.communal.richtext.type.mention;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.lucky.notionapi.model.block.BlockType;
 
-import static com.lucky.notionapi.model.block.richtext.type.mention.Mention.*;
+import static com.lucky.notionapi.model.communal.richtext.type.mention.Mention.*;
 
 
 /**

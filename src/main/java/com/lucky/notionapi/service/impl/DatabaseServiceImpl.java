@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 /**
@@ -33,7 +34,7 @@ public class DatabaseServiceImpl {
      * @return 数据库信息
      */
     @Notion("创建数据库")
-    public Database createDatabase(DatabaseDao body) {
+    public Database createDatabase(@Validated DatabaseDao body) {
         DatabaseService client = factory.createClient(DatabaseService.class);
         String bodyJson = ObjectMapperUtil.toJson(body);
         ResponseEntity<Database> response = client.createDatabase(bodyJson);
@@ -48,7 +49,7 @@ public class DatabaseServiceImpl {
      * @return 数据库信息
      */
     @Notion("查询数据库")
-    public QueryDatabaseDto queryDatabase(String databaseId, QueryDatabaseDao body) {
+    public QueryDatabaseDto queryDatabase(String databaseId, @Validated QueryDatabaseDao body) {
         DatabaseService client = factory.createClient(DatabaseService.class);
         String bodyJson = ObjectMapperUtil.toJson(body);
         ResponseEntity<QueryDatabaseDto> response = client.queryDatabase(databaseId, bodyJson);
@@ -69,7 +70,7 @@ public class DatabaseServiceImpl {
     }
 
     @Notion("更新数据库")
-    public Database updateDatabase(String databaseId, UpdateDatabaseDao body) {
+    public Database updateDatabase(String databaseId, @Validated UpdateDatabaseDao body) {
         DatabaseService client = factory.createClient(DatabaseService.class);
         String bodyJson = ObjectMapperUtil.toJson(body);
         ResponseEntity<Database> response = client.updateDatabase(databaseId, bodyJson);

@@ -3,7 +3,6 @@ package com.lucky.notionapi.service.impl;
 import com.lucky.notionapi.annotation.Notion;
 import com.lucky.notionapi.dao.BlockAddRequestDao;
 import com.lucky.notionapi.dao.BlockResponseDao;
-import com.lucky.notionapi.model.block.AbstractBlock;
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.service.BlockService;
 import com.lucky.notionapi.utils.ObjectMapperUtil;
@@ -12,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 import java.util.HashMap;
@@ -41,7 +41,7 @@ public class BlockServiceImpl {
      * @return 一级子块对象的分页列表
      */
     @Notion("追加块子项")
-    public BlockResponseDao appendBlockChildren(BlockAddRequestDao requestDao, String blockId) {
+    public BlockResponseDao appendBlockChildren(@Validated BlockAddRequestDao requestDao, String blockId) {
         String body = ObjectMapperUtil.toJson(requestDao);
         BlockService service = factory.createClient(BlockService.class);
         ResponseEntity<BlockResponseDao> response = service.appendBlockChildren(body, blockId);
@@ -112,7 +112,7 @@ public class BlockServiceImpl {
      * @return 更新后的块对象
      */
     @Notion("更新块内容")
-    public BlockType updateBlock(String blockId, AbstractBlock block) {
+    public BlockType updateBlock(String blockId, @Validated BlockType block) {
         String body = ObjectMapperUtil.toJson(block);
         BlockService service = factory.createClient(BlockService.class);
         ResponseEntity<BlockType> response = service.updateBlock(blockId, body);
