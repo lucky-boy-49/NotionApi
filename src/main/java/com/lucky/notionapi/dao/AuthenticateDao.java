@@ -21,7 +21,7 @@ public class AuthenticateDao {
     private String code;
 
     /**
-     * 常量字符串：“authorization_code”。
+     * 常量字符串：“授权码”。
      */
     @JsonProperty("grant_type")
     private String grantType;
