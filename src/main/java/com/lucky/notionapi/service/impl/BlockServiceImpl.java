@@ -1,7 +1,7 @@
 package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.annotation.Notion;
-import com.lucky.notionapi.dao.BlockAddRequestDao;
+import com.lucky.notionapi.dao.BlockAddDao;
 import com.lucky.notionapi.dto.BlockDto;
 import com.lucky.notionapi.mapper.NotionBlockService;
 import com.lucky.notionapi.model.block.BlockType;
@@ -41,7 +41,7 @@ public class BlockServiceImpl implements BlockService {
      */
     @Override
     @Notion("追加块子项")
-    public BlockDto appendBlockChildren(BlockAddRequestDao requestDao, String blockId) {
+    public BlockDto appendBlockChildren(BlockAddDao requestDao, String blockId) {
         String body = ObjectMapperUtil.toJson(requestDao);
         NotionBlockService service = factory.createClient(NotionBlockService.class);
         ResponseEntity<BlockDto> response = service.appendBlockChildren(body, blockId);

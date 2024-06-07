@@ -3,9 +3,10 @@ package com.lucky.notionapi.model.block.type.heading;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.config.NotionConfig;
-import com.lucky.notionapi.enumerate.ColorEnum;
 import com.lucky.notionapi.model.block.AbstractBlock;
+import com.lucky.notionapi.model.communal.Color;
 import com.lucky.notionapi.model.communal.richtext.RichTextType;
+import com.lucky.notionapi.model.communal.richtext.type.TextRichText;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -38,14 +39,15 @@ public class HeadingBlock1 extends AbstractBlock {
          *
          * @see RichTextType
          */
+        @Valid
         @JsonProperty("rich_text")
         @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
-        private RichTextType[] richText;
+        private TextRichText[] richText;
 
         /**
          * 块的颜色
          *
-         * @see ColorEnum
+         * @see Color
          */
         private String color;
 

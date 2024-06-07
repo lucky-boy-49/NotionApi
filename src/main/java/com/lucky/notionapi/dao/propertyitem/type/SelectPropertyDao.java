@@ -2,7 +2,7 @@ package com.lucky.notionapi.dao.propertyitem.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.dao.propertyitem.AbstractPropertyItem;
-import com.lucky.notionapi.enumerate.ColorEnum;
+import com.lucky.notionapi.model.communal.Color;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -38,7 +38,7 @@ public class SelectPropertyDao extends AbstractPropertyItem {
         /**
          * 选项的颜色。
          *
-         * @see ColorEnum
+         * @see Color
          */
         private String color;
 

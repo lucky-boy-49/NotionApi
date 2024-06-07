@@ -1,11 +1,11 @@
 package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.NotionClient;
-import com.lucky.notionapi.dao.BlockAddRequestDao;
+import com.lucky.notionapi.dao.BlockAddDao;
 import com.lucky.notionapi.dto.BlockDto;
-import com.lucky.notionapi.enumerate.ColorEnum;
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.model.block.type.*;
+import com.lucky.notionapi.model.communal.Color;
 import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import com.lucky.notionapi.model.communal.richtext.type.TextRichText;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ class BlockServiceImplTest {
 
     @Test
     void appendBlockChildrenBookmarkBlock() {
-        BlockAddRequestDao requestDao = new BlockAddRequestDao();
+        BlockAddDao requestDao = new BlockAddDao();
         BlockType[] children = new BlockType[1];
         // 书签块
         BookmarkBlock bookmarkBlock = new BookmarkBlock();
@@ -39,7 +39,7 @@ class BlockServiceImplTest {
 
     @Test
     void appendBlockChildrenBreadcrumbBlock() {
-        BlockAddRequestDao requestDao = new BlockAddRequestDao();
+        BlockAddDao requestDao = new BlockAddDao();
         BlockType[] children = new BlockType[1];
         BreadcrumbBlock breadcrumbBlock = new BreadcrumbBlock();
         children[0] = breadcrumbBlock;
@@ -51,7 +51,7 @@ class BlockServiceImplTest {
 
     @Test
     void appendBlockChildrenBulletedListItemBlock() {
-        BlockAddRequestDao requestDao = new BlockAddRequestDao();
+        BlockAddDao requestDao = new BlockAddDao();
         BlockType[] children = new BlockType[1];
         BulletedListItemBlock bulletedListItemBlock = new BulletedListItemBlock();
         children[0] = bulletedListItemBlock;
@@ -60,7 +60,7 @@ class BlockServiceImplTest {
         textRichText.setText(new TextRichText.Text());
         textRichText.getText().setContent("notion追加测试项目符号列表项");
         bulletedListItem.setRichText(new RichTextType[]{textRichText});
-        bulletedListItem.setColor(ColorEnum.BLUE.getColor());
+        bulletedListItem.setColor(Color.BLUE);
         bulletedListItemBlock.setBulletedListItem(bulletedListItem);
         requestDao.setChildren(children);
         BlockDto blockDto = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
@@ -69,7 +69,7 @@ class BlockServiceImplTest {
 
     @Test
     void appendBlockChildrenCalloutBlock() {
-        BlockAddRequestDao requestDao = new BlockAddRequestDao();
+        BlockAddDao requestDao = new BlockAddDao();
         BlockType[] children = new BlockType[1];
         CalloutBlock calloutBlock = new CalloutBlock();
         children[0] = calloutBlock;
@@ -78,7 +78,7 @@ class BlockServiceImplTest {
         textRichText.setText(new TextRichText.Text());
         textRichText.getText().setContent("notion追加标注");
         callout.setRichText(new RichTextType[]{textRichText});
-        callout.setColor(ColorEnum.BLUE.getColor());
+        callout.setColor(Color.BLUE);
         calloutBlock.setCallout(callout);
         requestDao.setChildren(children);
         BlockDto blockDto = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
@@ -87,7 +87,7 @@ class BlockServiceImplTest {
 
     @Test
     void appendBlockCodeBlock() {
-        BlockAddRequestDao requestDao = new BlockAddRequestDao();
+        BlockAddDao requestDao = new BlockAddDao();
         BlockType[] children = new BlockType[1];
 
         CodeBlock codeBlock = new CodeBlock();
@@ -134,7 +134,7 @@ class BlockServiceImplTest {
 
     @Test
     void appendBlockColumnListBlock() {
-        BlockAddRequestDao requestDao = new BlockAddRequestDao();
+        BlockAddDao requestDao = new BlockAddDao();
         BlockType[] children = new BlockType[1];
 
         ColumnListBlock columnListBlock = new ColumnListBlock();

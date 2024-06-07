@@ -3,8 +3,8 @@ package com.lucky.notionapi.model.block.type;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.config.NotionConfig;
-import com.lucky.notionapi.enumerate.ColorEnum;
 import com.lucky.notionapi.model.block.AbstractBlock;
+import com.lucky.notionapi.model.communal.Color;
 import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import com.lucky.notionapi.model.file.FileType;
 import jakarta.validation.Valid;
@@ -52,7 +52,7 @@ public class CalloutBlock extends AbstractBlock {
         /**
          * 颜色
          *
-         * @see ColorEnum
+         * @see Color
          */
         private String color;
     }

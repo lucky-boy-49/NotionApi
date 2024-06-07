@@ -14,7 +14,7 @@ import lombok.Data;
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class BlockAddRequestDao {
+public class BlockAddDao {
 
     /**
      * 作为块对象数组附加到容器块的子内容

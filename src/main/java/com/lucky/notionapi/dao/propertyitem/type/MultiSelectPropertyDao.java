@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.dao.propertyitem.AbstractPropertyItem;
-import com.lucky.notionapi.enumerate.ColorEnum;
+import com.lucky.notionapi.model.communal.Color;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -43,7 +43,7 @@ public class MultiSelectPropertyDao extends AbstractPropertyItem {
         /**
          * 选项的颜色。
          *
-         * @see ColorEnum
+         * @see Color
          */
         private String color;
 

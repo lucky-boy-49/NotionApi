@@ -1,7 +1,6 @@
 package com.lucky.notionapi.model.communal;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.lucky.notionapi.enumerate.ColorEnum;
 import lombok.Data;
 
 /**
@@ -16,7 +15,7 @@ public class Options {
     /**
      * 选项的颜色。
      *
-     * @see ColorEnum
+     * @see Color
      */
     private String color;
 

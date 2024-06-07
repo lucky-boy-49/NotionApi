@@ -1,7 +1,8 @@
 package com.lucky.notionapi.model.communal.richtext;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.lucky.notionapi.enumerate.ColorEnum;
+import com.lucky.notionapi.model.communal.Color;
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -10,6 +11,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Annotation {
 
@@ -40,7 +42,7 @@ public class Annotation {
 
     /**
      * 文本的颜色。
-     * @see ColorEnum
+     * @see Color
      */
     private String color;
 

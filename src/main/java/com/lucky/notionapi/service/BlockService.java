@@ -1,6 +1,6 @@
 package com.lucky.notionapi.service;
 
-import com.lucky.notionapi.dao.BlockAddRequestDao;
+import com.lucky.notionapi.dao.BlockAddDao;
 import com.lucky.notionapi.dto.BlockDto;
 import com.lucky.notionapi.model.block.BlockType;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import org.springframework.validation.annotation.Validated;
 public interface BlockService {
 
     @Validated
-    BlockDto appendBlockChildren(@Valid BlockAddRequestDao requestDao, @NotNull String blockId);
+    BlockDto appendBlockChildren(@Valid BlockAddDao requestDao, @NotNull String blockId);
 
     @Validated
     BlockDto appendBlockChildren(String bodyJson, @NotNull String blockId);
