@@ -10,12 +10,13 @@ class MentionTest {
 
     @Test
     void test() throws JsonProcessingException {
-        String json = "{\n" +
-                "    \"type\": \"page\",\n" +
-                "    \"page\": {\n" +
-                "      \"id\": \"12345678-1234-1234-1234-123456789012\"\n" +
-                "    }\n" +
-                "}";
+        String json = """
+                {
+                    "type": "page",
+                    "page": {
+                      "id": "12345678-1234-1234-1234-123456789012"
+                    }
+                }""";
         ObjectMapper mapper = new ObjectMapper();
         Mention mention = mapper.readValue(json, Mention.class);
         System.out.println(mention.toString());

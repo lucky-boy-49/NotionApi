@@ -2,7 +2,7 @@ package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.NotionClient;
 import com.lucky.notionapi.dao.BlockAddRequestDao;
-import com.lucky.notionapi.dao.BlockResponseDao;
+import com.lucky.notionapi.dto.BlockDto;
 import com.lucky.notionapi.enumerate.ColorEnum;
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.model.block.type.*;
@@ -33,8 +33,8 @@ class BlockServiceImplTest {
         bookmarkBlock.getBookmark().setUrl("https://notionchina.co/guide/images-videos-files-embeds/web-bookmarks.html");
         children[0] = bookmarkBlock;
         requestDao.setChildren(children);
-        BlockResponseDao blockResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
-        System.out.println(blockResponseDao);
+        BlockDto blockDto = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
+        System.out.println(blockDto);
     }
 
     @Test
@@ -45,8 +45,8 @@ class BlockServiceImplTest {
         children[0] = breadcrumbBlock;
         breadcrumbBlock.setBreadcrumb(new BreadcrumbBlock.Breadcrumb());
         requestDao.setChildren(children);
-        BlockResponseDao blockResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
-        System.out.println(blockResponseDao);
+        BlockDto blockDto = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
+        System.out.println(blockDto);
     }
 
     @Test
@@ -63,8 +63,8 @@ class BlockServiceImplTest {
         bulletedListItem.setColor(ColorEnum.BLUE.getColor());
         bulletedListItemBlock.setBulletedListItem(bulletedListItem);
         requestDao.setChildren(children);
-        BlockResponseDao blockResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
-        System.out.println(blockResponseDao);
+        BlockDto blockDto = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
+        System.out.println(blockDto);
     }
 
     @Test
@@ -81,8 +81,8 @@ class BlockServiceImplTest {
         callout.setColor(ColorEnum.BLUE.getColor());
         calloutBlock.setCallout(callout);
         requestDao.setChildren(children);
-        BlockResponseDao blockResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
-        System.out.println(blockResponseDao);
+        BlockDto blockDto = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
+        System.out.println(blockDto);
     }
 
     @Test
@@ -120,16 +120,16 @@ class BlockServiceImplTest {
                     codeBlock.setCode(code);
 
                     requestDao.setChildren(children);
-                    BlockAddResponseDao blockResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
-                    System.out.println(blockResponseDao);
+                    BlockAddResponseDao blockDto = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
+                    System.out.println(blockDto);
                 }""");
         code.setCaption(new RichTextType[]{caption});
         code.setRichText(new RichTextType[]{richText});
         codeBlock.setCode(code);
 
         requestDao.setChildren(children);
-        BlockResponseDao blockResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
-        System.out.println(blockResponseDao);
+        BlockDto blockDto = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
+        System.out.println(blockDto);
     }
 
     @Test
@@ -161,8 +161,8 @@ class BlockServiceImplTest {
         children[0] = columnListBlock;
 
         requestDao.setChildren(children);
-        BlockResponseDao blockResponseDao = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
-        System.out.println(blockResponseDao);
+        BlockDto blockDto = client.blockService().appendBlockChildren(requestDao, "89529312369f46cca58b3d98a4c15114");
+        System.out.println(blockDto);
     }
 
     @Test
@@ -173,7 +173,7 @@ class BlockServiceImplTest {
 
     @Test
     void retrieveBlockChildren() {
-        BlockResponseDao responseDao = client.blockService().retrieveBlockChildren("89529312369f46cca58b3d98a4c15114", null, 100);
+        BlockDto responseDao = client.blockService().retrieveBlockChildren("89529312369f46cca58b3d98a4c15114", null, 100);
         System.out.println(responseDao);
     }
 

@@ -13,7 +13,7 @@ import lombok.Data;
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AuthenticateRequestDao {
+public class AuthenticateDao {
 
     /**
      * Notion 生成的唯一随机代码，用于对您的服务进行身份验证，在用户启动 OAuth 流程时生成。

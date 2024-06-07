@@ -1,7 +1,6 @@
 package com.lucky.notionapi.service.impl;
 
-import com.lucky.notionapi.dao.AuthenticateRequestDao;
-import com.lucky.notionapi.dao.AuthenticateResponseDao;
+import com.lucky.notionapi.dto.AuthenticateDto;
 import com.lucky.notionapi.mapper.NotionAuthenticateService;
 import com.lucky.notionapi.service.AuthenticateService;
 import lombok.RequiredArgsConstructor;
@@ -29,11 +28,11 @@ public class AuthenticateServiceImpl implements AuthenticateService {
      * @return 响应结果
      */
     @Override
-    public AuthenticateResponseDao createToken(AuthenticateRequestDao requestDao) {
+    public AuthenticateDto createToken(com.lucky.notionapi.dao.AuthenticateDao requestDao) {
         log.info("创建Token：{}", requestDao.toString());
         NotionAuthenticateService service = factory.createClient(NotionAuthenticateService.class);
-        ResponseEntity<AuthenticateResponseDao> token = service.createToken(requestDao);
-        AuthenticateResponseDao result = Objects.requireNonNull(token.getBody());
+        ResponseEntity<AuthenticateDto> token = service.createToken(requestDao);
+        AuthenticateDto result = Objects.requireNonNull(token.getBody());
         log.info("创建Token成功：{}", result);
         return result;
     }

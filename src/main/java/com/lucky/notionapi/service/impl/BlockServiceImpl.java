@@ -2,7 +2,7 @@ package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.annotation.Notion;
 import com.lucky.notionapi.dao.BlockAddRequestDao;
-import com.lucky.notionapi.dao.BlockResponseDao;
+import com.lucky.notionapi.dto.BlockDto;
 import com.lucky.notionapi.mapper.NotionBlockService;
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.service.BlockService;
@@ -41,10 +41,10 @@ public class BlockServiceImpl implements BlockService {
      */
     @Override
     @Notion("追加块子项")
-    public BlockResponseDao appendBlockChildren(BlockAddRequestDao requestDao, String blockId) {
+    public BlockDto appendBlockChildren(BlockAddRequestDao requestDao, String blockId) {
         String body = ObjectMapperUtil.toJson(requestDao);
         NotionBlockService service = factory.createClient(NotionBlockService.class);
-        ResponseEntity<BlockResponseDao> response = service.appendBlockChildren(body, blockId);
+        ResponseEntity<BlockDto> response = service.appendBlockChildren(body, blockId);
         return Objects.requireNonNull(response.getBody());
     }
 
@@ -60,9 +60,9 @@ public class BlockServiceImpl implements BlockService {
      */
     @Override
     @Notion("追加块子项")
-    public BlockResponseDao appendBlockChildren(String bodyJson, String blockId) {
+    public BlockDto appendBlockChildren(String bodyJson, String blockId) {
         NotionBlockService service = factory.createClient(NotionBlockService.class);
-        ResponseEntity<BlockResponseDao> response = service.appendBlockChildren(bodyJson, blockId);
+        ResponseEntity<BlockDto> response = service.appendBlockChildren(bodyJson, blockId);
         return Objects.requireNonNull(response.getBody());
     }
 
@@ -92,7 +92,7 @@ public class BlockServiceImpl implements BlockService {
      */
     @Override
     @Notion("检索块的子块")
-    public BlockResponseDao retrieveBlockChildren(String blockId, String startCursor, Integer pageSize) {
+    public BlockDto retrieveBlockChildren(String blockId, String startCursor, Integer pageSize) {
         Map<String, Object> params = new HashMap<>();
         if (startCursor != null) {
             params.put("start_cursor", startCursor);
@@ -101,7 +101,7 @@ public class BlockServiceImpl implements BlockService {
             params.put("page_size", pageSize);
         }
         NotionBlockService service = factory.createClient(NotionBlockService.class);
-        ResponseEntity<BlockResponseDao> response = service.retrieveBlockChildren(blockId, params);
+        ResponseEntity<BlockDto> response = service.retrieveBlockChildren(blockId, params);
         return Objects.requireNonNull(response.getBody());
     }
 

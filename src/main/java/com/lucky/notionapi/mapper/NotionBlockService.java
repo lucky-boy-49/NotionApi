@@ -1,6 +1,6 @@
 package com.lucky.notionapi.mapper;
 
-import com.lucky.notionapi.dao.BlockResponseDao;
+import com.lucky.notionapi.dto.BlockDto;
 import com.lucky.notionapi.model.block.BlockType;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +36,7 @@ public interface NotionBlockService {
      * @return 一级子块对象的分页列表
      */
     @PatchExchange(value = "/{blockId}/children", contentType = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<BlockResponseDao> appendBlockChildren(@RequestBody() String requestBody, @PathVariable String blockId);
+    ResponseEntity<BlockDto> appendBlockChildren(@RequestBody() String requestBody, @PathVariable String blockId);
 
     /**
      * 使用指定的 ID 检索 Block 对象。<br>
@@ -59,7 +59,7 @@ public interface NotionBlockService {
      * @return 块对象的分页列表
      */
     @GetExchange("/{blockId}/children")
-    ResponseEntity<BlockResponseDao> retrieveBlockChildren(@PathVariable String blockId, @RequestParam(defaultValue = "") Map<String, Object> param);
+    ResponseEntity<BlockDto> retrieveBlockChildren(@PathVariable String blockId, @RequestParam(defaultValue = "") Map<String, Object> param);
 
     /**
      * 根据块类型更新指定块id的内容。<br>

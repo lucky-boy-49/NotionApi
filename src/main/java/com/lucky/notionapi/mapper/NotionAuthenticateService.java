@@ -1,7 +1,6 @@
 package com.lucky.notionapi.mapper;
 
-import com.lucky.notionapi.dao.AuthenticateRequestDao;
-import com.lucky.notionapi.dao.AuthenticateResponseDao;
+import com.lucky.notionapi.dto.AuthenticateDto;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +21,6 @@ public interface NotionAuthenticateService {
      * @return 响应
      */
     @PostExchange(value = "/v1/oauth/token", contentType = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<AuthenticateResponseDao> createToken(@RequestBody AuthenticateRequestDao requestDao);
+    ResponseEntity<AuthenticateDto> createToken(@RequestBody com.lucky.notionapi.dao.AuthenticateDao requestDao);
 
 }
