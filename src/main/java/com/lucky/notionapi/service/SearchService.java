@@ -2,20 +2,17 @@ package com.lucky.notionapi.service;
 
 import com.lucky.notionapi.dao.SearchDao;
 import com.lucky.notionapi.dto.SearchDto;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.service.annotation.HttpExchange;
-import org.springframework.web.service.annotation.PostExchange;
+import jakarta.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 
 /**
  * 搜索服务
- *
  * @author jiahe
  */
-@HttpExchange("/v1/search")
+@Validated
 public interface SearchService {
 
-    @PostExchange
-    ResponseEntity<SearchDto> searchByTitle(@RequestBody SearchDao body);
+    @Validated
+    SearchDto searchByTitle(@Valid SearchDao body);
 
 }

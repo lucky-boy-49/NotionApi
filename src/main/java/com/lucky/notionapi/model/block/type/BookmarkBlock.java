@@ -36,6 +36,7 @@ public class BookmarkBlock extends AbstractBlock {
         /**
          * 富文本对象数组
          */
+        @Valid
         @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
         private RichTextType[] caption;
 

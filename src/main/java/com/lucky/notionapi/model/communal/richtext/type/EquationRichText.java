@@ -3,6 +3,7 @@ package com.lucky.notionapi.model.communal.richtext.type;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.communal.richtext.AbstractRichText;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,6 +23,7 @@ public class EquationRichText extends AbstractRichText {
     /**
      * 表示内联方程的 LaTeX 字符串。
      */
+    @Valid
     private Equation equation;
 
     /**

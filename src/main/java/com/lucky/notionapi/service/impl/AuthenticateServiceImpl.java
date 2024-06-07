@@ -2,12 +2,12 @@ package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.dao.AuthenticateRequestDao;
 import com.lucky.notionapi.dao.AuthenticateResponseDao;
+import com.lucky.notionapi.mapper.NotionAuthenticateService;
 import com.lucky.notionapi.service.AuthenticateService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 import java.util.Objects;
@@ -19,7 +19,7 @@ import java.util.Objects;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class AuthenticateServiceImpl {
+public class AuthenticateServiceImpl implements AuthenticateService {
 
     private final HttpServiceProxyFactory factory;
 
@@ -28,9 +28,10 @@ public class AuthenticateServiceImpl {
      * @param requestDao 请求参数
      * @return 响应结果
      */
-    public AuthenticateResponseDao createToken(@Validated AuthenticateRequestDao requestDao) {
+    @Override
+    public AuthenticateResponseDao createToken(AuthenticateRequestDao requestDao) {
         log.info("创建Token：{}", requestDao.toString());
-        AuthenticateService service = factory.createClient(AuthenticateService.class);
+        NotionAuthenticateService service = factory.createClient(NotionAuthenticateService.class);
         ResponseEntity<AuthenticateResponseDao> token = service.createToken(requestDao);
         AuthenticateResponseDao result = Objects.requireNonNull(token.getBody());
         log.info("创建Token成功：{}", result);

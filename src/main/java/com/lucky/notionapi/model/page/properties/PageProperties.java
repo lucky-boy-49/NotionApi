@@ -3,6 +3,7 @@ package com.lucky.notionapi.model.page.properties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.lucky.notionapi.model.page.properties.type.*;
+import org.springframework.validation.annotation.Validated;
 
 import static com.lucky.notionapi.model.page.properties.PageProperties.*;
 
@@ -11,6 +12,7 @@ import static com.lucky.notionapi.model.page.properties.PageProperties.*;
  *
  * @author 贺佳
  */
+@Validated
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, include = JsonTypeInfo.As.EXISTING_PROPERTY)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = CheckboxPageProperties.class, name = CHECKBOX),

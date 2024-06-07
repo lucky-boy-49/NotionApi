@@ -3,6 +3,7 @@ package com.lucky.notionapi.model.file;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import org.springframework.validation.annotation.Validated;
 
 import static com.lucky.notionapi.model.file.FileType.*;
 
@@ -11,6 +12,7 @@ import static com.lucky.notionapi.model.file.FileType.*;
  * 页面、嵌入、图像、视频、文件、pdf 和书签块类型都包含文件对象。图标和封面页对象值还包含文件对象。
  * @author 贺佳
  */
+@Validated
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, include = JsonTypeInfo.As.EXISTING_PROPERTY)
 @JsonSubTypes({
         @Type(value = FileFile.class, name = FILE),

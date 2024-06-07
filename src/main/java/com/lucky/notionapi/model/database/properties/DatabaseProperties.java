@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.lucky.notionapi.model.database.properties.type.*;
+import org.springframework.validation.annotation.Validated;
 
 import static com.lucky.notionapi.model.database.properties.DatabaseProperties.*;
 
@@ -37,6 +38,7 @@ import static com.lucky.notionapi.model.database.properties.DatabaseProperties.*
         @Type(value = SinglePropertyRelationDatabaseProperties.class, name = SINGLE_PROPERTY),
         @Type(value = DualPropertyRelationDatabaseProperties.class, name = DUAL_PROPERTY),
 })
+@Validated
 public interface DatabaseProperties {
 
     /**

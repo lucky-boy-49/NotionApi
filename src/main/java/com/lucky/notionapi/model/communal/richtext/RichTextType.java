@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.lucky.notionapi.model.communal.richtext.type.EquationRichText;
 import com.lucky.notionapi.model.communal.richtext.type.MentionRichText;
 import com.lucky.notionapi.model.communal.richtext.type.TextRichText;
+import org.springframework.validation.annotation.Validated;
 
 import static com.lucky.notionapi.model.communal.richtext.RichTextType.*;
 
@@ -19,6 +20,7 @@ import static com.lucky.notionapi.model.communal.richtext.RichTextType.*;
         @Type(value = MentionRichText.class, name = MENTION),
         @Type(value = EquationRichText.class, name = EQUATION),
 })
+@Validated
 public interface RichTextType {
 
     /**

@@ -3,12 +3,12 @@ package com.lucky.notionapi.service.impl;
 import com.lucky.notionapi.annotation.Notion;
 import com.lucky.notionapi.dao.CreateCommentDao;
 import com.lucky.notionapi.dto.RetrieveCommentsDto;
+import com.lucky.notionapi.mapper.NotionCommentsService;
 import com.lucky.notionapi.model.comment.Comment;
 import com.lucky.notionapi.service.CommentsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 /**
@@ -19,7 +19,7 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class CommentsServiceImpl {
+public class CommentsServiceImpl implements CommentsService {
 
     private final HttpServiceProxyFactory factory;
 
@@ -31,9 +31,10 @@ public class CommentsServiceImpl {
      * @param pageSize    每页大小
      * @return 评论列表
      */
+    @Override
     @Notion("检索评论")
     public RetrieveCommentsDto retrieveComments(String blockId, String startCursor, Integer pageSize) {
-        CommentsService client = factory.createClient(CommentsService.class);
+        NotionCommentsService client = factory.createClient(NotionCommentsService.class);
         return client.retrieveComments(blockId, startCursor, pageSize).getBody();
     }
 
@@ -43,9 +44,10 @@ public class CommentsServiceImpl {
      * @param body 评论内容
      * @return 评论信息
      */
+    @Override
     @Notion("创建评论")
-    public Comment createComment(@Validated CreateCommentDao body) {
-        CommentsService client = factory.createClient(CommentsService.class);
+    public Comment createComment(CreateCommentDao body) {
+        NotionCommentsService client = factory.createClient(NotionCommentsService.class);
         return client.createComment(body).getBody();
     }
 

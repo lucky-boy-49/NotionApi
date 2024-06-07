@@ -1,10 +1,10 @@
 package com.lucky.notionapi;
 
-import com.lucky.notionapi.service.impl.*;
+import com.lucky.notionapi.service.*;
 
-public record NotionClient(AuthenticateServiceImpl authenticateService, BlockServiceImpl blockService,
-                           PageServiceImpl pageService, DatabaseServiceImpl databaseService,
-                           UsersServiceImpl usersService, CommentsServiceImpl commentsService,
-                           SearchServiceImpl searchService) {
+public record NotionClient(AuthenticateService authenticateService, BlockService blockService,
+                           PageService pageService, DatabaseService databaseService,
+                           UsersService usersService, CommentsService commentsService,
+                           SearchService searchService) {
 
 }

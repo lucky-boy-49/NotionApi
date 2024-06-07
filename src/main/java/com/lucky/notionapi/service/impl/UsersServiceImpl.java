@@ -2,6 +2,7 @@ package com.lucky.notionapi.service.impl;
 
 import com.lucky.notionapi.annotation.Notion;
 import com.lucky.notionapi.dto.ListAllUsersDto;
+import com.lucky.notionapi.mapper.NotionUsersService;
 import com.lucky.notionapi.model.user.User;
 import com.lucky.notionapi.service.UsersService;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class UsersServiceImpl {
+public class UsersServiceImpl implements UsersService {
 
     private final HttpServiceProxyFactory factory;
 
@@ -28,9 +29,10 @@ public class UsersServiceImpl {
      * @param pageSize    每页大小
      * @return 用户列表
      */
+    @Override
     @Notion("列出所有用户")
     public ListAllUsersDto listAllUsers(String startCursor, Integer pageSize) {
-        UsersService client = factory.createClient(UsersService.class);
+        NotionUsersService client = factory.createClient(NotionUsersService.class);
         return client.listAllUsers(startCursor, pageSize).getBody();
     }
 
@@ -40,9 +42,10 @@ public class UsersServiceImpl {
      * @param userId 用户id
      * @return 用户信息
      */
+    @Override
     @Notion("检索用户")
     public User retrieveUser(String userId) {
-        UsersService client = factory.createClient(UsersService.class);
+        NotionUsersService client = factory.createClient(NotionUsersService.class);
         return client.retrieveUser(userId).getBody();
     }
 
@@ -51,9 +54,10 @@ public class UsersServiceImpl {
      *
      * @return 用户信息
      */
+    @Override
     @Notion("读取令牌的机器人用户")
     public User retrieveTokenBotUser() {
-        UsersService client = factory.createClient(UsersService.class);
+        NotionUsersService client = factory.createClient(NotionUsersService.class);
         return client.retrieveTokenBotUser().getBody();
     }
 

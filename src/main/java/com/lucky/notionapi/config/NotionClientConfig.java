@@ -1,7 +1,7 @@
 package com.lucky.notionapi.config;
 
 import com.lucky.notionapi.NotionClient;
-import com.lucky.notionapi.service.impl.*;
+import com.lucky.notionapi.service.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
@@ -17,19 +17,19 @@ import org.springframework.context.annotation.Configuration;
 @RequiredArgsConstructor
 public class NotionClientConfig {
 
-    private final AuthenticateServiceImpl authenticateService;
+    private final AuthenticateService authenticateService;
 
-    private final BlockServiceImpl blockService;
+    private final BlockService blockService;
 
-    private final PageServiceImpl pageService;
+    private final PageService pageService;
 
-    private final DatabaseServiceImpl databaseService;
+    private final DatabaseService databaseService;
 
-    private final UsersServiceImpl usersService;
+    private final UsersService usersService;
 
-    private final CommentsServiceImpl commentsService;
+    private final CommentsService commentsService;
 
-    private final SearchServiceImpl searchService;
+    private final SearchService searchService;
 
     /**
      * 初始化 NotionClient
