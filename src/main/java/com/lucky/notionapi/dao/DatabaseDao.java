@@ -7,7 +7,7 @@ import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import com.lucky.notionapi.model.database.properties.DatabaseProperties;
 import com.lucky.notionapi.model.file.FileType;
 import com.lucky.notionapi.model.parent.Parent;
-import com.lucky.notionapi.utils.serializer.DatabasePropertiesSchemaSerializer;
+import com.lucky.notionapi.util.serializer.DatabasePropertiesSchemaSerializer;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 import lombok.Data;

@@ -11,8 +11,8 @@ import com.lucky.notionapi.model.file.FileType;
 import com.lucky.notionapi.model.page.properties.PageProperties;
 import com.lucky.notionapi.model.parent.Parent;
 import com.lucky.notionapi.model.user.User;
-import com.lucky.notionapi.utils.serializer.PagePropertiesDeserializer;
-import com.lucky.notionapi.utils.serializer.PagePropertiesSerializer;
+import com.lucky.notionapi.util.serializer.PagePropertiesDeserializer;
+import com.lucky.notionapi.util.serializer.PagePropertiesSerializer;
 import lombok.Data;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.lucky.notionapi.utils;
+package com.lucky.notionapi.util;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ class ObjectMapperUtilTest {
     void toJson() {
         List<Object> lis = List.of("test", "test2");
 
-        String json = ObjectMapperUtil.toJson(lis);
+        String json = ObjectMapperUtils.toJson(lis);
         System.out.println(json);
     }
 }

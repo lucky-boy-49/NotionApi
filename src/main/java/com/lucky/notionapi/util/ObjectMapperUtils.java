@@ -1,4 +1,4 @@
-package com.lucky.notionapi.utils;
+package com.lucky.notionapi.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author jiahe
  */
 @Slf4j
-public class ObjectMapperUtil {
+public class ObjectMapperUtils {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 

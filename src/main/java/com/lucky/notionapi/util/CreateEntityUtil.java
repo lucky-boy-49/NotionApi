@@ -1,4 +1,4 @@
-package com.lucky.notionapi.utils;
+package com.lucky.notionapi.util;
 
 import com.lucky.notionapi.dao.AuthenticateDao;
 import com.lucky.notionapi.exception.CreateEntityException;
@@ -6,7 +6,6 @@ import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.model.block.type.heading.HeadingBlock1;
 import com.lucky.notionapi.model.block.type.heading.HeadingBlock2;
 import com.lucky.notionapi.model.block.type.heading.HeadingBlock3;
-import com.lucky.notionapi.model.communal.richtext.Annotation;
 import com.lucky.notionapi.model.communal.richtext.type.TextRichText;
 import org.springframework.util.StringUtils;
 
@@ -55,8 +54,8 @@ public class CreateEntityUtil {
      */
     public static AuthenticateDao createAuthenticateDao(String code, String grantType, String redirectUri) {
 
-        AssertUtil.isNotNull(code, "创建认证对象时，Notion 生成的唯一随机码不能为空");
-        AssertUtil.isNotNull(redirectUri, "创建认证对象时，重定向URL不能为空");
+        AssertUtils.isNotNull(code, "创建认证对象时，Notion 生成的唯一随机码不能为空");
+        AssertUtils.isNotNull(redirectUri, "创建认证对象时，重定向URL不能为空");
 
         AuthenticateDao result = new AuthenticateDao();
 
@@ -81,7 +80,7 @@ public class CreateEntityUtil {
      * @return 标题块
      */
     public static BlockType createHeadingBlock(int level, String content) {
-        TextRichText richText = createTextRichText(content);
+        TextRichText richText = RichTextUtils.createTextRichText(content);
         return createHeadingBlock(level, richText);
     }
 
@@ -117,56 +116,6 @@ public class CreateEntityUtil {
                 throw new CreateEntityException("创建标题块时，标题等级只能为1、2、3");
         }
 
-    }
-
-    /**
-     * 创建一个没有如何格式的文本形式的富文本对象
-     *
-     * @param content 内容
-     * @return 富文本对象
-     */
-    public static TextRichText createTextRichText(String content) {
-        return new TextRichText(content);
-    }
-
-    /**
-     * 创建一个带有链接的文本形式的富文本对象
-     *
-     * @param content 内容
-     * @param link    连接
-     * @return 富文本对象
-     */
-    public static TextRichText createTextRichText(String content, String link) {
-        TextRichText result = createTextRichText(content);
-        result.getText().setLink(new TextRichText.Text.Link(link));
-        return result;
-    }
-
-    /**
-     * 创建一个带有链接和格式的文本形式的富文本对象
-     *
-     * @param content    内容
-     * @param link       连接
-     * @param annotation 格式
-     * @return 富文本对象
-     */
-    public static TextRichText createTextRichText(String content, String link, Annotation annotation) {
-        TextRichText result = createTextRichText(content, link);
-        result.setAnnotations(annotation);
-        return result;
-    }
-
-    /**
-     * 创建一个有格式的文本形式的富文本对象
-     *
-     * @param content    内容
-     * @param annotation 格式
-     * @return 富文本对象
-     */
-    public static TextRichText createTextRichText(String content, Annotation annotation) {
-        TextRichText result = createTextRichText(content);
-        result.setAnnotations(annotation);
-        return result;
     }
 
 }

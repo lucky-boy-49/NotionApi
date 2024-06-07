@@ -1,11 +1,11 @@
-package com.lucky.notionapi.utils.serializer;
+package com.lucky.notionapi.util.serializer;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.TreeNode;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.lucky.notionapi.model.database.properties.AbstractDatabaseProperties;
-import com.lucky.notionapi.model.database.properties.DatabaseProperties;
+import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
+import com.lucky.notionapi.model.page.properties.PageProperties;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -19,11 +19,11 @@ import java.util.List;
  * @author jiahe
  */
 @Slf4j
-public class DatabasePropertiesDeserializer extends JsonDeserializer<List<DatabaseProperties>> {
+public class PagePropertiesDeserializer extends JsonDeserializer<List<PageProperties>> {
     @Override
-    public List<DatabaseProperties> deserialize(JsonParser jp, DeserializationContext dc) {
+    public List<PageProperties> deserialize(JsonParser jp, DeserializationContext dc) {
         try {
-            List<DatabaseProperties> databasePropertiesList = new LinkedList<>();
+            List<PageProperties> pagePropertiesList = new LinkedList<>();
             //解析Json
             TreeNode treeNode = jp.getCodec().readTree(jp);
             //遍历Json字符串里面存在属性，并存在set中
@@ -31,13 +31,13 @@ public class DatabasePropertiesDeserializer extends JsonDeserializer<List<Databa
             while (iterator.hasNext()) {
                 String fieldName = iterator.next();
                 TreeNode node = treeNode.get(fieldName);
-                AbstractDatabaseProperties properties = jp.getCodec().treeToValue(node, AbstractDatabaseProperties.class);
+                AbstractPageProperties properties = jp.getCodec().treeToValue(node, AbstractPageProperties.class);
                 properties.setCustomizeName(fieldName);
-                databasePropertiesList.add(properties);
+                pagePropertiesList.add(properties);
             }
-            return databasePropertiesList;
+            return pagePropertiesList;
         } catch (IOException e) {
-            log.error("反序列化数据库属性失败", e);
+            log.error("反序列化页属性失败", e);
         }
         return List.of();
     }

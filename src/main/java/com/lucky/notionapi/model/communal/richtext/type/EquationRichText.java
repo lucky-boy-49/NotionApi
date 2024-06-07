@@ -41,6 +41,10 @@ public class EquationRichText extends AbstractRichText {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Equation {
 
+        public Equation(String expression) {
+            this.expression = expression;
+        }
+
         @Size(max = NotionConfig.EQUATION_EXPRESSION_SIZE, message = NotionConfig.EQUATION_EXPRESSION_MESSAGE)
         private String expression;
 

@@ -2,7 +2,7 @@ package com.lucky.notionapi.config;
 
 import com.lucky.notionapi.dao.ErrorDao;
 import com.lucky.notionapi.exception.NotionResponseException;
-import com.lucky.notionapi.utils.HttpHeaderUtil;
+import com.lucky.notionapi.util.HttpHeaderUtils;
 import io.netty.channel.ChannelOption;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -135,7 +135,7 @@ public class NotionConfig {
      */
     @Bean
     public HttpHeaders httpHeader() {
-        return new HttpHeaderUtil(notionConfigProps).getDefaultHeaders();
+        return new HttpHeaderUtils(notionConfigProps).getDefaultHeaders();
     }
 
     /**

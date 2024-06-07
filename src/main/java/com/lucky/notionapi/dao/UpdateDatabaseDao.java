@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import com.lucky.notionapi.model.database.properties.DatabaseProperties;
-import com.lucky.notionapi.utils.serializer.DatabasePropertiesDeserializer;
-import com.lucky.notionapi.utils.serializer.DatabasePropertiesSerializer;
+import com.lucky.notionapi.util.serializer.DatabasePropertiesDeserializer;
+import com.lucky.notionapi.util.serializer.DatabasePropertiesSerializer;
 import jakarta.validation.Valid;
 import lombok.Data;
 

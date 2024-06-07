@@ -1,4 +1,4 @@
-package com.lucky.notionapi.utils;
+package com.lucky.notionapi.util;
 
 import com.lucky.notionapi.dao.AuthenticateDao;
 import com.lucky.notionapi.model.communal.Color;
@@ -21,8 +21,8 @@ class CreateEntityUtilTest {
     @Test
     void createTextRichText() {
         Annotation annotation = Annotation.builder().bold(true).italic(true).color(Color.GRAY).build();
-        System.out.println(CreateEntityUtil.createTextRichText("cafawf", annotation));
-        System.out.println(CreateEntityUtil.createTextRichText("cafawf1", "cafawf1", annotation));
+        System.out.println(RichTextUtils.createTextRichText("cafawf", annotation));
+        System.out.println(RichTextUtils.createTextRichText("cafawf1", "cafawf1", annotation));
     }
 
 }

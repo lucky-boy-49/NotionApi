@@ -1,4 +1,4 @@
-package com.lucky.notionapi.utils;
+package com.lucky.notionapi.util;
 
 import com.lucky.notionapi.config.NotionConfigProperties;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,7 @@ import org.springframework.http.HttpHeaders;
  * @author jiahe
  */
 @RequiredArgsConstructor
-public class HttpHeaderUtil {
+public class HttpHeaderUtils {
 
     private final NotionConfigProperties configProperties;
 

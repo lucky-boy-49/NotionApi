@@ -1,4 +1,4 @@
-package com.lucky.notionapi.utils.serializer;
+package com.lucky.notionapi.util.serializer;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

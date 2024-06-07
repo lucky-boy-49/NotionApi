@@ -8,7 +8,7 @@ import com.lucky.notionapi.dto.QueryDatabaseDto;
 import com.lucky.notionapi.mapper.NotionDatabaseService;
 import com.lucky.notionapi.model.database.Database;
 import com.lucky.notionapi.service.DatabaseService;
-import com.lucky.notionapi.utils.ObjectMapperUtil;
+import com.lucky.notionapi.util.ObjectMapperUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +37,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     @Notion("创建数据库")
     public Database createDatabase(DatabaseDao body) {
         NotionDatabaseService client = factory.createClient(NotionDatabaseService.class);
-        String bodyJson = ObjectMapperUtil.toJson(body);
+        String bodyJson = ObjectMapperUtils.toJson(body);
         ResponseEntity<Database> response = client.createDatabase(bodyJson);
         return response.getBody();
     }
@@ -53,7 +53,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     @Notion("查询数据库")
     public QueryDatabaseDto queryDatabase(String databaseId, QueryDatabaseDao body) {
         NotionDatabaseService client = factory.createClient(NotionDatabaseService.class);
-        String bodyJson = ObjectMapperUtil.toJson(body);
+        String bodyJson = ObjectMapperUtils.toJson(body);
         ResponseEntity<QueryDatabaseDto> response = client.queryDatabase(databaseId, bodyJson);
         return response.getBody();
     }
@@ -76,7 +76,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     @Notion("更新数据库")
     public Database updateDatabase(String databaseId, UpdateDatabaseDao body) {
         NotionDatabaseService client = factory.createClient(NotionDatabaseService.class);
-        String bodyJson = ObjectMapperUtil.toJson(body);
+        String bodyJson = ObjectMapperUtils.toJson(body);
         ResponseEntity<Database> response = client.updateDatabase(databaseId, bodyJson);
         return response.getBody();
     }

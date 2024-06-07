@@ -1,4 +1,4 @@
-package com.lucky.notionapi.utils;
+package com.lucky.notionapi.util;
 
 import com.lucky.notionapi.exception.CreateEntityException;
 import org.springframework.util.StringUtils;
@@ -8,7 +8,7 @@ import org.springframework.util.StringUtils;
  *
  * @author jiahe
  */
-public class AssertUtil {
+public class AssertUtils {
 
     /**
      * 断言不为空，否则抱错

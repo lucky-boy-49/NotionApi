@@ -6,7 +6,7 @@ import com.lucky.notionapi.dao.UpdatePagePropertyRequestDao;
 import com.lucky.notionapi.mapper.NotionPageService;
 import com.lucky.notionapi.model.page.Page;
 import com.lucky.notionapi.service.PageService;
-import com.lucky.notionapi.utils.ObjectMapperUtil;
+import com.lucky.notionapi.util.ObjectMapperUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +39,7 @@ public class PageServiceImpl implements PageService {
     @Notion("创建页面")
     public Page createPage(Page page) {
         NotionPageService service = factory.createClient(NotionPageService.class);
-        ResponseEntity<Page> response = service.createPage(ObjectMapperUtil.toJson(page));
+        ResponseEntity<Page> response = service.createPage(ObjectMapperUtils.toJson(page));
         return Objects.requireNonNull(response.getBody());
     }
 
@@ -89,7 +89,7 @@ public class PageServiceImpl implements PageService {
     @Override
     @Notion("更新页面属性")
     public Page updatePageProperty(String pageId, UpdatePagePropertyRequestDao requestDao) {
-        String body = ObjectMapperUtil.toJson(requestDao);
+        String body = ObjectMapperUtils.toJson(requestDao);
         NotionPageService service = factory.createClient(NotionPageService.class);
         ResponseEntity<Page> response = service.updatePageProperties(pageId, body);
         return Objects.requireNonNull(response.getBody());

@@ -6,7 +6,7 @@ import com.lucky.notionapi.dto.BlockDto;
 import com.lucky.notionapi.mapper.NotionBlockService;
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.service.BlockService;
-import com.lucky.notionapi.utils.ObjectMapperUtil;
+import com.lucky.notionapi.util.ObjectMapperUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +42,7 @@ public class BlockServiceImpl implements BlockService {
     @Override
     @Notion("追加块子项")
     public BlockDto appendBlockChildren(BlockAddDao requestDao, String blockId) {
-        String body = ObjectMapperUtil.toJson(requestDao);
+        String body = ObjectMapperUtils.toJson(requestDao);
         NotionBlockService service = factory.createClient(NotionBlockService.class);
         ResponseEntity<BlockDto> response = service.appendBlockChildren(body, blockId);
         return Objects.requireNonNull(response.getBody());
@@ -117,7 +117,7 @@ public class BlockServiceImpl implements BlockService {
     @Override
     @Notion("更新块内容")
     public BlockType updateBlock(String blockId, BlockType block) {
-        String body = ObjectMapperUtil.toJson(block);
+        String body = ObjectMapperUtils.toJson(block);
         NotionBlockService service = factory.createClient(NotionBlockService.class);
         ResponseEntity<BlockType> response = service.updateBlock(blockId, body);
         return Objects.requireNonNull(response.getBody());
