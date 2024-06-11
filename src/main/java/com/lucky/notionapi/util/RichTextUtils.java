@@ -7,6 +7,7 @@ import com.lucky.notionapi.model.communal.richtext.type.MentionRichText;
 import com.lucky.notionapi.model.communal.richtext.type.TextRichText;
 import com.lucky.notionapi.model.communal.richtext.type.mention.DatabaseMention;
 import com.lucky.notionapi.model.communal.richtext.type.mention.DateMention;
+import com.lucky.notionapi.model.communal.richtext.type.mention.LinkPreviewMention;
 
 /**
  * 富文本对象工具类
@@ -174,6 +175,34 @@ public class RichTextUtils {
         MentionRichText dateMentionRichText = createDateMentionRichText(date);
         dateMentionRichText.setAnnotations(annotation);
         return dateMentionRichText;
+    }
+
+    /**
+     * 创建一个没有格式的链接提及对象
+     *
+     * @param link 链接地址
+     * @return 链接提及对象
+     */
+    public static MentionRichText createLinkPreviewMentionRichText(String link) {
+        MentionRichText mentionRichText = new MentionRichText(true);
+        LinkPreviewMention mention = new LinkPreviewMention(true);
+        mention.setLinkPreview(new LinkPreviewMention.LinkPreview());
+        mention.getLinkPreview().setUrl(link);
+        mentionRichText.setMention(mention);
+        return mentionRichText;
+    }
+
+    /**
+     * 创建一个有格式的链接提及对象
+     *
+     * @param link       链接地址
+     * @param annotation 格式
+     * @return 链接提及对象
+     */
+    public static MentionRichText createLinkPreviewMentionRichText(String link, Annotation annotation) {
+        MentionRichText mentionRichText = createLinkPreviewMentionRichText(link);
+        mentionRichText.setAnnotations(annotation);
+        return mentionRichText;
     }
 
 }

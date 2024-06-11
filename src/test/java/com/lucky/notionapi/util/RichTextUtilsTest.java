@@ -34,4 +34,11 @@ class RichTextUtilsTest {
         res = RichTextUtils.createDateMentionRichText("fawfeawf", "fewafwaf", null, annotation);
         System.out.println(res);
     }
+
+    @Test
+    void createLinkPreviewMentionRichText() {
+        Annotation annotation = Annotation.builder().color("red").build();
+        MentionRichText richText = RichTextUtils.createLinkPreviewMentionRichText("fafefa", annotation);
+        System.out.println(richText);
+    }
 }
