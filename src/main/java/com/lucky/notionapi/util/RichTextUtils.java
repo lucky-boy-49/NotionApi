@@ -5,9 +5,7 @@ import com.lucky.notionapi.model.communal.richtext.Annotation;
 import com.lucky.notionapi.model.communal.richtext.type.EquationRichText;
 import com.lucky.notionapi.model.communal.richtext.type.MentionRichText;
 import com.lucky.notionapi.model.communal.richtext.type.TextRichText;
-import com.lucky.notionapi.model.communal.richtext.type.mention.DatabaseMention;
-import com.lucky.notionapi.model.communal.richtext.type.mention.DateMention;
-import com.lucky.notionapi.model.communal.richtext.type.mention.LinkPreviewMention;
+import com.lucky.notionapi.model.communal.richtext.type.mention.*;
 
 /**
  * 富文本对象工具类
@@ -201,6 +199,92 @@ public class RichTextUtils {
      */
     public static MentionRichText createLinkPreviewMentionRichText(String link, Annotation annotation) {
         MentionRichText mentionRichText = createLinkPreviewMentionRichText(link);
+        mentionRichText.setAnnotations(annotation);
+        return mentionRichText;
+    }
+
+    /**
+     * 创建一个没有格式的页提及对象
+     *
+     * @param id 页id
+     * @return 页提及对象
+     */
+    public static MentionRichText createPageMentionRichText(String id) {
+        MentionRichText mentionRichText = new MentionRichText(true);
+        PageMention mention = new PageMention(true);
+        mention.setPage(new PageMention.Page());
+        mention.getPage().setId(id);
+        mentionRichText.setMention(mention);
+        return mentionRichText;
+    }
+
+    /**
+     * 创建一个有格式的页提及对象
+     *
+     * @param id         页id
+     * @param annotation 格式
+     * @return 链接提及对象
+     */
+    public static MentionRichText createPageMentionRichText(String id, Annotation annotation) {
+        MentionRichText mentionRichText = createPageMentionRichText(id);
+        mentionRichText.setAnnotations(annotation);
+        return mentionRichText;
+    }
+
+    /**
+     * 创建一个没有格式的日期模板提及对象
+     *
+     * @param templateMentionDate 能的值包括： "today" 和 "now" 。
+     * @return 日期模板提及对象
+     */
+    public static MentionRichText createDateTemplateMentionRichText(String templateMentionDate) {
+        MentionRichText mentionRichText = new MentionRichText(true);
+        TemplateMention mention = new TemplateMention(true);
+        TemplateMention.TemplateMentionDate templateMention = new TemplateMention.TemplateMentionDate();
+        templateMention.setType(TemplateMention.Template.TEMPLATE_MENTION_DATE);
+        templateMention.setTemplateMentionDate(templateMentionDate);
+        mention.setTemplate(templateMention);
+        mentionRichText.setMention(mention);
+        return mentionRichText;
+    }
+
+    /**
+     * 创建一个有格式的日期模板提及对象
+     *
+     * @param templateMentionDate 能的值包括： "today" 和 "now" 。
+     * @param annotation          格式
+     * @return 日期模板提及对象
+     */
+    public static MentionRichText createDateTemplateMentionRichText(String templateMentionDate, Annotation annotation) {
+        MentionRichText mentionRichText = createDateTemplateMentionRichText(templateMentionDate);
+        mentionRichText.setAnnotations(annotation);
+        return mentionRichText;
+    }
+
+    /**
+     * 创建一个没有格式的用户模板提及对象
+     *
+     * @return 日期模板提及对象
+     */
+    public static MentionRichText createUserTemplateMentionRichText() {
+        MentionRichText mentionRichText = new MentionRichText(true);
+        TemplateMention mention = new TemplateMention(true);
+        TemplateMention.TemplateMentionDate templateMention = new TemplateMention.TemplateMentionDate();
+        templateMention.setType(TemplateMention.Template.TEMPLATE_MENTION_USER);
+        templateMention.setTemplateMentionDate("me");
+        mention.setTemplate(templateMention);
+        mentionRichText.setMention(mention);
+        return mentionRichText;
+    }
+
+    /**
+     * 创建一个有格式的用户模板提及对象
+     *
+     * @param annotation 格式
+     * @return 日期模板提及对象
+     */
+    public static MentionRichText createUserTemplateMentionRichText(Annotation annotation) {
+        MentionRichText mentionRichText = createUserTemplateMentionRichText();
         mentionRichText.setAnnotations(annotation);
         return mentionRichText;
     }

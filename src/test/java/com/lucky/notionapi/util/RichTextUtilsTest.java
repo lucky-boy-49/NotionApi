@@ -41,4 +41,25 @@ class RichTextUtilsTest {
         MentionRichText richText = RichTextUtils.createLinkPreviewMentionRichText("fafefa", annotation);
         System.out.println(richText);
     }
+
+    @Test
+    void createPageMentionRichText() {
+        Annotation annotation = Annotation.builder().color("red").build();
+        MentionRichText richText = RichTextUtils.createPageMentionRichText("fafefa", annotation);
+        System.out.println(richText);
+    }
+
+    @Test
+    void createDateTemplateMentionRichText() {
+        Annotation annotation = Annotation.builder().color("red").build();
+        MentionRichText richText = RichTextUtils.createDateTemplateMentionRichText("now", annotation);
+        System.out.println(richText);
+    }
+
+    @Test
+    void createUserTemplateMentionRichText() {
+        Annotation annotation = Annotation.builder().color("red").build();
+        MentionRichText richText = RichTextUtils.createUserTemplateMentionRichText(annotation);
+        System.out.println(richText);
+    }
 }
