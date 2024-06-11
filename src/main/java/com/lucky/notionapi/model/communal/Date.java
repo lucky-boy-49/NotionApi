@@ -2,7 +2,9 @@ package com.lucky.notionapi.model.communal;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 公共日期实体
@@ -10,6 +12,8 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Date {
 
