@@ -8,7 +8,6 @@ import com.lucky.notionapi.model.block.type.heading.HeadingBlock1;
 import com.lucky.notionapi.model.block.type.heading.HeadingBlock2;
 import com.lucky.notionapi.model.block.type.heading.HeadingBlock3;
 import com.lucky.notionapi.model.block.type.pdf.Pdf;
-import com.lucky.notionapi.model.block.type.syncedblock.AbstractSyncedBlock;
 import com.lucky.notionapi.model.block.type.table.AbstractTableBlock;
 import com.lucky.notionapi.model.block.type.video.Video;
 import com.lucky.notionapi.model.communal.richtext.type.mention.Mention;
@@ -48,7 +47,7 @@ import static com.lucky.notionapi.model.block.BlockType.*;
         @Type(value = ParagraphBlock.class, name = PARAGRAPH),
         @Type(value = Pdf.class, name = PDF),
         @Type(value = QuoteBlock.class, name = QUOTE),
-        @Type(value = AbstractSyncedBlock.class, name = SYNCED_BLOCK),
+        @Type(value = SyncedBlocks.class, name = SYNCED_BLOCK),
         @Type(value = AbstractTableBlock.class, name = TABLE),
         @Type(value = AbstractTableBlock.class, name = TABLE_ROW),
         @Type(value = TableOfContentsBlock.class, name = TABLE_OF_CONTENTS),

@@ -1,5 +1,6 @@
 package com.lucky.notionapi.service;
 
+import com.lucky.notionapi.dao.AuthenticateDao;
 import com.lucky.notionapi.dto.AuthenticateDto;
 import jakarta.validation.Valid;
 import org.springframework.validation.annotation.Validated;
@@ -12,6 +13,6 @@ import org.springframework.validation.annotation.Validated;
 public interface AuthenticateService {
 
     @Validated
-    AuthenticateDto createToken(@Valid com.lucky.notionapi.dao.AuthenticateDao requestDao);
+    AuthenticateDto createToken(@Valid AuthenticateDao requestDao);
 
 }

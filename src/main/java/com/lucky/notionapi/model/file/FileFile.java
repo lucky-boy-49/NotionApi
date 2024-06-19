@@ -29,9 +29,15 @@ public class FileFile extends AbstractFile {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class File {
 
+        /**
+         * 经过验证的文件 S3 URL。
+         */
         @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
         private String url;
 
+        /**
+         * 链接过期的日期和时间，格式为 ISO 8601 日期时间字符串。
+         */
         @JsonProperty("expiry_time")
         private String expiryTime;
 

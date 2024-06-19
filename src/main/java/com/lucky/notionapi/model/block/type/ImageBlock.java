@@ -2,7 +2,7 @@ package com.lucky.notionapi.model.block.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lucky.notionapi.model.block.AbstractBlock;
-import com.lucky.notionapi.model.file.ExternalFile;
+import com.lucky.notionapi.model.file.FileType;
 import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,7 +21,7 @@ public class ImageBlock extends AbstractBlock {
      * 文件对象即icon对象
      */
     @Valid
-    private ExternalFile image;
+    private FileType image;
 
     public ImageBlock() {
         type = IMAGE;

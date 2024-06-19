@@ -1,6 +1,10 @@
 package com.lucky.notionapi.model.file;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lucky.notionapi.config.NotionConfig;
+import com.lucky.notionapi.model.communal.richtext.RichTextType;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 /**
@@ -20,5 +24,13 @@ public abstract class AbstractFile implements FileType {
      * 作为页面属性时有该字段
      */
     protected String name;
+
+    /**
+     * 文件块的标题。
+     */
+    @Valid
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
+    protected RichTextType[] caption;
 
 }
