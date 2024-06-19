@@ -1,6 +1,7 @@
 package com.lucky.notionapi.model.communal;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Relation {
 

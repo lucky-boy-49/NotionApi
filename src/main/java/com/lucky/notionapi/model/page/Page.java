@@ -13,6 +13,7 @@ import com.lucky.notionapi.model.parent.Parent;
 import com.lucky.notionapi.model.user.User;
 import com.lucky.notionapi.util.serializer.PagePropertiesDeserializer;
 import com.lucky.notionapi.util.serializer.PagePropertiesSerializer;
+import jakarta.validation.Valid;
 import lombok.Data;
 
 import java.util.List;
@@ -58,6 +59,7 @@ public class Page implements PageOrDatabase {
     /**
      * 最后编辑页面的用户。
      */
+    @Valid
     @JsonProperty("last_edited_by")
     private User lastEditedBy;
 
@@ -73,13 +75,15 @@ public class Page implements PageOrDatabase {
     private Boolean inTrash;
 
     /**
-     * 文件对象（目前仅支持 "external" 中的 type ）或Emoji对象
+     * 文件对象（目前仅支持 "external"类型）或Emoji对象
      */
+    @Valid
     private FileType icon;
 
     /**
-     * 文件对象（目前仅支持 "external" 中的 type ）
+     * 文件对象（目前仅支持 "external"）
      */
+    @Valid
     private ExternalFile cover;
 
     /**
@@ -87,6 +91,7 @@ public class Page implements PageOrDatabase {
      * 由于属性是动态的，所以只能手动读取和写入
      * @link <a href="https://developers.notion.com/reference/page#page-properties">Notion页面属性</a>
      */
+    @Valid
     @JsonSerialize(using = PagePropertiesSerializer.class)
     @JsonDeserialize(using = PagePropertiesDeserializer.class)
     private List<PageProperties> properties;
@@ -94,6 +99,7 @@ public class Page implements PageOrDatabase {
     /**
      * 父级的信息。
      */
+    @Valid
     private Parent parent;
 
     /**
@@ -110,6 +116,7 @@ public class Page implements PageOrDatabase {
     /**
      * 页面孩子
      */
+    @Valid
     private BlockType[] children;
 
 }

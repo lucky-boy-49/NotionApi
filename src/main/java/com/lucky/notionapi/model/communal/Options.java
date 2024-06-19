@@ -2,6 +2,7 @@ package com.lucky.notionapi.model.communal;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 选项
@@ -9,6 +10,7 @@ import lombok.Data;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Options {
 
@@ -33,4 +35,7 @@ public class Options {
      */
     private String name;
 
+    public Options(String name) {
+        this.name = name;
+    }
 }
