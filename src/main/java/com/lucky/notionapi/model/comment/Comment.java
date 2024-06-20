@@ -41,4 +41,18 @@ public class Comment {
     @Size(max = NotionConfig.BLOCK_ARRAY_SIZE, message = NotionConfig.BLOCK_ARRAY_MESSAGE)
     private RichTextType[] richText;
 
+    public Comment(Parent parent,
+                   @Size(max = NotionConfig.BLOCK_ARRAY_SIZE,
+                           message = NotionConfig.BLOCK_ARRAY_MESSAGE) RichTextType[] richText) {
+        this.parent = parent;
+        this.richText = richText;
+    }
+
+    public Comment(String discussionId,
+                   @Size(max = NotionConfig.BLOCK_ARRAY_SIZE,
+                           message = NotionConfig.BLOCK_ARRAY_MESSAGE) RichTextType[] richText) {
+        this.discussionId = discussionId;
+        this.richText = richText;
+    }
+
 }
