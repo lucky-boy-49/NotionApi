@@ -26,7 +26,7 @@ public class PeopleDatabaseProperties extends AbstractDatabaseProperties {
      */
     @JsonProperty("people")
     @Size(max = NotionConfig.ANY_PEOPLE_SIZE, message = NotionConfig.ANY_PEOPLE_MESSAGE)
-    private User[] people;
+    private User people;
 
     /**
      * 根据{@code initType}情况是否初始化{@code type}

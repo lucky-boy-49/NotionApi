@@ -1,7 +1,7 @@
 package com.lucky.notionapi.model.page.properties.type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.lucky.notionapi.model.communal.Options;
+import com.lucky.notionapi.model.communal.Option;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StatusPageProperties extends AbstractPageProperties {
 
-    private Options status;
+    private Option status;
 
     /**
      * 根据{@code initType}情况是否初始化{@code type}

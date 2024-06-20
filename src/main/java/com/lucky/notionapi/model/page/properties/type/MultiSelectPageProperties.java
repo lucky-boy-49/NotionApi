@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.communal.MultiSelect;
-import com.lucky.notionapi.model.communal.Options;
+import com.lucky.notionapi.model.communal.Option;
 import com.lucky.notionapi.model.page.properties.AbstractPageProperties;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
@@ -29,7 +29,7 @@ public class MultiSelectPageProperties extends AbstractPageProperties {
      */
     @JsonProperty(value = "multi_select", access = JsonProperty.Access.READ_ONLY)
     @Size(max = NotionConfig.ANY_MULTI_SELECT_SIZE, message = NotionConfig.ANY_MULTI_SELECT_MESSAGE)
-    private Options[] options;
+    private Option[] options;
 
     /**
      * 获取时使用

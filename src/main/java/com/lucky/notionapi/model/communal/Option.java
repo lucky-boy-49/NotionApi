@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Options {
+public class Option {
 
     /**
      * 选项的颜色。
@@ -35,7 +35,7 @@ public class Options {
      */
     private String name;
 
-    public Options(String name) {
+    public Option(String name) {
         this.name = name;
     }
 }

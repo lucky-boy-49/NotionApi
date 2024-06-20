@@ -2,7 +2,7 @@ package com.lucky.notionapi.util;
 
 import com.lucky.notionapi.model.block.BlockType;
 import com.lucky.notionapi.model.communal.Date;
-import com.lucky.notionapi.model.communal.Options;
+import com.lucky.notionapi.model.communal.Option;
 import com.lucky.notionapi.model.communal.Relation;
 import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import com.lucky.notionapi.model.file.ExternalFile;
@@ -105,7 +105,7 @@ public class PageUtils {
      * @param value 多选值
      * @return 页面多选属性
      */
-    public static MultiSelectPageProperties creatMultiSelectPageProperties(String name, Options[] value) {
+    public static MultiSelectPageProperties creatMultiSelectPageProperties(String name, Option[] value) {
         MultiSelectPageProperties res = new MultiSelectPageProperties();
         res.setOptions(value);
         res.setCustomizeName(name);
@@ -197,7 +197,7 @@ public class PageUtils {
      */
     public static SelectPageProperties creatSelectPageProperties(String name, String value) {
         SelectPageProperties res = new SelectPageProperties();
-        res.setSelect(new Options(value));
+        res.setSelect(new Option(value));
         res.setCustomizeName(name);
         return res;
     }
@@ -211,7 +211,7 @@ public class PageUtils {
      */
     public static StatusPageProperties creatStatusPageProperties(String name, String value) {
         StatusPageProperties res = new StatusPageProperties();
-        res.setStatus(new Options(value));
+        res.setStatus(new Option(value));
         res.setCustomizeName(name);
         return res;
     }

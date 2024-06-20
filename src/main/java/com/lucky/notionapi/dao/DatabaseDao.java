@@ -10,7 +10,9 @@ import com.lucky.notionapi.model.parent.Parent;
 import com.lucky.notionapi.util.serializer.DatabasePropertiesSchemaSerializer;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -20,6 +22,8 @@ import java.util.List;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DatabaseDao {
 
