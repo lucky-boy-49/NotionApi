@@ -3,13 +3,18 @@ plugins {
     id 'org.springframework.boot' version '3.2.5'
     id 'io.spring.dependency-management' version '1.1.4'
     id 'org.graalvm.buildtools.native' version '0.9.28'
+    id 'java-library'
+    id 'maven-publish'
+    id 'org.jreleaser' version '1.12.0'
 }
 
-group = 'com.lucky'
+group = 'com.lucky.notion-api'
 version = '0.0.1-SNAPSHOT'
 
 java {
     sourceCompatibility = '21'
+    withJavadocJar()
+    withSourcesJar()
 }
 
 configurations {
@@ -34,4 +39,45 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.acme'
+            artifactId = 'app'
+
+            from components.java
+
+            pom {
+                name = 'NotionApi'
+                description = 'NotionApi'
+                url = 'https://github.com/hejia17447/NotionApi'
+                inceptionYear = '2024'
+                licenses {
+                    license {
+                        name = 'Apache-2.0'
+                        url = 'https://spdx.org/licenses/Apache-2.0.html'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'lucky'
+                        name = 'lucky'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/hejia17447/NotionApi.git'
+                    developerConnection = 'scm:git:ssh://github.com/hejia17447/NotionApi.git'
+                    url = 'https://github.com/hejia17447/NotionApi'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url = layout.buildDirectory.dir('staging-deploy')
+        }
+    }
 }

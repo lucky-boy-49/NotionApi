@@ -2,7 +2,9 @@ package com.lucky.notionapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 创建一个令牌的响应对象
@@ -54,7 +56,12 @@ public class AuthenticateDto {
     @JsonProperty("workspace_name")
     private String workspaceName;
 
+    /**
+     * 所有者
+     */
     @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Owner {
 

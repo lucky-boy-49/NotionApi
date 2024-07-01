@@ -22,7 +22,9 @@ import java.lang.reflect.Method;
 @Component
 public class NotionExceptionAspect {
 
-    //设置切入点：这里直接拦截被@NotionException
+    /**
+     * 设置切入点：这里直接拦截被@NotionException
+     */
     @Pointcut("@annotation(com.lucky.notionapi.annotation.Notion)")
     public void pointcut() {
     }
@@ -46,6 +48,12 @@ public class NotionExceptionAspect {
         }
     }
 
+    /**
+     * 在方法执行之后，打印出请求的结果
+     *
+     * @param joinPoint   切入点
+     * @param returnValue 返回值
+     */
     @AfterReturning(value = "pointcut()", returning = "returnValue")
     public void after(JoinPoint joinPoint, Object returnValue) {
         MethodSignature sign = (MethodSignature) joinPoint.getSignature();

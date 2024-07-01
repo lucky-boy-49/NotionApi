@@ -11,6 +11,8 @@ import org.springframework.validation.annotation.Validated;
 import static com.lucky.notionapi.model.communal.richtext.RichTextType.*;
 
 /**
+ * 富文本类型
+ *
  * @author jiahe
  */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true, defaultImpl = TextRichText.class,

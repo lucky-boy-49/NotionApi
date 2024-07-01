@@ -23,10 +23,16 @@ public class ChildDatabaseBlock extends AbstractBlock {
     @JsonProperty("child_database")
     private ChildDatabase childDatabase;
 
+    /**
+     * 初始化一个带有类型的代码块
+     */
     public ChildDatabaseBlock() {
         type = CHILD_DATABASE;
     }
 
+    /**
+     * 数据库块
+     */
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class ChildDatabase {

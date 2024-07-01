@@ -12,6 +12,12 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public interface AuthenticateService {
 
+    /**
+     * 创建token
+     *
+     * @param requestDao 请求参数
+     * @return token
+     */
     @Validated
     AuthenticateDto createToken(@Valid AuthenticateDao requestDao);
 

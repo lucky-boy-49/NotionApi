@@ -46,7 +46,7 @@ public interface NotionPageService {
      *
      * @param pageId           页面id
      * @param filterProperties 与页面关联的页面属性值 ID 的列表。使用此参数将响应限制为一个或多个特定页面属性值。要检索多个属性，
-     *                         请指定每个页面属性 ID。例如： ?filter_properties=iAk8&filter_properties=b7dh 。
+     *                         请指定每个页面属性 ID。例如： "?filter_properties=iAk8&filter_properties=b7dh"。
      * @return 页数据
      */
     @GetExchange("{pageId}")

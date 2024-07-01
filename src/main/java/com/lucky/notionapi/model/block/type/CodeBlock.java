@@ -24,10 +24,16 @@ public class CodeBlock extends AbstractBlock {
     @Valid
     private Code code;
 
+    /**
+     * 初始化一个带有类型的代码块
+     */
     public CodeBlock() {
         type = CODE;
     }
 
+    /**
+     * 代码块
+     */
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Code {

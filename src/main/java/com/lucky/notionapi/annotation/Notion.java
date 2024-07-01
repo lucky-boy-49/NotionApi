@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 当notion请求失败时，报异常该注解拦截
+ * 用于标记需要进行日志输出的接口
  *
  * @author jiahe
  */

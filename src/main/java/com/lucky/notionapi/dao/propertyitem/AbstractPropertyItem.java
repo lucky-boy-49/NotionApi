@@ -32,6 +32,9 @@ public abstract class AbstractPropertyItem implements PropertyItem {
      */
     protected String type;
 
+    /**
+     * 下一个的URL
+     */
     @JsonProperty("next_url")
     @Size(max = NotionConfig.ANY_URL_SIZE, message = NotionConfig.ANY_URL_MESSAGE)
     protected String nextUrl;

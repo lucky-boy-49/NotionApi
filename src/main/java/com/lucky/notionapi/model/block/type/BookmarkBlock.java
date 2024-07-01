@@ -6,8 +6,10 @@ import com.lucky.notionapi.model.block.AbstractBlock;
 import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 书签块
@@ -25,11 +27,19 @@ public class BookmarkBlock extends AbstractBlock {
     @Valid
     private Bookmark bookmark;
 
+    /**
+     * 构造函数，创建给{@link #type}赋值的对象
+     */
     public BookmarkBlock() {
         type = BOOKMARK;
     }
 
+    /**
+     * 书签对象
+     */
     @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Bookmark {
 

@@ -17,18 +17,39 @@ import org.springframework.context.annotation.Configuration;
 @RequiredArgsConstructor
 public class NotionClientConfig {
 
+    /**
+     * 认证服务
+     */
     private final AuthenticateService authenticateService;
 
+    /**
+     * 块服务
+     */
     private final BlockService blockService;
 
+    /**
+     * 页面服务
+     */
     private final PageService pageService;
 
+    /**
+     * 数据库服务
+     */
     private final DatabaseService databaseService;
 
+    /**
+     * 用户服务
+     */
     private final UsersService usersService;
 
+    /**
+     * 评论服务
+     */
     private final CommentsService commentsService;
 
+    /**
+     * 搜索服务
+     */
     private final SearchService searchService;
 
     /**

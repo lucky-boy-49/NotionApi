@@ -21,10 +21,16 @@ public class BreadcrumbBlock extends AbstractBlock {
      */
     private Breadcrumb breadcrumb;
 
+    /**
+     * 构造函数，创建给{@link #type}赋值的对象
+     */
     public BreadcrumbBlock() {
         type = BREADCRUMB;
     }
 
+    /**
+     * 面包屑对象
+     */
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Breadcrumb {

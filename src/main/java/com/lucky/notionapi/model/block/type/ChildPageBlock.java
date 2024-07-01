@@ -23,10 +23,16 @@ public class ChildPageBlock extends AbstractBlock {
     @JsonProperty("child_page")
     private ChildPage childPage;
 
+    /**
+     * 初始化一个带有类型的代码块
+     */
     public ChildPageBlock() {
         type = CHILD_PAGE;
     }
 
+    /**
+     * 子页面
+     */
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class ChildPage {

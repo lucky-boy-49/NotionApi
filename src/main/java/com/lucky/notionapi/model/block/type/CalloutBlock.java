@@ -25,10 +25,16 @@ public class CalloutBlock extends AbstractBlock {
     @Valid
     private Callout callout;
 
+    /**
+     * 构造函数，创建给{@link #type}赋值的对象
+     */
     public CalloutBlock() {
         type = CALLOUT;
     }
 
+    /**
+     * 标注
+     */
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Callout {

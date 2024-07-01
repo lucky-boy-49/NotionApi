@@ -15,6 +15,12 @@ import org.springframework.web.service.annotation.PostExchange;
 @HttpExchange("/v1/search")
 public interface NotionSearchService {
 
+    /**
+     * 根据title搜索
+     *
+     * @param body 搜索参数
+     * @return 搜索结果
+     */
     @PostExchange
     ResponseEntity<SearchDto> searchByTitle(@RequestBody SearchDao body);
 

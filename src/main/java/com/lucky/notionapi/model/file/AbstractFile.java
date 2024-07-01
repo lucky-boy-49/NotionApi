@@ -5,12 +5,17 @@ import com.lucky.notionapi.config.NotionConfig;
 import com.lucky.notionapi.model.communal.richtext.RichTextType;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
+ * 抽象文件类类
  * @author 贺佳
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class AbstractFile implements FileType {
 

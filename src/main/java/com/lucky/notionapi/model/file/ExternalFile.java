@@ -10,6 +10,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
+ * 外部文件
+ *
  * @author 贺佳
  */
 @Data

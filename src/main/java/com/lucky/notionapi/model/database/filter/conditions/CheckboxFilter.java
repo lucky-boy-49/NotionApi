@@ -2,8 +2,10 @@ package com.lucky.notionapi.model.database.filter.conditions;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 复选框过滤条件
@@ -11,13 +13,20 @@ import lombok.EqualsAndHashCode;
  * @author jiahe
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CheckboxFilter extends AbstratctFilterObject {
 
     private CheckboxConditions checkbox;
 
+    /**
+     * 复选框过滤条件
+     */
     @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class CheckboxConditions {
 

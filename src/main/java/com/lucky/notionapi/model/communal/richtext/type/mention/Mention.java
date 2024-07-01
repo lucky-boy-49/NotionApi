@@ -9,6 +9,7 @@ import static com.lucky.notionapi.model.communal.richtext.type.mention.Mention.*
 
 
 /**
+ * 提及块接口
  *
  * @author 贺佳
  */

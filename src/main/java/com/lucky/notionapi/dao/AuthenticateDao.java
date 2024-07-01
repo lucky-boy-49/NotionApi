@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lucky.notionapi.config.NotionConfig;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 创建一个令牌的请求对象
@@ -36,7 +38,12 @@ public class AuthenticateDao {
 
     private ExternalAccount externalAccount;
 
+    /**
+     * 外部账户对象，用于在用户的 Notion 帐户中创建一个新的外部账户。
+     */
     @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class ExternalAccount {
 

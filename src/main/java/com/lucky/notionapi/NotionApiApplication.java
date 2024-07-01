@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ * NotionApiApplication
+ *
  * @author 贺佳
  */
 @SpringBootApplication

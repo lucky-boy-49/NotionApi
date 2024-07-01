@@ -26,10 +26,16 @@ public class BulletedListItemBlock extends AbstractBlock {
     @JsonProperty("bulleted_list_item")
     private BulletedListItem bulletedListItem;
 
+    /**
+     * 构造函数，创建给{@link #type}赋值的对象
+     */
     public BulletedListItemBlock() {
         type = BULLETED_LIST_ITEM;
     }
 
+    /**
+     * 项目符号列表项
+     */
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class BulletedListItem {
